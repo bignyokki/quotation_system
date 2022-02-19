@@ -1,0 +1,8 @@
+<h1>ユーザー一覧</h1>
+<% @user.each do |user|%>
+ <%= user.employee_number %>
+ <%= user.name %>
+ <%= user.admin_id %>
+
+
+<% end%>

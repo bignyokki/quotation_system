@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -13,4 +14,8 @@ class User < ApplicationRecord
   def email_changed?
     false
   end
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :ah_admin, optional: true
+
 end
