@@ -6,3 +6,5 @@
 <% if user_signed_in? %>
 <%= current_user.name %>
 <% end %>
+<br>
+<%= link_to "ユーザー一覧ページ", users_index_path %>

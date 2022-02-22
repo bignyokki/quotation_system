@@ -2,7 +2,8 @@
 <% @user.each do |user|%>
  <%= user.employee_number %>
  <%= user.name %>
- <%= user.admin_id %>
-
+ <%= user.admin.name %>
+ <%= link_to '編集', edit_user_registration_path %>
+ <br>
 
 <% end%>
