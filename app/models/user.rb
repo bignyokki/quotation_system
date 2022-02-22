@@ -16,6 +16,6 @@ class User < ApplicationRecord
   end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :ah_admin, optional: true
+  belongs_to :admin
 
 end

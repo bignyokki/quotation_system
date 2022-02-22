@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= f.label :admin_id %><br />
-    <%= f.collection_select(:admin_id, Ah_admin.all, :id, :name, {}, {}) %>
+    <%= f.collection_select(:admin_id, Admin.all, :id, :name, {}, {}) %>
   </div>
 
   <div class="actions">
