@@ -3,7 +3,10 @@
  <%= user.employee_number %>
  <%= user.name %>
  <%= user.admin.name %>
- <%= link_to '編集', edit_user_registration_path %>
+ <% if user_signed_in? && current_user.has_role?(:admin) %>
+   <%= link_to '編集', edit_other_user_registration_path(user) %>
+   <%= link_to '削除', destroy_other_user_registration_path(user), method: :delete %>
+ <% end %>
  <br>
 
-<% end%>
+<% end %>
