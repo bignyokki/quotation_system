@@ -16,9 +16,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    # フォームで入力されたadmin_idによりrorifyの権限を追加する
+    if @user.admin_id == 1
+      @user.add_role :admin
+    elsif @user.admin_id == 2
+      @user.add_role :editor
+    end
+  end
 
   # GET /resource/edit
     def edit
