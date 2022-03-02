@@ -1,0 +1,39 @@
+<h1>新規顧客情報</h1>
+
+<%= notice %>
+
+<%= form_with(model: @client, local: true) do |f| %>
+<%= f.label :name, "顧客名" %>
+<%= f.text_field :name %>
+<br>
+<%= f.label :name_kana, "ふりがな" %>
+<%= f.text_field :name_kana %>
+<br>
+<%= f.label :phone_number, "電話番号" %>
+<%= f.text_field :phone_number%>
+<br>
+<%= f.label :fax_number, "FAX番号" %>
+<%= f.text_field :fax_number %>
+<br>
+<%= f.label :email, "E-mail" %>
+<%= f.text_field :email %>
+<br>
+<%= f.label :postal_code, "郵便番号" %>
+<%= f.text_field :postal_code %>
+<br>
+<%= f.label :address, "住所" %>
+<%= f.text_field :address %>
+<br>
+<%= f.label :preson, "人名" %>
+<%= f.text_area :preson %>
+<br>
+<%= f.label :remarks, "備考" %>
+<%= f.text_area :remarks %>
+<br>
+<%= f.label :value_class, "顧客区分(後でcollection_selectに変更)" %>
+<%= f.text_field :value_class %>
+<br>
+<%= f.submit "保存" %>
+<% end %>
+<br>
+<%= link_to "戻る", clients_path %>

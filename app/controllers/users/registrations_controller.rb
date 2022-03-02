@@ -18,7 +18,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     super
-    # フォームで入力されたadmin_idによりrorifyの権限を追加する
+    # フォームで入力されたadmin_idによりrorifyの権限を付与
     if @user.admin_id == 1
       @user.add_role :admin
     elsif @user.admin_id == 2
