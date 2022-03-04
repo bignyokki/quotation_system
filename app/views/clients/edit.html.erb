@@ -1,5 +1,5 @@
-<p>作成日時:<%= @client.created_at %></p>
-<p>最終更新:<%= @client.updated_at %></p>
+<p>作成日時:<%= @client.created_at.to_s(:datetime_jp) %></p>
+<p>最終更新:<%= @client.updated_at.to_s(:datetime_jp) %></p>
 
 <%= render partial: "form", locals: { client: @client } %>
 <%= link_to '削除', client_path(@client.id), method: :delete, class: "btn btn--orange btn--radius" %>
