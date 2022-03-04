@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :clients, only: [:index, :new, :create]
+  resources :clients
   get 'users/index'
   
   devise_for :users, :controllers => {

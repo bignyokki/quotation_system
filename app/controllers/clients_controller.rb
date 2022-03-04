@@ -1,7 +1,9 @@
 class ClientsController < ApplicationController
+  before_action :set_client, only: [:show, :edit, :update]
+
 
   def index
-    @clients = Client.all
+    @clients = Client.order(:name_kana)
   end
 
   def new
@@ -17,6 +19,23 @@ class ClientsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @client.update(client_params)
+      redirect_to clients_path, notice: '顧客情報を編集しました'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    client = Client.find(params[:id])
+    client.destroy
+    redirect_to clients_path, notice: '顧客情報を削除しました'
+  end
+
   private
   def client_params
     params.require(:client)
@@ -24,5 +43,10 @@ class ClientsController < ApplicationController
                   :email, :postal_code, :address, :person,
                   :remarks, :value_class)
   end
+
+  def set_client
+    @client = Client.find(params[:id])
+  end
+
 
 end

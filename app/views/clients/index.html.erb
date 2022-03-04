@@ -1,3 +1,26 @@
-<h1>Clients#index</h1>
-<p>Find me in app/views/clients/index.html.erb</p>
-<%= link_to "顧客新規登録", new_client_path %>
+<h1>顧客一覧</h1>
+<p><%= notice %></p>
+
+<%= link_to "顧客新規登録", new_client_path, class: "btn btn--orange btn--radius" %>
+<br>
+
+<table>
+  <tr>
+    <th>顧客名</th>
+    <th>ふりがな</th>
+    <th>電話番号</th>
+    <th>FAX番号</th>
+    <th>住所</th>
+    <th></th>
+  </tr>
+  <% @clients.each do |client| %>
+  <tr>
+    <td><%= client.name %></td>
+    <td><%= client.name_kana %></td>
+    <td><%= client.phone_number %></td>
+    <td><%= client.fax_number %></td>
+    <td><%= client.address %></td>
+    <td><%= link_to '編集', edit_client_path(client.id), method: :get, class: "btn btn--orange btn--radius" %></td>
+  </tr>
+  <% end %>
+</table>
