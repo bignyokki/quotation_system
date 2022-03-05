@@ -1,6 +1,6 @@
-class CreatePiceScales < ActiveRecord::Migration[6.0]
+class CreatePriceScales < ActiveRecord::Migration[6.0]
   def change
-    create_table :pice_scales do |t|
+    create_table :price_scales do |t|
       t.string  :title,             null: false
       t.string  :surface_treatment, null: false
       t.integer :scale_w_0_3
@@ -25,9 +25,9 @@ class CreatePiceScales < ActiveRecord::Migration[6.0]
       t.integer :scale_a_55_75
       t.integer :scale_a_75_100
       t.integer :scale_a_100over
-      t.integer :acale_o_0_300
-      t.integer :acale_o_300_500
-      t.integer :acale_o_500over
+      t.float   :scale_o_0_300
+      t.float   :scale_o_300_500
+      t.float   :scale_o_500over
 
       t.timestamps
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_04_160500) do
+ActiveRecord::Schema.define(version: 2022_03_05_125737) do
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2022_03_04_160500) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "pice_scales", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "price_scales", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.string "surface_treatment", null: false
     t.integer "scale_w_0_3"
@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(version: 2022_03_04_160500) do
     t.integer "scale_a_55_75"
     t.integer "scale_a_75_100"
     t.integer "scale_a_100over"
-    t.integer "acale_o_0_300"
-    t.integer "acale_o_300_500"
-    t.integer "acale_o_500over"
+    t.float "scale_o_0_300"
+    t.float "scale_o_300_500"
+    t.float "scale_o_500over"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

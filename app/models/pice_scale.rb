@@ -1,2 +1,0 @@
-class PiceScale < ApplicationRecord
-end

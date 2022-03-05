@@ -1,0 +1,53 @@
+<h1>単価表一覧</h1>
+<%= link_to '新規登録', new_price_scale_path %>
+<br>
+<% @price_scales.each do |price_scale| %>
+  <%= price_scale.title %>
+  <%= price_scale.surface_treatment %>
+  <%= link_to '編集', edit_price_scale_path(price_scale.id)%>
+  <table class="price-table-index">
+ <tr>
+  <th></th>
+  <th>0 ≦ x < 3</th>
+  <th>3 ≦ x < 6</th>
+  <th>6 ≦ x < 10</th>
+  <th>10 ≦ x < 15</th>
+  <th>15 ≦ x < 22</th>
+  <th>22 ≦ x < 30</th>
+  <th>30 ≦ x < 40</th>
+  <th>40 ≦ x < 55</th>
+  <th>55 ≦ x < 75</th>
+  <th>75 ≦ x < 100</th>
+  <th>100 ≦ x</th>
+  </tr>
+ <tr>
+  <th>面積</th>
+  <td><%= price_scale.scale_a_0_3 %></td>
+  <td><%= price_scale.scale_a_3_6 %></td>
+  <td><%= price_scale.scale_a_6_10 %></td>
+  <td><%= price_scale.scale_a_10_15 %></td>
+  <td><%= price_scale.scale_a_15_22 %></td>
+  <td><%= price_scale.scale_a_22_30%></td>
+  <td><%= price_scale.scale_a_30_40 %></td>
+  <td><%= price_scale.scale_a_40_55 %></td>
+  <td><%= price_scale.scale_a_55_75 %></td>
+  <td><%= price_scale.scale_a_75_100 %></td>
+  <td><%= price_scale.scale_a_100over %></td>
+ </tr>
+ <tr>
+  <th>重量</th>
+  <td><%= price_scale.scale_w_0_3 %></td>
+  <td><%= price_scale.scale_w_3_6 %></td>
+  <td><%= price_scale.scale_w_6_10 %></td>
+  <td><%= price_scale.scale_w_10_15 %></td>
+  <td><%= price_scale.scale_w_15_22 %></td>
+  <td><%= price_scale.scale_w_22_30%></td>
+  <td><%= price_scale.scale_w_30_40 %></td>
+  <td><%= price_scale.scale_w_40_55 %></td>
+  <td><%= price_scale.scale_w_55_75 %></td>
+  <td><%= price_scale.scale_w_75_100 %></td>
+  <td><%= price_scale.scale_w_100over %></td>
+ </tr>
+</table>
+<% end %>
+<%= link_to '戻る', root_path %>
