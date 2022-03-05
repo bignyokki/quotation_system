@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_26_130707) do
+ActiveRecord::Schema.define(version: 2022_03_04_160500) do
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -23,6 +23,38 @@ ActiveRecord::Schema.define(version: 2022_02_26_130707) do
     t.text "person"
     t.text "remarks"
     t.string "value_class", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pice_scales", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "surface_treatment", null: false
+    t.integer "scale_w_0_3"
+    t.integer "scale_w_3_6"
+    t.integer "scale_w_6_10"
+    t.integer "scale_w_10_15"
+    t.integer "scale_w_15_22"
+    t.integer "scale_w_22_30"
+    t.integer "scale_w_30_40"
+    t.integer "scale_w_40_55"
+    t.integer "scale_w_55_75"
+    t.integer "scale_w_75_100"
+    t.integer "scale_w_100over"
+    t.integer "scale_a_0_3"
+    t.integer "scale_a_3_6"
+    t.integer "scale_a_6_10"
+    t.integer "scale_a_10_15"
+    t.integer "scale_a_15_22"
+    t.integer "scale_a_22_30"
+    t.integer "scale_a_30_40"
+    t.integer "scale_a_40_55"
+    t.integer "scale_a_55_75"
+    t.integer "scale_a_75_100"
+    t.integer "scale_a_100over"
+    t.integer "acale_o_0_300"
+    t.integer "acale_o_300_500"
+    t.integer "acale_o_500over"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

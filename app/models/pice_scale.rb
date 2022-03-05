@@ -1,0 +1,2 @@
+class PiceScale < ApplicationRecord
+end
