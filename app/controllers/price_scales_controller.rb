@@ -39,12 +39,12 @@ class PriceScalesController < ApplicationController
   
   def price_scale_params
     params.require(:price_scale)
-          .permit(:title, :surface_treatment, :scale_w_0_3, :scale_w_3_6, :scale_w_6_10,
-                  :scale_w_10_15, :scale_w_15_22, :scale_w_22_30, :scale_w_30_40,
-                  :scale_w_40_55, :scale_w_55_75, :scale_w_75_100, :scale_w_100over,
-                  :scale_a_0_3, :scale_a_3_6, :scale_a_6_10, :scale_a_10_15, :scale_a_15_22,
-                  :scale_a_22_30, :scale_a_30_40, :scale_a_40_55, :scale_a_55_75,
-                  :scale_a_75_100, :scale_a_100over, :scale_o_0_300, :scale_o_300_500,
+          .permit(:title, :surface_treatment, :scale_w_0_3, :scale_w_3_6, :scale_w_6_11,
+                  :scale_w_11_15, :scale_w_15_22, :scale_w_22_30, :scale_w_30_50,
+                  :scale_w_50_80, :scale_w_80_150, :scale_w_150_180, :scale_w_180over,
+                  :scale_a_0_3, :scale_a_3_6, :scale_a_6_11, :scale_a_11_15, :scale_a_15_22,
+                  :scale_a_22_30, :scale_a_30_50, :scale_a_50_80, :scale_a_80_150,
+                  :scale_a_150_180, :scale_a_180over, :scale_o_0_300, :scale_o_300_500,
                   :scale_o_500over)
   end
 

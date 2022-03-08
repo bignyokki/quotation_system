@@ -10,43 +10,43 @@
   <th></th>
   <th>0 ≦ x < 3</th>
   <th>3 ≦ x < 6</th>
-  <th>6 ≦ x < 10</th>
-  <th>10 ≦ x < 15</th>
+  <th>6 ≦ x < 11</th>
+  <th>11 ≦ x < 15</th>
   <th>15 ≦ x < 22</th>
   <th>22 ≦ x < 30</th>
-  <th>30 ≦ x < 40</th>
-  <th>40 ≦ x < 55</th>
-  <th>55 ≦ x < 75</th>
-  <th>75 ≦ x < 100</th>
-  <th>100 ≦ x</th>
+  <th>30 ≦ x < 50</th>
+  <th>50 ≦ x < 80</th>
+  <th>80 ≦ x < 150</th>
+  <th>150 ≦ x < 180</th>
+  <th>180 ≦ x</th>
   </tr>
  <tr>
   <th>面積</th>
   <td><%= f.text_field :scale_a_0_3 %></td>
   <td><%= f.text_field :scale_a_3_6 %></td>
-  <td><%= f.text_field :scale_a_6_10 %></td>
-  <td><%= f.text_field :scale_a_10_15 %></td>
+  <td><%= f.text_field :scale_a_6_11 %></td>
+  <td><%= f.text_field :scale_a_11_15 %></td>
   <td><%= f.text_field :scale_a_15_22 %></td>
-  <td><%= f.text_field :scale_a_22_30%></td>
-  <td><%= f.text_field :scale_a_30_40 %></td>
-  <td><%= f.text_field :scale_a_40_55 %></td>
-  <td><%= f.text_field :scale_a_55_75 %></td>
-  <td><%= f.text_field :scale_a_75_100 %></td>
-  <td><%= f.text_field :scale_a_100over %></td>
+  <td><%= f.text_field :scale_a_22_30 %></td>
+  <td><%= f.text_field :scale_a_30_50 %></td>
+  <td><%= f.text_field :scale_a_50_80 %></td>
+  <td><%= f.text_field :scale_a_80_150 %></td>
+  <td><%= f.text_field :scale_a_150_180 %></td>
+  <td><%= f.text_field :scale_a_180over %></td>
  </tr>
  <tr>
   <th>重量</th>
   <td><%= f.text_field :scale_w_0_3 %></td>
   <td><%= f.text_field :scale_w_3_6 %></td>
-  <td><%= f.text_field :scale_w_6_10 %></td>
-  <td><%= f.text_field :scale_w_10_15 %></td>
+  <td><%= f.text_field :scale_w_6_11 %></td>
+  <td><%= f.text_field :scale_w_11_15 %></td>
   <td><%= f.text_field :scale_w_15_22 %></td>
-  <td><%= f.text_field :scale_w_22_30%></td>
-  <td><%= f.text_field :scale_w_30_40 %></td>
-  <td><%= f.text_field :scale_w_40_55 %></td>
-  <td><%= f.text_field :scale_w_55_75 %></td>
-  <td><%= f.text_field :scale_w_75_100 %></td>
-  <td><%= f.text_field :scale_w_100over %></td>
+  <td><%= f.text_field :scale_w_22_30 %></td>
+  <td><%= f.text_field :scale_w_30_50 %></td>
+  <td><%= f.text_field :scale_w_50_80 %></td>
+  <td><%= f.text_field :scale_w_80_150 %></td>
+  <td><%= f.text_field :scale_w_150_180 %></td>
+  <td><%= f.text_field :scale_w_180over %></td>
  </tr>
 </table>
 <br>
@@ -62,6 +62,17 @@
     <td><%= f.text_field :scale_o_0_300 %></td>
     <td><%= f.text_field :scale_o_300_500 %></td>
     <td><%= f.text_field :scale_o_500over %></td>
+  </tr>
+</table>
+<br>
+<table class="design01">
+  <tr>
+    <th>最小単価</th>
+    <th>最小価格</th>
+  </tr>
+  <tr>
+    <td><%= f.text_field :min_unit_price %></td>
+    <td><%= f.text_field :min_total_price %></td>
   </tr>
 </table>
 </div>
