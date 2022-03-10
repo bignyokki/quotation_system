@@ -3,5 +3,5 @@ class Quotation < ApplicationRecord
   belongs_to :client
 
   validates :title, presence: true
-  validates :total_price, :presence: true
+  validates :total_price, presence: true
 end

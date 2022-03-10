@@ -1,0 +1,31 @@
+<%= form_with(model: @quotation, local: true) do |f| %>
+  <%# 顧客名は１００件以上になるため、後でサジェスト機能を実装する%>
+  <%= f.label :client_id, "顧客名" %>
+  <%= f.collection_select(:client_id, @clients, :id, :name, include_blank: "選択してください" ) %>
+  <br>
+  <%= f.label :title, "タイトル" %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label :charge, "ご担当" %>
+  <%= f.text_field :charge %>
+  <br>
+  <%= f.label :delivery_date, "納期" %>
+  <%= f.text_field :delivery_date %>
+  <br>
+  <%= f.label :expiration_date, "有効期限" %>
+  <%= f.text_field :expiration_date %>
+  <br>
+  <%= f.label :delivery_place, "受け渡し場所" %>
+  <%= f.text_field :delivery_place %>
+  <br>
+  <%= f.label :business_terms, "取引条件" %>
+  <%= f.text_field :business_terms %>
+  <br>
+  <%= f.label :total_price, "合計金額" %>
+  <%= f.text_field :total_price %>
+  <br>
+  <%= f.label :remarks, "備考" %>
+  <%= f.text_field :remarks %>
+  <br>
+  <%= f.submit "保存" %>
+<% end %>

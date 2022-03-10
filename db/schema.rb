@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2022_03_08_141946) do
     t.string "delivery_date"
     t.string "expiration_date"
     t.string "delivery_place"
-    t.string "biainess_terms"
+    t.string "business_terms"
     t.integer "total_price", null: false
     t.string "remarks"
     t.bigint "user_id", null: false

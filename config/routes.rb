@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :clients
   resources :price_scales
+  resources :quotations
   get 'users/index'
   
   devise_for :users, :controllers => {

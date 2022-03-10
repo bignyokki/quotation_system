@@ -6,7 +6,7 @@ class CreateQuotations < ActiveRecord::Migration[6.0]
       t.string     :delivery_date
       t.string     :expiration_date
       t.string     :delivery_place
-      t.string     :biainess_terms
+      t.string     :business_terms
       t.integer    :total_price,    null: false
       t.string     :remarks
       t.references :user,           null: false, foreign_key: true
