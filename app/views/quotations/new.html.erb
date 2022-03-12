@@ -21,6 +21,12 @@
   <%= f.label :business_terms, "取引条件" %>
   <%= f.text_field :business_terms %>
   <br>
+  --------------------------------------------------------
+  <br>
+
+  <br>
+  --------------------------------------------------------
+  <br>
   <%= f.label :total_price, "合計金額" %>
   <%= f.text_field :total_price %>
   <br>
@@ -29,3 +35,35 @@
   <br>
   <%= f.submit "保存" %>
 <% end %>
+
+  <%= form_with(model: @drowing, local: true) do |df| %>
+    <%= hidden_field_tag :quotation_id, @quotation.id %>
+    <%= df.label :figure_number, "図番" %>
+    <%= df.text_field :figure_number %>
+    <br>
+    <%= df.label :product_name, "品名" %>
+    <%= df.text_field :product_name %>
+    <br>
+    <%= df.label :metarial, "材質" %>
+    <%= df.text_field :metarial %>
+    <br>
+    <%= df.label :size, "寸法" %>
+    <%= df.text_field :size %>
+    <br>
+    <%= df.label :surface_treatment, "表面処理" %>
+    <%= df.text_field :surface_treatment %>
+    <br>
+    <%= df.label :price_scale_id, "単価カテゴリ" %>
+    <%= df.collection_select(:price_scale_id, @price_scales, :id, :title, include_blank: "選択してください" ) %>
+    <br>
+    <%= df.label :quantity, "数量" %>
+    <%= df.text_field :quantity %>
+    <br>
+    <%= df.label :price, "単価" %>
+    <%= df.text_field :price %>
+    <br>
+    <%= df.label :notes, "摘要" %>
+    <%= df.text_field :notes %>
+    <br>
+    <%= df.submit "追加" %>
+  <% end %>

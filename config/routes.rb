@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  get 'drowings/create'
   resources :clients
   resources :price_scales
-  resources :quotations
+  resources :quotations do
+    collection do
+      post :create_drawing
+    end
+  end
   get 'users/index'
   
   devise_for :users, :controllers => {

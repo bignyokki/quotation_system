@@ -6,6 +6,7 @@ class QuotationsController < ApplicationController
 
   def new
     @clients = Client.all
+    @price_scales = PriceScale.all
     @quotation = Quotation.new
   end
 
@@ -16,6 +17,11 @@ class QuotationsController < ApplicationController
     else
       render :new
     end
+  end
+
+
+  def create_drawing
+    Drawing.create(drawing_params)
   end
 
   def edit
@@ -38,5 +44,6 @@ class QuotationsController < ApplicationController
                   :delivery_place, :business_terms, :total_price, :remarks)
           .merge(user_id: current_user.id)
   end
+
   
 end

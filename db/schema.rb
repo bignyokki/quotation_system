@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_08_141946) do
+ActiveRecord::Schema.define(version: 2022_03_10_140211) do
 
   create_table "clients", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -25,6 +25,23 @@ ActiveRecord::Schema.define(version: 2022_03_08_141946) do
     t.string "value_class", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "drawings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "figure_number"
+    t.string "product_name"
+    t.string "metarial"
+    t.string "size"
+    t.string "surface_treatment"
+    t.integer "quantity"
+    t.integer "price"
+    t.string "notes"
+    t.bigint "price_scale_id"
+    t.bigint "quotation_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["price_scale_id"], name: "index_drawings_on_price_scale_id"
+    t.index ["quotation_id"], name: "index_drawings_on_quotation_id"
   end
 
   create_table "price_scales", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
