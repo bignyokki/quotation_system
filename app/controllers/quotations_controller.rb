@@ -39,7 +39,7 @@ class QuotationsController < ApplicationController
   def quotation_params
     params.require(:quotation)
           .permit(:client_id, :title, :charge, :delivery_date, :expiration_date,
-                  :delivery_place, :business_terms, :total_price, :remarks, :appro_user_id)
+                  :delivery_place, :business_terms, :total_price, :remarks, :appro_user_id, :approval, :printing)
           .merge(mk_user_id: current_user.id)
   end
 

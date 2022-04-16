@@ -1,0 +1,8 @@
+<h1>appeoval index page</h1>
+
+<% @quotations.each do |quotation| %>
+  見積No:<%= quotation.id %>
+  :<%= quotation.client.name %>
+  :<%= quotation.title %>
+  ::<%= link_to '承認', edit_approval_path(quotation.id) %><br>
+<% end %>

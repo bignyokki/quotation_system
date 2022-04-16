@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :quotations do
     resources :drawings
   end
+  resources :approvals, only: [:index, :edit, :update]
 
   get 'users/index'
   

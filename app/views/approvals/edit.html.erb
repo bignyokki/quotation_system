@@ -1,4 +1,6 @@
-<%= form_with(model: @quotation, id: "quotation_input", local: true) do |form| %>
+<h1>edit approval page</h1>
+
+<%= form_with(model: @quotation, url: approval_path, id: "quotation_input", local: true) do |form| %>
     <%# 顧客名は１００件以上になるため、後でサジェスト機能を実装する%>
     <%= form.label :client_id, "顧客名" %>
     <%= form.collection_select(:client_id, @clients, :id, :name, include_blank: "選択してください" ) %>
@@ -42,9 +44,7 @@
     <%= form.label :hidden_remarks, "備考（非表示）" %>
     <%= form.text_field :hidden_remarks %>
     <br >
-    <%# 見積もりを新規作成したときは承認待ち(approval = 0),印刷待ち(printing = 0)にする%>
-    <%= form.hidden_field :approval, :value => 0 %>
-    <%= form.hidden_field :printing, :value => 0 %>
-    
-    <%= form.submit "見積を保存", id: "submit", class: "quotation_form-btn" %>
+
+    <%= form.submit "承認", name: "approval_btn", id: "submit", class: "quotation_form-btn" %>
+    <%= form.submit "差し戻し", name: "back_btn", id: "submit2", class: "quotation_form-btn" %>
   <% end %>
