@@ -3,10 +3,9 @@ Rails.application.routes.draw do
   resources :clients
   resources :price_scales
   resources :quotations do
-    collection do
-      post :create_drawing
-    end
+    resources :drawings
   end
+
   get 'users/index'
   
   devise_for :users, :controllers => {

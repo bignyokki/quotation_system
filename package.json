@@ -2,10 +2,12 @@
   "name": "quotation_system",
   "private": true,
   "dependencies": {
+    "@nathanvda/cocoon": "^1.2.14",
     "@rails/actioncable": "^6.0.0-alpha",
     "@rails/activestorage": "^6.0.0-alpha",
     "@rails/ujs": "^6.0.0-alpha",
     "@rails/webpacker": "4.3.0",
+    "cocoon": "github:nathanvda/cocoon#c24ba53",
     "jquery": "^3.6.0",
     "turbolinks": "^5.2.0"
   },

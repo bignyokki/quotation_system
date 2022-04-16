@@ -1,3 +1,10 @@
 <h1>見積書一覧</h1>
 
 <%= link_to '新規登録', new_quotation_path %>
+<br>
+<% @quotations.each do |quotation| %>
+<%= quotation.id %><br>
+<%= quotation.client.name %><br>
+<%= quotation.title %><br>
+<%= link_to '編集', edit_quotation_path(quotation.id) %><br><br>
+<% end %>

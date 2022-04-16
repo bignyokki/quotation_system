@@ -1,69 +1,34 @@
-<%= form_with(model: @quotation, local: true) do |f| %>
-  <%# 顧客名は１００件以上になるため、後でサジェスト機能を実装する%>
-  <%= f.label :client_id, "顧客名" %>
-  <%= f.collection_select(:client_id, @clients, :id, :name, include_blank: "選択してください" ) %>
-  <br>
-  <%= f.label :title, "タイトル" %>
-  <%= f.text_field :title %>
-  <br>
-  <%= f.label :charge, "ご担当" %>
-  <%= f.text_field :charge %>
-  <br>
-  <%= f.label :delivery_date, "納期" %>
-  <%= f.text_field :delivery_date %>
-  <br>
-  <%= f.label :expiration_date, "有効期限" %>
-  <%= f.text_field :expiration_date %>
-  <br>
-  <%= f.label :delivery_place, "受け渡し場所" %>
-  <%= f.text_field :delivery_place %>
-  <br>
-  <%= f.label :business_terms, "取引条件" %>
-  <%= f.text_field :business_terms %>
-  <br>
-  --------------------------------------------------------
-  <br>
-
-  <br>
-  --------------------------------------------------------
-  <br>
-  <%= f.label :total_price, "合計金額" %>
-  <%= f.text_field :total_price %>
-  <br>
-  <%= f.label :remarks, "備考" %>
-  <%= f.text_field :remarks %>
-  <br>
-  <%= f.submit "保存" %>
-<% end %>
-
-  <%= form_with(model: @drowing, local: true) do |df| %>
-    <%= hidden_field_tag :quotation_id, @quotation.id %>
-    <%= df.label :figure_number, "図番" %>
-    <%= df.text_field :figure_number %>
+<div class="quotation_form">
+  <%= form_with(model: @quotation, id: "quotation_input", local: true) do |form| %>
+    <%# 顧客名は１００件以上になるため、後でサジェスト機能を実装する%>
+    <%= form.label :client_id, "顧客名" %>
+    <%= form.collection_select(:client_id, @clients, :id, :name, include_blank: "選択してください" ) %>
     <br>
-    <%= df.label :product_name, "品名" %>
-    <%= df.text_field :product_name %>
+    <%= form.label :title, "タイトル" %>
+    <%= form.text_field :title %>
     <br>
-    <%= df.label :metarial, "材質" %>
-    <%= df.text_field :metarial %>
+    <%= form.label :charge, "ご担当" %>
+    <%= form.text_field :charge %>
     <br>
-    <%= df.label :size, "寸法" %>
-    <%= df.text_field :size %>
+    <%= form.label :delivery_date, "納期" %>
+    <%= form.text_field :delivery_date %>
     <br>
-    <%= df.label :surface_treatment, "表面処理" %>
-    <%= df.text_field :surface_treatment %>
+    <%= form.label :expiration_date, "有効期限" %>
+    <%= form.text_field :expiration_date %>
     <br>
-    <%= df.label :price_scale_id, "単価カテゴリ" %>
-    <%= df.collection_select(:price_scale_id, @price_scales, :id, :title, include_blank: "選択してください" ) %>
+    <%= form.label :delivery_place, "受け渡し場所" %>
+    <%= form.text_field :delivery_place %>
     <br>
-    <%= df.label :quantity, "数量" %>
-    <%= df.text_field :quantity %>
+    <%= form.label :business_terms, "取引条件" %>
+    <%= form.text_field :business_terms %>
     <br>
-    <%= df.label :price, "単価" %>
-    <%= df.text_field :price %>
+    <%= form.label :remarks, "備考" %>
+    <%= form.text_field :remarks %>
     <br>
-    <%= df.label :notes, "摘要" %>
-    <%= df.text_field :notes %>
-    <br>
-    <%= df.submit "追加" %>
+    <%= form.submit "図面を追加する", id: "submit", class: "quotation_form-btn" %>
   <% end %>
+</div>
+
+<div class="quotation">
+</div>
+ 

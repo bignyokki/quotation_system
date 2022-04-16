@@ -30,17 +30,17 @@ ActiveRecord::Schema.define(version: 2022_03_10_140211) do
   create_table "drawings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "figure_number"
     t.string "product_name"
-    t.string "metarial"
+    t.string "material"
     t.string "size"
+    t.float "weight"
+    t.float "area"
     t.string "surface_treatment"
     t.integer "quantity"
     t.integer "price"
     t.string "notes"
-    t.bigint "price_scale_id"
     t.bigint "quotation_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["price_scale_id"], name: "index_drawings_on_price_scale_id"
     t.index ["quotation_id"], name: "index_drawings_on_quotation_id"
   end
 
@@ -85,14 +85,19 @@ ActiveRecord::Schema.define(version: 2022_03_10_140211) do
     t.string "expiration_date"
     t.string "delivery_place"
     t.string "business_terms"
-    t.integer "total_price", null: false
-    t.string "remarks"
-    t.bigint "user_id", null: false
+    t.integer "total_price"
+    t.text "remarks"
+    t.text "hidden_remarks"
+    t.integer "approval"
+    t.integer "printing"
+    t.bigint "mk_user_id"
+    t.bigint "appro_user_id"
     t.bigint "client_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["appro_user_id"], name: "index_quotations_on_appro_user_id"
     t.index ["client_id"], name: "index_quotations_on_client_id"
-    t.index ["user_id"], name: "index_quotations_on_user_id"
+    t.index ["mk_user_id"], name: "index_quotations_on_mk_user_id"
   end
 
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -128,5 +133,6 @@ ActiveRecord::Schema.define(version: 2022_03_10_140211) do
   end
 
   add_foreign_key "quotations", "clients"
-  add_foreign_key "quotations", "users"
+  add_foreign_key "quotations", "users", column: "appro_user_id"
+  add_foreign_key "quotations", "users", column: "mk_user_id"
 end
