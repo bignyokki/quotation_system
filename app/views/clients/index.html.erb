@@ -13,14 +13,16 @@
     <th>住所</th>
     <th></th>
   </tr>
-  <% @clients.each do |client| %>
-  <tr>
-    <td><%= client.name %></td>
-    <td><%= client.name_kana %></td>
-    <td><%= client.phone_number %></td>
-    <td><%= client.fax_number %></td>
-    <td><%= client.address %></td>
-    <td><%= link_to '編集', edit_client_path(client.id), method: :get, class: "btn btn--orange btn--radius" %></td>
-  </tr>
+  <% unless @clients.blank? %>
+    <% @clients.each do |client| %>
+    <tr>
+      <td><%= client.name %></td>
+      <td><%= client.name_kana %></td>
+      <td><%= client.phone_number %></td>
+      <td><%= client.fax_number %></td>
+      <td><%= client.address %></td>
+      <td><%= link_to '編集', edit_client_path(client.id), method: :get, class: "btn btn--orange btn--radius" %></td>
+    </tr>
+    <% end %>
   <% end %>
 </table>

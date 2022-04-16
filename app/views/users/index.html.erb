@@ -1,14 +1,17 @@
 <h1>ユーザー一覧</h1>
-<% @user.each do |user|%>
- <%= user.employee_number %>
- <%= user.name %>
- <%= user.admin.name %>
- <% if user_signed_in? && current_user.has_role?(:admin) %>
-   <%= link_to '編集', edit_other_user_registration_path(user) %>
-   <%= link_to '削除', destroy_other_user_registration_path(user), method: :delete %>
- <% end %>
- <br>
+<% unless @user.blank? %>
 
+  <% @user.each do |user|%>
+  <%= user.employee_number %>
+  <%= user.name %>
+  <%= user.admin.name %>
+  <% if user_signed_in? && current_user.has_role?(:admin) %>
+    <%= link_to '編集', edit_other_user_registration_path(user) %>
+    <%= link_to '削除', destroy_other_user_registration_path(user), method: :delete %>
+  <% end %>
+  <br>
+
+  <% end %>
 <% end %>
 <br>
 <br>
