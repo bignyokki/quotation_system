@@ -2,6 +2,7 @@
 
 <%= link_to '新規登録', new_quotation_path %>
 <%= link_to '承認待ち', approvals_path %>
+<%= link_to '印刷待ち', printings_path %>
 <br>
 <% @quotations.each do |quotation| %>
 <%= quotation.id %><br>
