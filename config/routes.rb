@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :drawings
   end
   resources :approvals, only: [:index, :edit, :update]
-  resources :printings, only: [:index, :edit, :update]
+  resources :printings, only: [:index, :edit, :update, :show]
 
   get 'users/index'
   
