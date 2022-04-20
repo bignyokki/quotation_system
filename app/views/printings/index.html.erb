@@ -4,5 +4,5 @@
   見積No:<%= quotation.id %>
   :<%= quotation.client.name %>
   :<%= quotation.title %>
-  ::<%= link_to '印刷', edit_printing_path(quotation.id) %><br>
+  ::<%= link_to '印刷', printing_path(quotation.id) %><br>
 <% end %>
