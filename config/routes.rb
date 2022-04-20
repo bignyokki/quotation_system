@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'drowings/create'
   resources :clients
   resources :price_scales
   resources :quotations do
