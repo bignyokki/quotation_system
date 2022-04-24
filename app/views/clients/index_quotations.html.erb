@@ -1,0 +1,18 @@
+<h1><%= @client.name %>の見積もり一覧</h1>
+
+<table>
+    <tr>
+      <th>日付</th>
+      <th>タイトル</th>
+      <th>金額</th>
+    </tr>
+
+  <% @quotations.each do |quotation| %>
+    <tr>
+      <td><%= quotation.created_at.strftime('%Y/%m/%d') %></td>
+      <td><%= link_to quotation.title, edit_quotation_path(quotation.id) %></td>
+      <td><%= quotation.total_price %></td>
+    </tr>
+  <% end %>
+
+</table>

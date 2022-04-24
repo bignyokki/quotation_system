@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   # メニュー画面
   get 'menus/index'
 
-  resources :clients
+  resources :clients do
+    member do
+      # 顧客別見積一覧ページ
+      get :index_quotations
+    end
+  end
   resources :price_scales
   resources :quotations do
     resources :drawings

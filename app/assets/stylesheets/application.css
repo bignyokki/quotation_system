@@ -5,6 +5,10 @@
   box-sizing: inherit;
 }
 
+ul {
+  list-style: none;
+}
+
 /* 以下顧客一覧テーブル */
 
 table.client_table{
@@ -151,4 +155,41 @@ a.btn--orange:hover {
 
 a.btn--radius {
    border-radius: 100vh;
+}
+
+
+/* 以下見積もり書一覧タブ機能実装用CSS */
+
+.tab {
+  width: 10%;
+  padding: 10px;
+  cursor: pointer;
+  border-left: solid 1px #CCC;
+  border-bottom: solid 1px #CCC;
+}
+li.tab {
+  display: inline;
+}
+.tab:first-child {
+  border-left: none;
+}
+/* タブがactiveのときのデザイン */
+.tab-active {
+  color: #FFF;
+  background: #19b5d1;
+  transition: all 0.2s ease-in-out;
+}
+/* タブの中身、最初は非表示 */
+.tabbox {
+  display: none;
+  padding: 15px;
+}
+/* box-showクラスのものだけ表示 */
+.box-show {
+  display: block;
+}
+ /* hover時のアクション */
+.tab:hover{
+  box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
 }

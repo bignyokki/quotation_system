@@ -42,11 +42,11 @@
     <div class="tabbox box-show">
 
       <% @type_clients[i].each do |client| %>
-        <P><%= client.name %></p>
+        <p><%= link_to client.name, index_quotations_client_path(client.id) %></p>
       <% end %>
 
     </div>
 
   <% end %>
-  
+
 </div>

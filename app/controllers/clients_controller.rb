@@ -36,6 +36,11 @@ class ClientsController < ApplicationController
     redirect_to clients_path, notice: '顧客情報を削除しました'
   end
 
+  def index_quotations
+    @client = Client.find(params[:id])
+    @quotations = Quotation.where(client_id: params[:id])
+  end
+
   private
   def client_params
     params.require(:client)
