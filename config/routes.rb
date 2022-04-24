@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  root to: "menus#index"
+
+  # メニュー画面
+  get 'menus/index'
+
   resources :clients
   resources :price_scales
   resources :quotations do
@@ -20,6 +26,4 @@ Rails.application.routes.draw do
     delete 'users/:id', to: 'users/registrations#destroy', as: :destroy_other_user_registration
   end
 
-  root to: "menus#index"
-  get 'menus/index'
 end

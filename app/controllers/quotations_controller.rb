@@ -1,7 +1,13 @@
 class QuotationsController < ApplicationController
 
   def index
-    @quotations = Quotation.all
+    @type_clients = Client.classification
+    # @a_quotations = Quotation.includes(:client).references(:client).where("clients.name_kana LIKE ?
+    #                                                                        OR clients.name_kana LIKE ?
+    #                                                                        OR clients.name_kana LIKE ?
+    #                                                                        OR clients.name_kana LIKE ?
+    #                                                                        OR clients.name_kana LIKE ?",
+    #                                                                       "あ%", "い%", "う%", "え%", "お%")
   end
 
   def new

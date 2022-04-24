@@ -1,12 +1,52 @@
 <h1>見積書一覧</h1>
 
-<%= link_to '新規登録', new_quotation_path %>
-<%= link_to '承認待ち', approvals_path %>
-<%= link_to '印刷待ち', printings_path %>
-<br>
-<% @quotations.each do |quotation| %>
-<%= quotation.id %><br>
-<%= quotation.client.name %><br>
-<%= quotation.title %><br>
-<%= link_to '編集', edit_quotation_path(quotation.id) %><br><br>
-<% end %>
+<%# タブ部分 %>
+<ul class="tab-list list-unstyled">
+  <li class="tab tab-active">
+    あ
+  </li>
+  <li class="tab">
+    か
+  </li>
+  <li class="tab">
+    さ
+  </li>
+  <li class="tab">
+    た
+  </li>
+  <li class="tab">
+    な
+  </li>
+  <li class="tab">
+    は
+  </li>
+  <li class="tab">
+    ま
+  </li>
+  <li class="tab">
+    や
+  </li>
+  <li class="tab">
+    ら
+  </li>
+  <li class="tab">
+    わ
+  </li>
+</ul>
+
+<%# タブで選択された部分 %>
+<div class="tabbox-contents">
+
+  <% 10.times do |i| %>
+
+    <div class="tabbox box-show">
+
+      <% @type_clients[i].each do |client| %>
+        <P><%= client.name %></p>
+      <% end %>
+
+    </div>
+
+  <% end %>
+  
+</div>

@@ -10,6 +10,7 @@ require("channels")
 require('jquery')
 import "cocoon";
 require("../drawing")
+require("../quotation_tab")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
