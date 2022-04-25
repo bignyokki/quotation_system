@@ -1,37 +1,34 @@
 <%# 権限チェックに通らない場合に表示される %>
 <%= content_tag(:div, flash[:alert], class: "alert alert-danger") if flash[:alert] %>
-<h1>Menus#index</h1>
-<p>Find me in app/views/menus/index.html.erb</p>
-<br>
 
 <div class="menu-main">
 
   <div class="menu-upper-contents">
 
     <div class="menu-left-content">
-      <p><%= link_to "見積書一覧", quotations_path, class: "main-content btn" %></p>
+
+      <%= link_to "見積書一覧", quotations_path, class: "main-content btn" %>
+
+      <div class="new-quotation-list">
+
+      </div>
+
     </div>
 
     <div class="menu-right-contents">
 
-      <div class="menu-new">
-        <p><%= link_to '見積新規登録', new_quotation_path, class: "main-content btn" %></p>
-      </div>
-      <div class="menu-appro">
-        <p><%= link_to '見積承認待ち', approvals_path, class: "main-content btn" %></p>
-      </div>
-      <div class="menu-print">
-        <p><%= link_to '見積印刷待ち', printings_path, class: "main-content btn" %></p>
-      </div>
+        <%= link_to '見積新規登録', new_quotation_path, class: "main-content btn" %>
+        <%= link_to '見積承認(99+)', approvals_path, class: "main-content btn" %>
+        <%= link_to '見積印刷(99+)', printings_path, class: "main-content btn" %>
 
     </div>
 
   </div>
 
   <div class="menu-under-contents">
-    <p><%= link_to "ユーザー一覧", users_index_path, class: "sub-content btn" %></p>
-    <p><%= link_to "顧客管理", clients_path, class: "sub-content btn" %></p>
-    <p><%= link_to "単価表管理", price_scales_path, class: "sub-content btn" %></p>
+    <%= link_to "ユーザー一覧", users_index_path, class: "sub-content btn" %>
+    <%= link_to "顧客管理", clients_path, class: "sub-content btn" %>
+    <%= link_to "単価表管理", price_scales_path, class: "sub-content btn" %>
   </div>
 
 </div>
