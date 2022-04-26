@@ -11,6 +11,19 @@
 
       <div class="new-quotation-list">
 
+        <table>
+
+          <% @quotations.each do |quotation| %>
+            <tr>
+              <td><%= quotation.created_at.strftime('%y/%m/%d') %></td>
+              <td><%= quotation.client.name %></td>
+              <td><%= link_to quotation.title, edit_quotation_path(quotation.id) %></td>
+              <td><%= quotation.total_price %></td>
+            </tr>
+          <% end %>
+
+        </table>
+
       </div>
 
     </div>
@@ -18,8 +31,8 @@
     <div class="menu-right-contents">
 
         <%= link_to '見積新規登録', new_quotation_path, class: "main-content btn" %>
-        <%= link_to '見積承認(99+)', approvals_path, class: "main-content btn" %>
-        <%= link_to '見積印刷(99+)', printings_path, class: "main-content btn" %>
+        <%= link_to "見積承認(#{@appro_count})", approvals_path, class: "main-content btn" %>
+        <%= link_to "見積印刷(#{@print_count})", printings_path, class: "main-content btn" %>
 
     </div>
 
