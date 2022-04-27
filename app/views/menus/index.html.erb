@@ -9,16 +9,18 @@
 
       <%= link_to "見積書一覧", quotations_path, class: "main-content btn" %>
 
+      <div class="table-title">最新見積30件</div>
+
       <div class="new-quotation-list">
 
         <table>
 
           <% @quotations.each do |quotation| %>
             <tr>
-              <td><%= quotation.created_at.strftime('%y/%m/%d') %></td>
-              <td><%= quotation.client.name %></td>
-              <td><%= link_to quotation.title, edit_quotation_path(quotation.id) %></td>
-              <td><%= quotation.total_price %></td>
+              <td class="data"><%= quotation.created_at.strftime('%y/%m/%d') %></td>
+              <td class="name"><%= quotation.client.name %></td>
+              <td class="title"><div class="title-hidden"><%= link_to quotation.title, edit_quotation_path(quotation.id)%></div></td>
+              <td class="price"><%= quotation.total_price %>円</td>
             </tr>
           <% end %>
 
