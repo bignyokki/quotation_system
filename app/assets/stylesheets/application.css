@@ -9,6 +9,40 @@ ul {
   list-style: none;
 }
 
+/* header用CSS */
+
+.header-contents {
+  width: 1100px;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px auto;
+  padding: 20px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, .5);
+  border-radius: 0 0 35px 35px;
+  position: relative;
+  top: -10px;
+  left: 0;
+}
+
+.header-contents a{
+  text-decoration: none;
+  color: black;
+}
+
+.header-title{
+  font-size: 20px;
+}
+
+.header-menu ul {
+  display: flex;
+  margin: 0;
+}
+
+.header-menu li {
+  padding: 0 .6rem;
+  margin: 0;
+}
+
 /* メニュー画面用CSS */
 
 .menu-main{

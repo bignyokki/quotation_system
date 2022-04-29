@@ -9,15 +9,41 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
-      <%= link_to "見積作成システム", root_path %>
-      <% if !user_signed_in? %>
-      <%= link_to "ログイン", new_user_session_path, class: "post" %>
-      <% else %>
-        <%= current_user.name %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <% end %>
+  <body>  
+    <header class="header">
+
+        <div class="header-contents">
+
+          <div class="header-title">
+
+            <%= link_to "見積作成システム", root_path %>
+          
+          </div>
+
+          <div class="header-menu">
+
+            <ul>
+              <li><%= link_to "見積一覧", quotations_path %></li>
+              <li><%= link_to "見積登録", new_quotation_path %></li>
+              <li><%= link_to "見積承認", approvals_path %></li>
+              <li><%= link_to "見積印刷", printings_path %></li>
+            </ul>
+
+          </div>
+
+          <div class="header-user">
+
+            <% if !user_signed_in? %>
+              <%= link_to "ログイン", new_user_session_path, class: "post" %>
+            <% else %>
+              <%= current_user.name %>
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <% end %>
+
+          </div>
+
+        </div>
+
     </header>
     <%= yield %>
   </body>
