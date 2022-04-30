@@ -1,18 +1,33 @@
-<h1><%= @client.name %>の見積もり一覧</h1>
+<div class="main-bord">
 
-<table>
-    <tr>
-      <th>日付</th>
-      <th>タイトル</th>
-      <th>金額</th>
-    </tr>
+  <div class="contents">
 
-  <% @quotations.each do |quotation| %>
-    <tr>
-      <td><%= quotation.created_at.strftime('%Y/%m/%d') %></td>
-      <td><%= link_to quotation.title, edit_quotation_path(quotation.id) %></td>
-      <td><%= quotation.total_price %></td>
-    </tr>
-  <% end %>
+    <h1 class="content-title"><%= @client.name %>の見積もり一覧</h1>
 
-</table>
+    <div class="index-quotations-list">
+
+      <table>
+
+          <tr>
+            <th>日付</th>
+            <th>タイトル</th>
+            <th>金額</th>
+          </tr>
+
+        <% @quotations.each do |quotation| %>
+          <tr>
+            <td class="date"><%= quotation.created_at.strftime('%y/%m/%d') %></td>
+            <td class="title"><%= link_to quotation.title, edit_quotation_path(quotation.id) %></td>
+            <td class="price"><%= quotation.total_price %>円</td>
+          </tr>
+        <% end %>
+
+      </table>
+
+    </div>
+
+    <%= link_to "戻る", quotations_path, class: "btn btn--orange btn--radius back" %>
+
+  </div>
+
+</div>

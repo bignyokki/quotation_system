@@ -12,13 +12,22 @@ ul {
 .main-bord {
   width: 1100px;
   background-color: royalblue;
-  margin: 20px auto;
+  margin: 20px auto 5px;
   border-radius: 0.5rem;
+  height: 100%;
 }
 
 .content-title {
   color: white;
 }
+
+.contents {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+
 
 /* header用CSS */
 
@@ -308,15 +317,8 @@ a.btn--radius {
 
 /* 以下見積もり書一覧タブ機能実装用CSS */
 
-.tab-contents {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  height: 600px;
-}
-
 .tabbox {
-  height: 400px;
+  height: 390px;
 }
 
 .tabbox table {
@@ -354,6 +356,7 @@ li.tab {
 .tabbox-contents {
   background-color: white;
   overflow: scroll;
+  border-radius: 5px;
 }
 /* タブがactiveのときのデザイン */
 .tab-active {
@@ -374,4 +377,30 @@ li.tab {
 .tab:hover{
   box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.5);
   transform: translateY(-1px);
+}
+
+
+/* 顧客別見積一覧用CSS */
+
+.index-quotations-list {
+  background-color: white;
+  height: 500px;
+  border-radius: 5px;
+}
+
+.index-quotations-list table {
+  width: 600px;
+}
+
+.index-quotations-list .date {
+  width: 1px;
+}
+
+.index-quotations-list .price {
+  width: 150px;
+  text-align: right;
+}
+
+.btn, .back {
+  margin: 5px;
 }
