@@ -25,11 +25,10 @@ class ApprovalsController < ApplicationController
   private
 
   def quotation_params
-      params.require(:quotation)
-            .permit(:client_id, :title, :charge, :delivery_date, :expiration_date,
-                    :delivery_place, :business_terms, :total_price, :remarks)
-            .merge(appro_user_id: current_user.id)
-    end
+    params.require(:quotation)
+          .permit(:client_id, :title, :charge, :delivery_date, :expiration_date,
+                  :delivery_place, :business_terms, :total_price, :remarks)
+          .merge(appro_user_id: current_user.id)
   end
 
 end

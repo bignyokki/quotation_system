@@ -1,52 +1,108 @@
-<h1>見積書一覧</h1>
+<div class="main-bord">
 
-<%# タブ部分 %>
-<ul class="tab-list list-unstyled">
-  <li class="tab tab-active">
-    あ
-  </li>
-  <li class="tab">
-    か
-  </li>
-  <li class="tab">
-    さ
-  </li>
-  <li class="tab">
-    た
-  </li>
-  <li class="tab">
-    な
-  </li>
-  <li class="tab">
-    は
-  </li>
-  <li class="tab">
-    ま
-  </li>
-  <li class="tab">
-    や
-  </li>
-  <li class="tab">
-    ら
-  </li>
-  <li class="tab">
-    わ
-  </li>
-</ul>
+  <div class="tab-contents">
 
-<%# タブで選択された部分 %>
-<div class="tabbox-contents">
+    <h1 class="content-title">見積書一覧</h1>
 
-  <% 10.times do |i| %>
+    <div class="client-list">
 
-    <div class="tabbox box-show">
+      <%# タブ部分 %>
+      <ul class="tab-list list-unstyled">
+        <li class="tab tab-active">
+          あ
+        </li>
+        <li class="tab">
+          か
+        </li>
+        <li class="tab">
+          さ
+        </li>
+        <li class="tab">
+          た
+        </li>
+        <li class="tab">
+          な
+        </li>
+        <li class="tab">
+          は
+        </li>
+        <li class="tab">
+          ま
+        </li>
+        <li class="tab">
+          や
+        </li>
+        <li class="tab">
+          ら
+        </li>
+        <li class="tab">
+          わ
+        </li>
+      </ul>
 
-      <% @type_clients[i].each do |client| %>
-        <p><%= link_to client.name, index_quotations_client_path(client.id) %></p>
-      <% end %>
+      <%# タブで選択された部分 %>
+      <div class="tabbox-contents">
+
+        <%# デフォルトで表示される要素 %>
+        <div class="tabbox box-show">
+
+          <table>
+
+            <tr>
+              <th class="select">選択</th>
+              <th class="name">顧客名</th>
+              <th class="kana">ふりがな</th>
+              <th class="number">見積件数</th>
+              <th class="last">最終見積</th>
+            </tr>
+            <% @type_clients[0].each do |client| %>
+              <tr>
+                <td><%= link_to "選択", index_quotations_client_path(client.id) %></td>
+                <td><%= client.name %></td>
+                <td><%= client.name_kana %></td>
+                <td></td>
+                <td></td>
+              </tr>
+            <% end %>
+
+          </table>
+
+        </div>
+        
+        <%# デフォルトでは隠されている要素 %>
+        <% (1..9).each do |i| %>
+
+          <div class="tabbox">
+
+            <table>
+
+              <tr>
+                <th class="select">選択</th>
+                <th class="name">顧客名</th>
+                <th class="kana">ふりがな</th>
+                <th class="number">見積件数</th>
+                <th class="last">最終見積</th>
+              </tr>
+              <% @type_clients[i].each do |client| %>
+                <tr>
+                  <td><%= link_to "選択", index_quotations_client_path(client.id) %></td>
+                  <td><%= client.name %></td>
+                  <td><%= client.name_kana %></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              <% end %>
+
+            </table>
+
+          </div>
+
+        <% end %>
+
+      </div>
 
     </div>
 
-  <% end %>
+  </div>
 
 </div>
