@@ -404,3 +404,37 @@ li.tab {
 .btn, .back {
   margin: 5px;
 }
+
+/* formCSS */
+
+.quotation-form {
+  width: 600px;
+  height: 500px;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+.quotation-form input:not(.quotation-form-btn),
+.quotation-form select {
+  width: 300px;
+  padding: 5px;
+  margin: 5px;
+  border: solid 1px #CCC;
+  border-radius: 2px;
+}
+
+.quotation-form label {
+  display: inline-block;
+  text-align: right;
+  width: 150px;
+  color: white;
+}
+
+.quotation-form .submit-btn {
+  text-align: center;
+}
+
+.quotation-form-btn {
+  width: 200px;
+  border-radius: 5px;
+}

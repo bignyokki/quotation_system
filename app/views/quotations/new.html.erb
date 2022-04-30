@@ -1,31 +1,43 @@
-<div class="quotation_form">
-  <%= form_with(model: @quotation, local: true, html: {id: "quotation_input", autocomplete: 'off'}) do |form| %>
-    <%# 顧客名は１００件以上になるため、後でサジェスト機能を実装する%>
-    <%= form.label :title, "タイトル" %>
-    <%= form.text_field :title %>
-    <br>
-    <%= form.label :client_id, "顧客名" %>
-    <%= form.collection_select(:client_id, @clients, :id, :name, include_blank: "選択してください" ) %>
-    <br>
-    <%= form.label :charge, "ご担当" %>
-    <%= form.text_field :charge %>
-    <br>
-    <%= form.label :delivery_date, "納期" %>
-    <%= form.text_field :delivery_date %>
-    <br>
-    <%= form.label :expiration_date, "有効期限" %>
-    <%= form.text_field :expiration_date %>
-    <br>
-    <%= form.label :delivery_place, "受渡場所" %>
-    <%= form.text_field :delivery_place %>
-    <br>
-    <%= form.label :business_terms, "取引条件" %>
-    <%= form.text_field :business_terms %>
-    <br>
-    <%= form.submit "図面を追加する", id: "submit", class: "quotation_form-btn" %>
-  <% end %>
-</div>
+<div class="main-bord">
 
-<div class="quotation">
+  <div class="contents">
+
+    <h1 class="content-title">新規見積入力</h1>
+
+    <div class="quotation-form">
+
+      <%= form_with(model: @quotation, local: true, html: {id: "quotation_input", autocomplete: 'off'}) do |form| %>
+
+        <%# 顧客名は１００件以上になるため、後でサジェスト機能を実装する%>
+        <%= form.label :title, "タイトル" %>
+        <%= form.text_field :title %>
+        <br>
+        <%= form.label :client_id, "顧客名" %>
+        <%= form.collection_select(:client_id, @clients, :id, :name, include_blank: "選択してください" ) %>
+        <br>
+        <%= form.label :charge, "ご担当" %>
+        <%= form.text_field :charge %>
+        <br>
+        <%= form.label :delivery_date, "納期" %>
+        <%= form.text_field :delivery_date %>
+        <br>
+        <%= form.label :expiration_date, "有効期限" %>
+        <%= form.text_field :expiration_date %>
+        <br>
+        <%= form.label :delivery_place, "受渡場所" %>
+        <%= form.text_field :delivery_place %>
+        <br>
+        <%= form.label :business_terms, "取引条件" %>
+        <%= form.text_field :business_terms %>
+        <br>
+        <div class="submit-btn">
+          <%= form.submit "図面を追加する", id: "submit", class: "quotation-form-btn" %>
+        </div>
+        
+      <% end %>
+
+    </div>
+
+  </div>
+
 </div>
- 
