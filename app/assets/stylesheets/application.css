@@ -439,21 +439,84 @@ li.tab {
   border-radius: 5px;
 }
 
+
+/* 図面登録画面用CSS */
+
+.drawing {
+  display: flex;
+  
+}
+
 .drawing-top-content {
+  width: 300px;
   background-color: #19b5d1;
+  margin: 0 auto;
+}
+
+.drawing-top-content label {
+  width: 80px;
+}
+
+.drawing-top-content input {
+  width: 200px;
 }
 
 .drawing-mid1-content {
   background-color: #778ca3;
   display: flex;
+  justify-content: center;
+}
+
+.drawing-mid1-content label {
+  width: 40px;
+}
+
+.drawing-mid1-content input {
+  width: 80px;
+}
+
+.drawing-mid2-content {
+  display: flex;
+  justify-content: center;
+}
+
+.drawing-mid2-content label {
+  width: 80px;
+}
+
+.drawing-mid2-content input {
+  width: 80px;
 }
 
 .drawing-left-content {
   background-color: #eb6100;
   display: flex;
+  padding: 10px;
+  border: solid 1px black;
+  border-radius: 5px;
 }
 
 .drawing-right-content {
   background-color: aqua;
   display: flex;
+  padding: 10px;
+  border: solid 1px black;
+  border-radius: 5px;
+}
+
+.drawing label {
+  display: inline-block;
+  text-align: right;
+}
+
+.drawing-bottom-content label {
+  width: 40px;
+}
+
+.weight-content,
+.area-content,
+.size-content {
+  padding: 10px;
+  border: solid 1px black;
+  border-radius: 5px;
 }
