@@ -438,3 +438,22 @@ li.tab {
   width: 200px;
   border-radius: 5px;
 }
+
+.drawing-top-content {
+  background-color: #19b5d1;
+}
+
+.drawing-mid1-content {
+  background-color: #778ca3;
+  display: flex;
+}
+
+.drawing-left-content {
+  background-color: #eb6100;
+  display: flex;
+}
+
+.drawing-right-content {
+  background-color: aqua;
+  display: flex;
+}
