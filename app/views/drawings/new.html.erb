@@ -114,12 +114,35 @@
         <%= f.text_field :notes %>
 
       </div>
-      <%= f.submit "保存", id: "submit" %>
+      <%= f.submit "次の図面を登録", id: "submit" %>
     <% end %>
-    <%= link_to "完了", edit_quotation_path(@quotation.id) %>
+    <%= link_to "図面の登録を終了", edit_quotation_path(@quotation.id) %>
     <div id="list"></div>
     <% unless @drawings.blank? %>
       <% @drawings.each do |drawing| %>
+
+      <div class="drawings-list">
+      
+        <div class="left-area">
+
+          <div class="top-area">
+          </div>
+
+          <div class="bottom-area">
+          </div>
+
+        </div>
+
+        <div class="price-area">
+        </div>
+
+        <div class="quantity-area">
+        </div>
+
+        <div class="totalprice-area">
+        </div>
+
+      </div>
 
         ==========================================================<br>
         図番:<%= drawing.figure_number %>  品名:<%= drawing.product_name %> <br>
