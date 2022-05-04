@@ -114,10 +114,53 @@ const calPrice = (priceScaleHash, calWeight, calArea, calSize) => {
 const buildHTML = (XHR) => {
   const item = XHR.response.post;
   const html = `
-  ==========================================================<br>
-  図番:${item.figure_number}  品名:${item.product_name} <br>
-  処理:${item.surface_treatment} <br>
-  寸法:${item.size}  単価:${item.price}  数量:${item.quantity}  金額:${item.price * item.quantity}<br>
+  <div class="drawings-list">
+      
+  <div class="left-area">
+
+    <div class="top-area">
+    
+      <div class="number-area">
+        図番:${ item.figure_number }
+      </div>
+      <div class="name-area">
+        品名:${ item.product_name }
+      </div>
+    </div>
+
+    <div class="bottom-area">
+
+      <div class="treatment-area">
+        ${ item.surface_treatment }
+      </div>
+      <div class="material-area">
+        ${ item.material }
+      </div>
+      <div class="size-area">
+        ${ item.size }
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="quantity-area">
+    ${ item.quantity }
+  </div>
+
+  <div class="price-area">
+    ${ item.price }
+  </div>
+
+  <div class="totalprice-area">
+    ${ item.price * item.quantity }
+  </div>
+
+  <div class="notes-area">
+    ${ item.notes }
+   </div>
+
+</div>
     `;
   return html;
 };

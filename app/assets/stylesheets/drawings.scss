@@ -78,56 +78,54 @@
   text-align: center;
 }
 
-.drawing-list {
+.drawings-list {
   width: 1000px;
   background-color: white;
+  color: black;
   display: flex;
+  margin: 0 auto;
+  border: solid 0.5px black;
   .left-area{
-    background-color: chartreuse;
-    width: 600px;
-    border: solid 1px  black;
-    display: flex;
+    width: 550px;
+    border: solid 0.5px  black;
     .top-area {
-      background-color: aqua;
-      width: 600px;
+      width: 550px;
       display: flex;
       .number-area {
-        background-color: yellow;
-        width: 350px;
+        width: 300px;
       }
       .name-area {
-        background-color: tomato;
         width: 250px;
       }
     }
     .bottom-area {
-      background-color: blue;
-      width: 600px;
+      width: 550px;
       display: flex;
       .treatment-area {
-        background-color: blueviolet;
-        width: 300px;
+        width: 200px;
       }
       .material-area {
-        background-color: teal;
         width: 150px;
       }
       .size-area {
-        background-color: burlywood;
-        width: 150px;
+        width: 200px;
       }
     }
-    .price-area {
-      background-color: brown;
-      width: 225px;
-    }
-    .quantity-area {
-      background-color: aquamarine;
-      width: 100px;
-    }
-    .totalprice-area {
-      background-color: darkgreen;
-      width: 225px;
-    }
+  }
+  .quantity-area {
+    width: 70px;
+    border: solid 0.5px black;
+  }
+  .price-area {
+    width: 160px;
+    border: solid 0.5px black;
+  }
+  .totalprice-area {
+    width: 160px;
+    border: solid 0.5px black;
+  }
+  .notes-area {
+    width: 160px;
+    border: solid 0.5px black;
   }
 }

@@ -117,6 +117,57 @@
       <%= f.submit "次の図面を登録", id: "submit" %>
     <% end %>
     <%= link_to "図面の登録を終了", edit_quotation_path(@quotation.id) %>
+
+<%#  %>
+<div class="drawings-list">
+      
+        <div class="left-area">
+
+          <div class="top-area">
+          
+            <div class="number-area">
+              図番:123
+            </div>
+            <div class="name-area">
+              品名:456
+            </div>
+          </div>
+
+          <div class="bottom-area">
+
+            <div class="treatment-area">
+              無電解にっける
+            </div>
+            <div class="material-area">
+              S45C
+            </div>
+            <div class="size-area">
+              100*200*10
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="price-area">
+          1500円
+        </div>
+
+        <div class="quantity-area">
+          2個
+        </div>
+
+        <div class="totalprice-area">
+        3000円
+        </div>
+
+        <div class="notes-area">
+          適要
+        </div>
+      </div>
+<%#  %>
+
+
     <div id="list"></div>
     <% unless @drawings.blank? %>
       <% @drawings.each do |drawing| %>
@@ -151,17 +202,20 @@
 
         </div>
 
+        <div class="quantity-area">
+          <%= drawing.quantity %>
+        </div>
+
         <div class="price-area">
           <%= drawing.price %>
         </div>
 
-        <div class="quantity-area">
-          <%= drawing.price %>
+        <div class="totalprice-area">
+          <%= drawing.price * drawing.quantity %>
         </div>
 
-        <div class="totalprice-area">
-        <%= drawing.price * drawing.quantity %>
-
+        <div class="notes-area">
+          <%= drawing.notes %>
         </div>
       </div>
 
