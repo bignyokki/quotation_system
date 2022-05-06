@@ -445,3 +445,6 @@ li.tab {
   border-radius: 5px;
 }
 
+.linkbtn {
+  display: block;
+}

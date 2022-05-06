@@ -54,6 +54,8 @@
   padding: 10px;
   border: solid 1px black;
   border-radius: 5px;
+  background-color: blue;
+  margin: 2px;
 }
 
 .drawing-right-content {
@@ -61,6 +63,8 @@
   padding: 10px;
   border: solid 1px black;
   border-radius: 5px;
+  background-color: blue;
+  margin: 2px;
 }
 
 
@@ -76,6 +80,14 @@
   border: solid 1px black;
   border-radius: 5px;
   text-align: center;
+  background-color: rgb(116, 116, 238);
+  margin: 2px;
+}
+
+.drawing-link-content {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
 }
 
 .drawings-list {
@@ -112,20 +124,64 @@
       }
     }
   }
+  .quantity-area,
+  .price-area,
+  .totalprice-area {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    border: solid 0.5px black;
+  }
   .quantity-area {
     width: 70px;
-    border: solid 0.5px black;
   }
   .price-area {
     width: 160px;
-    border: solid 0.5px black;
   }
   .totalprice-area {
     width: 160px;
-    border: solid 0.5px black;
   }
   .notes-area {
     width: 160px;
     border: solid 0.5px black;
   }
+}
+
+.btnBox{
+  width: 200px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 5px solid #3498db;
+  border-radius: 10px;
+}
+
+.btnBox > a{
+  display: block;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  color: #3498db;
+}
+
+.btnbox {
+  width: 200px;
+  margin: 10px auto;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.link-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.center {
+  margin: 0 auto;
 }

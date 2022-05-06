@@ -145,15 +145,15 @@ const buildHTML = (XHR) => {
   </div>
 
   <div class="quantity-area">
-    ${ item.quantity }
+    ${ item.quantity }個
   </div>
 
   <div class="price-area">
-    ${ item.price }
+    ${ item.price }円
   </div>
 
   <div class="totalprice-area">
-    ${ item.price * item.quantity }
+    ${ item.price * item.quantity }円
   </div>
 
   <div class="notes-area">
