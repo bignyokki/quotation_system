@@ -1,3 +1,24 @@
 // Place all the styles related to the approvals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.index-approval-list {
+  width: 700px;
+  background-color: white;
+  margin-bottom: 20px;
+  table {
+    width: 695px;
+    border-collapse: separate;
+    border-spacing: 0px 2px;
+    margin: 0 auto;
+  }
+  td:not(.price) {
+    border-right: none;
+  }
+  td.data {
+    width: 1px;
+  }
+  td.price {
+    text-align: right;
+  }
+}
