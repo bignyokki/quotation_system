@@ -4,33 +4,33 @@
 
     <h1 class="content-title">新規見積入力(2/2)</h1>
 
-    <div class="quotation-form">
-
       <%= form_with(model: @quotation, id: "quotation_input", local: true) do |form| %>
 
-        <%# 顧客名は１００件以上になるため、後でサジェスト機能を実装する%>
-        <%= form.label :client_id, "顧客名" %>
-        <%= form.collection_select(:client_id, @clients, :id, :name, include_blank: "選択してください" ) %>
-        <br>
-        <%= form.label :title, "タイトル" %>
-        <%= form.text_field :title %>
-        <br>
-        <%= form.label :charge, "ご担当" %>
-        <%= form.text_field :charge %>
-        <br>
-        <%= form.label :delivery_date, "納期" %>
-        <%= form.text_field :delivery_date %>
-        <br>
-        <%= form.label :expiration_date, "有効期限" %>
-        <%= form.text_field :expiration_date %>
-        <br>
-        <%= form.label :delivery_place, "受け渡し場所" %>
-        <%= form.text_field :delivery_place %>
-        <br>
-        <%= form.label :business_terms, "取引条件" %>
-        <%= form.text_field :business_terms %>
+        <div class="quotation-form">
+
+          <%# 顧客名は１００件以上になるため、後でサジェスト機能を実装する%>
+          <%= form.label :client_id, "顧客名" %>
+          <%= form.collection_select(:client_id, @clients, :id, :name, include_blank: "選択してください" ) %>
+          <br>
+          <%= form.label :title, "タイトル" %>
+          <%= form.text_field :title %>
+          <br>
+          <%= form.label :charge, "ご担当" %>
+          <%= form.text_field :charge %>
+          <br>
+          <%= form.label :delivery_date, "納期" %>
+          <%= form.text_field :delivery_date %>
+          <br>
+          <%= form.label :expiration_date, "有効期限" %>
+          <%= form.text_field :expiration_date %>
+          <br>
+          <%= form.label :delivery_place, "受け渡し場所" %>
+          <%= form.text_field :delivery_place %>
+          <br>
+          <%= form.label :business_terms, "取引条件" %>
+          <%= form.text_field :business_terms %>
     
-    </div>
+        </div>
 
 
         <% total_price = 0 %>
