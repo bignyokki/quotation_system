@@ -1,3 +1,35 @@
 // Place all the styles related to the quotations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 見積金額表示部
+
+.total-price-area {
+  width: 1100px;
+  margin: 0 auto;
+  .notax-area,
+  .tax-area,
+  .taxin-area {
+    width: 260px;
+    margin: 0px 130px 0px 657px;
+    background-color: white;
+    display: flex;
+  }
+  .title-area {
+    width: 130px;
+    border: solid 0.5px black;
+    text-align: right;
+    font-weight: bold;
+  }
+  .price-output-area {
+    width: 130px;
+    border: solid 0.5px black;
+    text-align: right;
+  }
+}
+
+.quotation-form {
+  textarea {
+    width: 300px;
+  }
+}

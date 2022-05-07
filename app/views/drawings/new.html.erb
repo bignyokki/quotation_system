@@ -126,57 +126,7 @@
     <% unless @drawings.blank? %>
       <% @drawings.each do |drawing| %>
 
-      <div class="drawings-list">
-      
-        <div class="left-area">
-
-          <div class="top-area">
-          
-            <div class="number-area">
-              <%= drawing.figure_number %>
-            </div>
-            <div class="name-area">
-              <%= drawing.product_name %>
-            </div>
-          </div>
-
-          <div class="bottom-area">
-
-            <div class="treatment-area">
-              <%= drawing.surface_treatment %>
-            </div>
-            <div class="material-area">
-              <%= drawing.material %>
-            </div>
-            <div class="size-area">
-              <%= drawing.size %>
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="quantity-area">
-          <%= drawing.quantity %>個
-        </div>
-
-        <div class="price-area">
-          <%= drawing.price %>円
-        </div>
-
-        <div class="totalprice-area">
-          <%= drawing.price * drawing.quantity %>円
-        </div>
-
-        <div class="notes-area">
-          <%= drawing.notes %>
-        </div>
-      </div>
-
-        ==========================================================<br>
-        図番:<%= drawing.figure_number %>  品名:<%= drawing.product_name %> <br>
-        処理:<%= drawing.surface_treatment %> <br>
-        寸法:<%= drawing.size %>  単価:<%= drawing.price %>  数量:<%= drawing.quantity %>  金額:<%= drawing.price * drawing.quantity %><br>
+        <%= render "list", drawing: drawing %>
 
       <% end %>
     <% end%>

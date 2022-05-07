@@ -415,7 +415,6 @@ li.tab {
 
 .quotation-form {
   width: 600px;
-  height: 500px;
   margin: 0 auto;
   padding: 10px 0;
 }
@@ -441,8 +440,13 @@ li.tab {
 }
 
 .quotation-form-btn {
-  width: 200px;
+  padding: 2px 30px;
   border-radius: 5px;
+  display: inline-block;
+}
+
+.input-center {
+ text-align: center;
 }
 
 .linkbtn {

@@ -1,0 +1,48 @@
+<div class="drawings-list">
+      
+  <div class="left-area">
+
+    <div class="top-area">
+    
+      <div class="number-area">
+        <%= drawing.figure_number %>
+      </div>
+      <div class="name-area">
+        <%= drawing.product_name %>
+      </div>
+      
+    </div>
+
+    <div class="bottom-area">
+
+      <div class="treatment-area">
+        <%= drawing.surface_treatment %>
+      </div>
+      <div class="material-area">
+        <%= drawing.material %>
+      </div>
+      <div class="size-area">
+        <%= drawing.size %>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="quantity-area">
+    <%= drawing.quantity %>個
+  </div>
+
+  <div class="price-area">
+    <%= drawing.price %>円
+  </div>
+
+  <div class="totalprice-area">
+    <%= drawing.price * drawing.quantity %>円
+  </div>
+
+  <div class="notes-area">
+    <%= drawing.notes %>
+  </div>
+  
+</div>
