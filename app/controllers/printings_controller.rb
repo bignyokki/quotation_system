@@ -7,6 +7,8 @@ class PrintingsController < ApplicationController
 
   def show
     @quotation = Quotation.find(params[:id])
+    @mk_user = User.find(@quotation.mk_user_id)
+    @appro_user = User.find(@quotation.appro_user_id)
     @drawings = Drawing.where(quotation_id: params[:id])
     # 印刷済に更新する
     @quotation.update(printing: 1)

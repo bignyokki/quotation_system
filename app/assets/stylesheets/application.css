@@ -156,7 +156,7 @@ ul {
   justify-content: space-around;
 }
 
-.main-content{
+.main-content-link{
   color: #fff;
   background-color: #19b5d1;
   font-size: 30px;
@@ -451,4 +451,14 @@ li.tab {
 
 .linkbtn {
   display: block;
+}
+
+/* スペース専用CSS */
+
+.mar-10 {
+  margin-right: 10px;
+}
+
+.mar-30 {
+  margin-right: 30px;
 }

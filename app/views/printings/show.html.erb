@@ -1,7 +1,242 @@
-印刷用ページ
-<br>
-<%= @quotation.title %>
-<br>
-<%= @quotation.client.name %>
-<br>
-<%= link_to '戻る', printings_path %>
+<div class="print-page">
+
+  <div class="top-content">
+
+    <div class="title">
+      <span>御見積書</span>
+    </div>
+
+    <div class="date">
+
+      <div class="top-area">
+
+        <div class="left-area">
+          見積No:
+        </div>
+        <div class="right-area">
+          <%= format("%07d", @quotation.id) %>
+        </div>
+
+      </div>
+      
+      <div class="bottom-area">
+
+        <div class="left-area">
+          日付:
+        </div>
+        <div class="right-area">
+          <%= @quotation.updated_at.strftime('%Y/%m/%d') %>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="info-content">
+
+    <div class="left-info">
+
+      <div class="client-name">
+        <%= @quotation.client.name %>様
+      </div>
+      <div class="charge-name">
+        <span class="mar-10">ご担当:</span><%= @quotation.charge %>様
+      </div>
+      <div class="comment">
+        下記の通りお見積り申し上げます
+      </div>
+      <div class="terms">
+        納入期日：<%= @quotation.delivery_date %>
+      </div>
+      <div class="terms">
+        納入場所：<%= @quotation.delivery_place %>
+      </div>
+      <div class="terms">
+        有効期限：<%= @quotation.expiration_date %>
+      </div>
+      <div class="terms">
+        取引条件：<%= @quotation.business_terms %>
+      </div>
+      <div class="taxin-price">
+        <span class="mar-30">税込合計金額:</span>¥<%= @quotation.total_price + (@quotation.total_price * 0.1).floor %>
+      </div>
+      
+    </div>
+
+    <div class="right-info">
+
+      <div class="company-info">
+
+        <div class="company-name">
+          白水電機工業株式会社
+        </div>
+        <div class="company-ceo">
+          <span class="mar-10">代表取締役</span>白水政徳
+        </div>
+        <div class="info">
+          〒123-4567
+        </div>
+        <div class="info">
+          福岡県福岡市福岡区福岡1丁目1-1
+        </div>
+        <div class="info">
+          <span class="mar-10">TEL</span><span class="mar-10">:</span>123 - 1234 - 1234
+        </div>
+        <div class="info">
+          <span class="mar-10">FAX</span><span class="mar-10">:</span>123 - 1234 - 1235
+        </div>
+        <div class="info">
+          <span class="mar-10">WEB</span><span class="mar-10">:</span>http://www.shirouzu.co.jp
+        </div>
+
+      </div>
+
+      <div class="user-info">
+
+        <div class="user">
+          <span class="mar-10">担当:</span><%= @mk_user.name %>
+        </div>
+        <div class="user">
+          <span class="mar-10">承認:</span><%= @appro_user.name %>
+        </div>
+
+      </div>
+
+    </div>
+  
+  </div>
+
+  <div class="main-content">
+  
+    <div class="drawing-row-title">
+
+      <div class="left-space">
+        <span class="mar-30">図番・品名・規格</span>処理・材質・寸法
+      </div>
+
+      <div class="quantity-space">
+        数量
+      </div>
+
+      <div class="price-space">
+        単価
+      </div>
+
+      <div class="total-price-space">
+        金額
+      </div>
+
+      <div class="note-space">
+        摘要
+      </div>
+
+    </div>
+
+    <% @drawings.each do |drawing| %>
+
+      <div class="drawing-row">
+
+        <div class="left-space">
+          
+          <div class="top-space">
+
+            <div class="number-space">
+              <%= drawing.figure_number %>
+            </div>
+
+            <div class="name-space">
+              <%= drawing.product_name %>
+            </div>
+
+          </div>
+
+          <div class="bottom-space">
+
+            <div class="surface-space">
+              <%= drawing.surface_treatment %>
+            </div>
+
+            <div class="material-space">
+              <%= drawing.material %>
+            </div>
+
+            <div class="size-space">
+              <%= drawing.size %>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="quantity-space">
+          <div><%= drawing.quantity %>個</div>
+        </div>
+
+        <div class="price-space">
+          <div><%= drawing.price %>円</div>
+        </div>
+
+        <div class="total-price-space">
+          <div><%= drawing.price * drawing.quantity %>円</div>
+        </div>
+
+        <div class="note-space">
+          <div><%= drawing.notes %></div>
+        </div>
+
+      </div>
+
+    <% end %>
+
+  </div>
+
+  <div class="bottom-content">
+
+    <div class="remark">
+
+      <div class="remark-title">
+        備考:
+      </div>
+
+      <div class="remark-content">
+        <%= @quotation.remarks %>
+      </div>
+
+    </div>
+
+    <div class="price-name">
+
+      <div class="total-price-space">
+        小計
+      </div>
+
+      <div class="tax-space">
+        消費税
+      </div>
+
+      <div class="taxin-price">
+        税込合計
+      </div>
+
+    </div>
+  
+    <div class="total-price">
+
+      <div class="total-price-space">
+        <%= @quotation.total_price %>円
+      </div>
+
+      <div class="tax-space">
+        <%= (@quotation.total_price * 0.1).floor %>円
+      </div>
+
+      <div class="taxin-price">
+        <%= @quotation.total_price + (@quotation.total_price * 0.1).floor %>円
+      </div>
+
+    </div>
+
+
+</div>

@@ -1,3 +1,290 @@
 // Place all the styles related to the printings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@media print{
+  header {
+    display: none;
+  }
+}
+
+@page {
+  size: A4 portrait;
+  margin: 0mm;
+}
+
+.print-page {
+  // A4縦サイズ
+  width: 210mm;
+  height: 290mm;
+  padding: 15mm 15mm;
+  margin: 0 auto;
+  box-sizing: border-box;
+  page-break-after: avoid;
+
+  .top-content {
+    display: flex;
+    width: 170mm;
+    margin: 0 auto;
+    justify-content: center;
+    position: relative;
+
+    .title {
+      width: 50mm;
+      text-align: center;
+      margin-bottom: 5mm;
+
+      :after {
+        content: " ";
+        margin-right: -1rem;
+      }
+      span{
+        letter-spacing: 1rem;
+        font-size: 1.5rem;
+        border-bottom: solid 0.5px black;
+      }
+    }
+
+    .date {
+      font-size: 0.8rem;
+      text-align: right;
+      margin: 1mm;
+      position: absolute;
+      right: 0;
+
+      .top-area,
+      .bottom-area {
+        display: flex;
+      }
+
+      .top-area {
+        border-bottom: dotted 0.5mm black;
+      }
+
+      .left-area {
+        width: 13mm;
+      }
+
+      .right-area {
+        width: 25mm;
+      }
+    } 
+  }
+
+  .info-content {
+    width: 170mm;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2mm;
+
+    .left-info {
+      width: 70mm;
+      .client-name,
+      .charge-name,
+      .terms {
+        border-bottom: solid 0.3mm black;
+      }
+
+      .client-name {
+        font-size: 1.3rem;
+        text-align: center;
+      }
+
+      .charge-name {
+        text-align: center;
+      }
+
+      .comment {
+        font-size: 0.6rem;
+      }
+
+      .terms {
+        font-size: 0.8rem;
+      }
+      .taxin-price {
+        margin-top: 3mm;
+        font-size: 1.2rem;
+        text-align: center;
+        border-bottom: double 0.8mm black;
+      }
+    }
+    .right-info {
+
+      .company-info {
+        padding: 1mm 5mm;
+        border: solid 0.5mm black;
+        .company-ceo {
+          font-size: 0.9rem;
+        }
+
+        .info {
+          font-size: 0.7rem;
+        }
+      }
+
+      .user-info {
+        text-align: right;
+        font-size: 0.9rem;
+        width: fit-content;
+        margin: 1mm 2mm 1mm auto;
+        .user {
+          border-bottom: solid 0.3mm black;
+        }
+      }
+    }
+  }
+
+  .drawing-row-title {
+    width: 180mm;
+    margin: 0 auto;
+    display: flex;
+    font-size: 0.9rem;
+    text-align: center;
+
+    .left-space,
+    .quantity-space,
+    .price-space,
+    .total-price-space,
+    .note-space {
+      padding: 2mm;
+      border-top: solid 0.3mm black;
+      border-left: solid 0.3mm black;
+      border-bottom: solid 0.3mm black;
+    }
+  }
+    
+  .left-space {
+    width: 90mm;
+  }
+
+  .quantity-space {
+    width: 15mm;
+  }
+
+  .price-space {
+    width: 20mm;
+  }
+
+  .total-price-space {
+    width: 20mm;
+  }
+
+  .note-space {
+    width: 35mm;
+    border-right: solid 0.3mm black;
+  }
+
+  .drawing-row {
+    width: 180mm;
+    height: 10mm;
+    margin: 0 auto;
+    display: flex;
+    font-size: 0.7rem;
+    overflow: hidden;
+
+    .left-space,
+    .quantity-space,
+    .price-space,
+    .total-price-space,
+    .note-space {
+      border-left: solid 0.3mm black;
+      border-bottom: solid 0.3mm black;
+    }
+
+    .left-space {
+
+      .top-space {
+        display: flex;
+
+        .number-space {
+          width: 45mm;
+          padding: 0 2mm;
+          white-space: nowrap;
+        }
+
+        .name-space {
+          width: 45mm;
+          padding: 0.2mm;
+          white-space: nowrap;
+        }
+      }
+
+      .bottom-space {
+        display: flex;
+
+        .surface-space {
+          width: 35mm;
+          padding: 0 2mm;
+          white-space: nowrap;
+        }
+
+        .material-space {
+          width: 20mm;
+          padding: 0 2mm;
+          white-space: nowrap;
+        }
+
+        .size-space {
+          width: 35mm;
+          padding: 0 2mm;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .quantity-space,
+    .price-space,
+    .total-price-space {
+      display: flex;
+      align-items: center;
+      justify-content: right;
+      padding: 0 1mm;
+      white-space: nowrap;
+    }
+  }
+
+  .bottom-content {
+    display: flex;
+    width: 190mm;
+    margin: 0 auto;
+
+    .remark {
+      width: 105mm;
+      font-size: 0.7rem;
+
+      .remark-content {
+        padding-right: 2mm;
+        height: 6.2rem;
+        overflow: hidden;
+      }
+    }
+
+    .price-name {
+      width: 20mm;
+      text-align: center;
+      font-size: 0.7rem;
+    }
+
+    .total-price {
+      width: 20mm;
+      text-align: right;
+      font-size: 0.7rem;
+
+      .total-price-space,
+      .tax-space,
+      .taxin-price {
+        border-right: solid 0.3mm black;
+      }
+    }
+
+    .total-price-space,
+    .tax-space,
+    .taxin-price {
+      padding: 1mm 2mm;
+      border-left: solid 0.3mm black;
+      border-bottom: solid 0.3mm black;
+    }
+
+  }
+}

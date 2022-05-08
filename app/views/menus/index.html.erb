@@ -7,7 +7,7 @@
 
     <div class="menu-left-content">
 
-      <%= link_to "見積書一覧", quotations_path, class: "main-content btn" %>
+      <%= link_to "見積書一覧", quotations_path, class: "main-content-link btn" %>
 
       <div class="table-title">最新見積30件</div>
 
@@ -32,9 +32,9 @@
 
     <div class="menu-right-contents">
 
-        <%= link_to '見積新規登録', new_quotation_path, class: "main-content btn" %>
-        <%= link_to "見積承認(#{@appro_count})", approvals_path, class: "main-content btn" %>
-        <%= link_to "見積印刷(#{@print_count})", printings_path, class: "main-content btn" %>
+        <%= link_to '見積新規登録', new_quotation_path, class: "main-content-link btn" %>
+        <%= link_to "見積承認(#{@appro_count})", approvals_path, class: "main-content-link btn" %>
+        <%= link_to "見積印刷(#{@print_count})", printings_path, class: "main-content-link btn" %>
 
     </div>
 
