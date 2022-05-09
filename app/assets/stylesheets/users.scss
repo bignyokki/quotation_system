@@ -1,3 +1,53 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-index {
+
+  .user-table {
+    width: 720px;
+    height: 370px;
+    border-radius: 5px;
+    background-color: white;
+    margin-bottom: 10px;
+    overflow: scroll;
+  }
+
+  table {
+    background-color: white;
+    width: 695px;
+    border-collapse: separate;
+    border-spacing: 0px 2px;
+    margin: 0 auto;
+
+    .employee-number-td {
+      width: 80px;
+      text-align: right;
+    }
+
+    .name-td {
+      width: 200px;
+      text-align: center;
+    }
+
+    .role-td {
+      width: 200px;
+      text-align: center;
+    }
+
+    .edit-del-td {
+      width: 150px;
+    }
+
+    .btn-cell {
+
+      width: 150px;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+
+  .link-area {
+    margin: 10px 0 20px;
+  }
+}

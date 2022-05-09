@@ -320,6 +320,26 @@ a.btn--radius {
    border-radius: 100vh;
 }
 
+.table-btn {
+  display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 60px;
+	height: 1.2rem;
+	color: #333;
+	text-decoration: none;
+	transition: 0.3s;
+  background-color: #f5b282;
+	border: 1px solid #f5b282;
+  color: black;
+	border-radius: 35px;
+}
+
+.table-btn:hover {
+  color: white;
+	background-color: #f56500;
+	border: 1px solid #333;
+}
 
 /* 以下見積もり書一覧タブ機能実装用CSS */
 

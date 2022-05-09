@@ -1,18 +1,66 @@
-<h1>ユーザー一覧</h1>
-<% unless @user.blank? %>
+<div class="main-bord">
 
-  <% @user.each do |user|%>
-  <%= user.employee_number %>
-  <%= user.name %>
-  <%= user.admin.name %>
-  <% if user_signed_in? && current_user.has_role?(:admin) %>
-    <%= link_to '編集', edit_other_user_registration_path(user) %>
-    <%= link_to '削除', destroy_other_user_registration_path(user), method: :delete %>
-  <% end %>
-  <br>
+  <div class="contents user-index">
 
-  <% end %>
-<% end %>
-<br>
-<br>
-<%= link_to "新規登録", new_user_registration_path, class: "post" %>
+    <h1 class="content-title">ユーザー一覧</h1>
+
+    <div class="link-area">
+      <%= link_to "新規登録", new_user_registration_path, class: "post", class: "btn btn--orange" %>
+    </div>
+
+    <div class="user-table">
+
+      <table>
+
+        <tr>
+
+          <th>社員番号</th>
+          <th>氏名</th>
+          <th>属性</th>
+
+          <%# 管理者ユーザーのみ編集・削除ボタンのセルを表示 %>
+          <% if user_signed_in? && current_user.has_role?(:admin) %>
+            <th></th>
+          <% end %>
+
+        </tr>
+
+        <% unless @user.blank? %>
+
+          <% @user.each do |user|%>
+
+            <tr>
+
+              <td class="employee-number-td"><%= user.employee_number %></td>
+              <td class="name-td"><%= user.name %></td>
+              <td class="role-td"><%= user.admin.name %></td>
+      
+              <%# 管理者のみ編集・削除ボタンを表示 %>
+              <% if user_signed_in? && current_user.has_role?(:admin) %>
+
+                <td class="edit-del-td">
+                  <div class="btn-cell">
+                    <%= link_to '編集', edit_other_user_registration_path(user), class: "table-btn"%>
+                    <%= link_to '削除', destroy_other_user_registration_path(user), method: :delete, class: "table-btn" %>
+                  </div>
+                </td>
+
+              <% end %>
+
+            </tr>
+
+          <% end %>
+
+        <% end %>
+
+      </table>
+
+    </div>
+
+    <div class="link-area">
+      <%= link_to "戻る", root_path, class: "btn btn--orange" %>
+    </div>
+
+  </div>
+
+</div>
