@@ -51,3 +51,19 @@
     margin: 10px 0 20px;
   }
 }
+
+.new-user-item {
+  display: flex;
+  margin: 5px;
+
+  .new-user-label {
+    width: 300px;
+    text-align: right;
+    margin-right: 10px;
+    color: white;
+  }
+
+  .new-user-field {
+    width: 300px;
+  }
+}
