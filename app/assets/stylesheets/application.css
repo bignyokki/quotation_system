@@ -173,61 +173,6 @@ ul {
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
 }
 
-/* 以下顧客一覧テーブル */
-
-table.client_table{
-  width: 100%;
-  border-collapse:separate;
-  border-spacing: 0;
-}
-
-table.client_table th:first-child{
-  border-radius: 5px 0 0 0;
-}
-
-table.client_table th:last-child{
-  border-radius: 0 5px 0 0;
-  border-right: 1px solid #3c6690;
-}
-
-table.client_table th{
-  text-align: center;
-  color:white;
-  background: linear-gradient(#829ebc,#225588);
-  border-left: 1px solid #3c6690;
-  border-top: 1px solid #3c6690;
-  border-bottom: 1px solid #3c6690;
-  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
-  padding: 10px 0;
-}
-
-table.client_table td{
-  text-align: center;
-  border-left: 1px solid #a8b7c5;
-  border-bottom: 1px solid #a8b7c5;
-  border-top:none;
-  box-shadow: 0px -3px 5px 1px #eee inset;
-  padding: 10px 0;
-}
-
-table.client_table td:last-child{
-  border-right: 1px solid #a8b7c5;
-}
-
-table.client_table tr:last-child td:first-child {
-  border-radius: 0 0 0 5px;
-}
-
-table.client_table tr:last-child td:last-child {
-  border-radius: 0 0 5px 0;
-}
-
-table.client_table tr:nth-child(odd){
-  background-color: #eee
-}
-
-/* 以上顧客一覧テーブル */
-
 /* 以下単価表一覧 */
 
 table.price-table-index {
@@ -343,24 +288,12 @@ a.btn--radius {
 
 /* 以下見積もり書一覧タブ機能実装用CSS */
 
-.tabbox {
-  height: 390px;
-}
-
-.tabbox table {
-  margin: 0 auto;
-}
-
-.tabbox .name {
-  width: 200px;
-}
-
-.tabbox .kana {
-  width: 350px;
-}
-
 ul.tab-list {
   padding-left: 0px;
+  display: flex;
+  align-items: center;
+  width: 900px;
+  margin: 20px auto;
 }
 
 .tab {
@@ -371,6 +304,7 @@ ul.tab-list {
   border-bottom: solid 1px #CCC;
   background-color: rgb(248, 183, 62);
   font-size: 20px;
+  text-align: center;
 }
 li.tab {
   display: inline;

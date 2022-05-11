@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
 
 
   def index
-    @clients = Client.order(:name_kana)
+    @type_clients = Client.classification
   end
 
   def new

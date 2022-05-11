@@ -1,0 +1,35 @@
+.client-index {
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  th {
+    background-color: white;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #eee;
+  }
+
+  .name {
+    width: 200px;
+  }
+
+  .kana {
+    width: 220px;
+  }
+
+  .phone-number {
+    width: 130px;
+  }
+
+  .fax-number {
+    width: 130px;
+  }
+
+  .address {
+    width: 380px;
+  }
+}
