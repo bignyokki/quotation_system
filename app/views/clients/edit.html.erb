@@ -1,7 +1,28 @@
-<p>作成日時:<%= @client.created_at.to_s(:datetime_jp) %></p>
-<p>最終更新:<%= @client.updated_at.to_s(:datetime_jp) %></p>
+<div class="main-bord">
 
-<%= render partial: "form", locals: { client: @client } %>
-<%= link_to '削除', client_path(@client.id), method: :delete, class: "btn btn--orange btn--radius" %>
-<br>
-<%= link_to "戻る", clients_path %>
+  <div class="contents client-edit">
+
+
+    <div class="edit-client-item">
+
+      作成日時:<%= @client.created_at.to_s(:datetime_jp) %>
+
+    </div>
+
+    <div class="edit-client-item">
+      最終更新:<%= @client.updated_at.to_s(:datetime_jp) %>
+    </div>
+
+    <%= render partial: "form", locals: { client: @client } %>
+
+    <div class="link-area">
+      <%= link_to "削除", client_path(@client.id), method: :delete, class: "btn btn--orange" %>
+    </div>
+
+    <div class="link-area">
+      <%= link_to "戻る", clients_path, class: "btn btn--orange" %>
+    </div>
+
+  </div>
+
+</div>

@@ -33,3 +33,36 @@
     width: 380px;
   }
 }
+
+.new-client-item {
+  display: flex;
+  margin-bottom: 20px;
+
+  .new-client-label {
+    width: 100px;
+    color: white;
+    text-align: right;
+    margin-right: 20px;
+  }
+
+  .new-client-field {
+    
+    input {
+      width: 200px;
+    }
+
+    textarea {
+      width: 200px;
+    }
+
+  }
+}
+
+.client-edit {
+
+  .edit-client-item {
+    color: white;
+    margin: 10px auto;
+    font-size: 0.9rem;
+  }
+}

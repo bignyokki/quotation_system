@@ -1,8 +1,17 @@
-<h1>新規顧客情報</h1>
-
 <%= notice %>
-<%= render partial: "form", locals: { client: @client } %>
 
+<div class="main-bord">
 
-<br>
-<%= link_to "戻る", clients_path %>
+  <div class="contents">
+
+    <h1 class="content-title">新規顧客情報</h1>
+
+    <%= render partial: "form", locals: { client: @client } %>
+
+    <div class="link-area">
+      <%= link_to "戻る", clients_path, class: "btn btn--orange" %>
+    </div>
+
+  </div>
+
+</div>
