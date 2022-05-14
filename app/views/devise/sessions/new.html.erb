@@ -1,26 +1,49 @@
-<div class="contents row">
-  <div class="container">
-    <h2>Log in</h2>
+<div class="main-bord">
+
+  <div class="contents">
+
+    <h1 class="content-title">ログイン</h2>
+
     <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-      <div class="field">
-        <%= f.label :employee_number %><br />
-        <%= f.text_field :employee_number, autofocus: true %>
+
+      <div class="new-session-item">
+
+        <div class="new-session-label">
+          <%= f.label :employee_number, "社員番号" %>
+        </div>
+        <div class="new-session-field">
+          <%= f.text_field :employee_number, autofocus: true %>
+        </div>
+
       </div>
 
-      <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+      <div class="new-session-item">
+
+        <div class="new-session-label">
+          <%= f.label :password, "パスワード" %>
+        </div>
+        <div class="new-session-field">
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+
       </div>
 
       <% if devise_mapping.rememberable? %>
-        <div class="field">
-          <%= f.label :remember_me %><br />
-          <%= f.check_box :remember_me %>
+
+        <div class="new-session-item">
+
+          <div class="new-session-label">
+            <%= f.label :remember_me %>
+          </div>
+          <div class="new-session-field">
+            <%= f.check_box :remember_me %>
+          </div>
+
         </div>
       <% end -%>
 
       <div class="actions">
-        <%= f.submit "Log in" %>
+        <%= f.submit "ログイン", class: "btn btn--orange"%>
       </div>
     <% end %>
   </div>
