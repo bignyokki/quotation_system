@@ -16,3 +16,108 @@
   padding: 10px;
   border: solid 1px #778ca3;
  }
+
+ /* 以下単価表一覧 */
+
+table.price-table-index {
+  width: 1080px;
+  text-align: center;
+  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: white;
+}
+
+table.price-table-index th {
+  width: 30px;
+  font-size: 12px;
+  padding: 3px;
+  background: #e9faf9;
+  border: solid 1px #778ca3;
+}
+  
+table.price-table-index td {
+  padding: 3px;
+  border: solid 1px #778ca3;
+}
+
+.price-table-title {
+  width: 1080px;
+  text-align: left;
+  background-color: white;
+}
+
+/* 以上単価表一覧 */
+
+
+/* 以下単価表フォーム */
+
+.price-form-title {
+  display: flex;
+}
+
+.price-form-label {
+  width: 80px;
+  text-align: right;
+  color: white;
+  padding-right: 5px;
+}
+
+.price-form-field input{
+  width: 200px;
+}
+
+.design01 {
+  text-align: center;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 10px 0;
+}
+
+.design01 th {
+  width: 90px;
+  padding: 10px 2px;
+  font-size: 0.7rem;
+  background-color: #e9faf9;
+  border: solid 1px #778ca3;
+}
+
+.design01 th:first-child {
+  width: 60px;
+  font-size: 0.8rem;
+}
+
+.design01 td {
+  padding: 10px;
+  border: solid 1px #778ca3;
+  background-color: white;
+}
+
+.main-scale input,
+.size-scale input {
+  width: 60px;
+}
+
+
+.size-scale {
+  width: 500px;
+}
+
+.min-scale {
+  width: 500px;
+}
+
+.min-scale input[type="text"] {
+  width: 150px;
+}
+
+/* 以上単価表フォーム */
+
+.new-price {
+  position: relative;
+}
+
+.position-left {
+  position: absolute;
+  right: 30px;
+  bottom: 10px;
+}

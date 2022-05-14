@@ -1,3 +1,13 @@
-<h1>新規登録</h1>
-<%= render partial: "form", locals: { price_scale: @price_scale } %>
-<%= link_to '戻る', price_scales_path %>
+<div class="main-bord">
+
+  <div class="contents new-price">
+
+    <h1 class="content-title">新規登録</h1>
+
+    <%= render partial: "form", locals: { price_scale: @price_scale } %>
+
+    <%= link_to '戻る', price_scales_path, class: "btn btn--orange btn--radius back" %>
+
+  </div>
+
+</div>

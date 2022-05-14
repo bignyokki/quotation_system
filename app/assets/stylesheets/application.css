@@ -173,57 +173,6 @@ ul {
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
 }
 
-/* 以下単価表一覧 */
-
-table.price-table-index {
-  width: 100%;
-  text-align: center;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-table.price-table-index th {
-  font-size: 12px;
-  padding: 3px;
-  background: #e9faf9;
-  border: solid 1px #778ca3;
-}
-  
-table.price-table-index td {
-  padding: 3px;
-  border: solid 1px #778ca3;
-}
-
-/* 以上単価表一覧 */
-
-
-
-/* 以下単価表フォーム */
-
-.design01 {
-  width: 100%;
-  text-align: center;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-.design01 th {
-  padding: 10px;
-  background: #e9faf9;
-  border: solid 1px #778ca3;
-}
-
-.design01 td {
-  padding: 10px;
-  border: solid 1px #778ca3;
-}
-
-div.price-scale-form input[type="text"]{
-  width: 100px;
-}
-
-/* 以上単価表フォーム */
-
 html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -233,7 +182,6 @@ html {
 a.btn,
 button.btn {
   line-height: 1.5;
-  position: relative;
   display: inline-block;
   padding: 10px 20px;
   cursor: pointer;
@@ -284,6 +232,35 @@ a.btn--radius {
   color: white;
 	background-color: #f56500;
 	border: 1px solid #333;
+}
+
+.btn--delete {
+  padding: 0.5em;
+  margin: 10px 0;
+  display: block;
+  color: #fff !important;
+  background: red;
+  text-decoration: none;
+  font-weight: bold;
+  font-size:16px;
+  border-radius: 3px;
+  text-align:center;
+  text-decoration:none !important;
+}
+
+.btn--delete:before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin: -3px 5px 0 0;
+  background: url("garbage") no-repeat;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.btn--delete:hover {
+  background: rgb(245, 151, 151);
 }
 
 /* 以下見積もり書一覧タブ機能実装用CSS */

@@ -1,55 +1,69 @@
-<h1>単価表一覧</h1>
-<%= link_to '新規登録', new_price_scale_path %>
-<br>
-<% unless @price_scales.blank? %>
-  <% @price_scales.each do |price_scale| %>
-    <%= price_scale.title %>
-    <%= price_scale.surface_treatment %>
-    <%= link_to '編集', edit_price_scale_path(price_scale.id)%>
-    <table class="price-table-index">
-      <tr>
-        <th></th>
-        <th>0 ≦ x < 3</th>
-        <th>3 ≦ x < 6</th>
-        <th>6 ≦ x < 10</th>
-        <th>10 ≦ x < 15</th>
-        <th>15 ≦ x < 22</th>
-        <th>22 ≦ x < 30</th>
-        <th>30 ≦ x < 40</th>
-        <th>40 ≦ x < 55</th>
-        <th>55 ≦ x < 75</th>
-        <th>75 ≦ x < 100</th>
-        <th>100 ≦ x</th>
-        </tr>
-      <tr>
-        <th>面積</th>
-        <td><%= price_scale.scale_a_0_3 %></td>
-        <td><%= price_scale.scale_a_3_6 %></td>
-        <td><%= price_scale.scale_a_6_11 %></td>
-        <td><%= price_scale.scale_a_11_15 %></td>
-        <td><%= price_scale.scale_a_15_22 %></td>
-        <td><%= price_scale.scale_a_22_30 %></td>
-        <td><%= price_scale.scale_a_30_50 %></td>
-        <td><%= price_scale.scale_a_50_80 %></td>
-        <td><%= price_scale.scale_a_80_150 %></td>
-        <td><%= price_scale.scale_a_150_180 %></td>
-        <td><%= price_scale.scale_a_180over %></td>
-      </tr>
-      <tr>
-        <th>重量</th>
-        <td><%= price_scale.scale_w_0_3 %></td>
-        <td><%= price_scale.scale_w_3_6 %></td>
-        <td><%= price_scale.scale_w_6_11 %></td>
-        <td><%= price_scale.scale_w_11_15 %></td>
-        <td><%= price_scale.scale_w_15_22 %></td>
-        <td><%= price_scale.scale_w_22_30 %></td>
-        <td><%= price_scale.scale_w_30_50 %></td>
-        <td><%= price_scale.scale_w_50_80 %></td>
-        <td><%= price_scale.scale_w_80_150 %></td>
-        <td><%= price_scale.scale_w_150_180 %></td>
-        <td><%= price_scale.scale_w_180over %></td>
-      </tr>
-    </table>
-  <% end %>
-<% end %>
-<%= link_to '戻る', root_path %>
+<div class="main-bord">
+
+  <div class="contents price-scale-index">
+
+    <h1 class="content-title">単価表一覧</h1>
+
+    <%= link_to '新規登録', new_price_scale_path, class: "btn btn--orange" %>
+
+    <% unless @price_scales.blank? %>
+      <% @price_scales.each do |price_scale| %> 
+
+        <div class="price-table-title">
+          <%= price_scale.title %>
+          <%= price_scale.surface_treatment %>
+          <%= link_to '編集', edit_price_scale_path(price_scale.id) %>
+        </div>
+
+        <table class="price-table-index">
+          <tr>
+            <th></th>
+            <th>0 ≦ x < 3</th>
+            <th>3 ≦ x < 6</th>
+            <th>6 ≦ x < 10</th>
+            <th>10 ≦ x < 15</th>
+            <th>15 ≦ x < 22</th>
+            <th>22 ≦ x < 30</th>
+            <th>30 ≦ x < 40</th>
+            <th>40 ≦ x < 55</th>
+            <th>55 ≦ x < 75</th>
+            <th>75 ≦ x < 100</th>
+            <th>100 ≦ x</th>
+            </tr>
+          <tr>
+            <th>面積</th>
+            <td><%= price_scale.scale_a_0_3 %></td>
+            <td><%= price_scale.scale_a_3_6 %></td>
+            <td><%= price_scale.scale_a_6_11 %></td>
+            <td><%= price_scale.scale_a_11_15 %></td>
+            <td><%= price_scale.scale_a_15_22 %></td>
+            <td><%= price_scale.scale_a_22_30 %></td>
+            <td><%= price_scale.scale_a_30_50 %></td>
+            <td><%= price_scale.scale_a_50_80 %></td>
+            <td><%= price_scale.scale_a_80_150 %></td>
+            <td><%= price_scale.scale_a_150_180 %></td>
+            <td><%= price_scale.scale_a_180over %></td>
+          </tr>
+          <tr>
+            <th>重量</th>
+            <td><%= price_scale.scale_w_0_3 %></td>
+            <td><%= price_scale.scale_w_3_6 %></td>
+            <td><%= price_scale.scale_w_6_11 %></td>
+            <td><%= price_scale.scale_w_11_15 %></td>
+            <td><%= price_scale.scale_w_15_22 %></td>
+            <td><%= price_scale.scale_w_22_30 %></td>
+            <td><%= price_scale.scale_w_30_50 %></td>
+            <td><%= price_scale.scale_w_50_80 %></td>
+            <td><%= price_scale.scale_w_80_150 %></td>
+            <td><%= price_scale.scale_w_150_180 %></td>
+            <td><%= price_scale.scale_w_180over %></td>
+          </tr> 
+        </table>
+      <% end %>
+    <% end %>
+
+    <%= link_to '戻る', root_path, class: "btn btn--orange btn--radius back"  %>
+
+  </div>
+
+</div>
