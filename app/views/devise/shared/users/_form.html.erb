@@ -9,10 +9,16 @@
 <%= render "devise/shared/error_messages", resource: resource %>
 
   <% if !defined?(password_only) || !password_only %>
-    <div class="field">
-      <%= f.label :employee_number %><br />
+    <div class="new-user-item">
+
+    <div class="new-user-label">
+      <%= f.label :employee_number, "社員番号" %>
+    </div>
+    <div class="new-user-field">
       <%= f.text_field :employee_number, autofocus: true, autocomplete: "employee_number" %>
     </div>
+
+  </div>
   <% end %>
 
   <% required = false %>
@@ -20,14 +26,26 @@
     <% required = true %>
   <% end %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off", required: required %>
+  <div class="new-user-item">
+
+    <div class="new-user-label">
+      <%= f.label :password, "パスワード" %>
+    </div>
+    <div class="new-user-field">
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  <div class="new-user-item">
+
+    <div class="new-user-label">
+      <%= f.label :password_confirmation, "パスワード(再入力)" %>
+    </div>
+    <div class="new-user-field">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
   </div>
 
   <div class="field">
@@ -37,5 +55,5 @@
     <% end %>
   </div>
 
-  <%= f.submit %>
+  <%= f.submit, class: "btn btn--form" %>
 <% end %>

@@ -1,2 +1,98 @@
-<% form_url = (request.path_info.to_s == edit_other_user_registration_path(resource)) ? other_user_registration_path(resource): user_registration_path %>
-<%= render 'devise/shared/users/form', resource: resource, resource_name: resource_name, form_url: form_url %>
+<div class="main-bord">
+
+  <div class="contents">
+
+    <h1 class="content-title">ユーザー情報編集</h1>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="new-user-item">
+
+        <div class="new-user-label">
+          <%= f.label :employee_number, "社員番号" %>
+        </div>
+        <div class="new-user-field">
+          <%= f.text_field :employee_number, autofocus: true, autocomplete: "employee_number" %>
+        </div>
+
+      </div>
+
+
+
+      <div class="new-user-item">
+
+        <div class="new-user-label">
+
+        <%= f.label :password, "新しいパスワード" %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %>
+        </div>
+        <div class="new-user-field">
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
+
+      </div>
+
+      <div class="new-user-item">
+
+        <div class="new-user-label">
+          <%= f.label :password_confirmation, "新しいパスワード(再入力)" %>
+        </div>
+        <div class="new-user-field">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+
+      </div>
+
+      <div class="new-user-item">
+
+        <div class="new-user-label">
+          <%= f.label :name, "氏名" %>
+        </div>
+        <div class="new-user-field">
+          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        </div>
+
+      </div>
+
+      <div class="new-user-item">
+
+        <div class="new-user-label">
+          <%= f.label :admin_id, "権限" %>
+        </div>
+        <div class="new-user-field">
+          <%= f.collection_select(:admin_id, Admin.all, :id, :name, {}, {}) %>
+        </div>
+
+      </div>
+
+      <div class="new-user-item">
+
+        <div class="new-user-label">
+          <%= f.label :current_password, "現在のパスワード" %>
+        </div>
+        <div class="new-user-field">
+          <%= f.password_field :current_password, autocomplete: "current-password" %>
+        </div>
+
+      </div>
+
+      <div class="new-user-item">
+        <%= f.submit "登録", class: "btn--form center"  %>
+      </div>
+
+    <% end %>
+
+    <div class="user-link-area">
+
+      <%= link_to "戻る", users_index_path, class: "btn btn--orange" %>
+      <%= link_to "削除", user_registration_path(resource_name), method: :delete, class: "btn btn--delete" %>
+
+    </div>
+
+
+  </div>
+
+</div>

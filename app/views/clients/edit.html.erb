@@ -15,12 +15,9 @@
 
     <%= render partial: "form", locals: { client: @client } %>
 
-    <div class="link-area">
-      <%= link_to "削除", client_path(@client.id), method: :delete, class: "btn btn--orange" %>
-    </div>
-
-    <div class="link-area">
+    <div class="client-link-area">
       <%= link_to "戻る", clients_path, class: "btn btn--orange" %>
+      <%= link_to "削除", client_path(@client.id), method: :delete, class: "btn btn--delete" %>
     </div>
 
   </div>

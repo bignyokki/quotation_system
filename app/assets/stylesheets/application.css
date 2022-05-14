@@ -3,17 +3,15 @@
  *= require_self
  */
 
-
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: inherit;
-  box-sizing: inherit;
+ html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 ul {
   list-style: none;
 }
+
 
 .main-bord {
   width: 1100px;
@@ -69,114 +67,8 @@ ul {
   margin: 0;
 }
 
-/* メニュー画面用CSS */
 
-.menu-main{
-  background-color: royalblue;
-  width: 1100px;
-  margin: 50px auto;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  border-radius: 0.5rem;
-
-}
-
-.menu-upper-contents{
-  margin: 50px;
-  width: 1100px;
-  height: 400px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.menu-left-content{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.table-title{
-  color: white;
-  width: 600px;
-  text-align: left;
-}
-
-.new-quotation-list{
-  background-color: whitesmoke;
-  width: 600px;
-  height: 300px;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  border-radius: 0.5rem;
-}
-
-.new-quotation-list table{
-  width: 600px;
-  border-collapse:  collapse;
-}
-
-.new-quotation-list tr, td{
-  border: solid 1px;
-  padding: .1em .3em;
-  white-space: nowrap;
-}
-
-.new-quotation-list td:first-child{
-  width: 1px;
-  text-align: center;
-}
-
-.new-quotation-list .name{
-  width: 1px;
-}
-
-.new-quotation-list .title{
-  width: 100%;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 0;
-}
-
-.new-quotation-list .price{
-  width: 1px;
-  text-align: right;
-}
-
-.menu-right-contents{
-  display: flex;
-  justify-content: space-around;
-  flex-direction: column;
-}
-
-.menu-under-contents{
-  display: flex;
-  justify-content: space-around;
-}
-
-.main-content-link{
-  color: #fff;
-  background-color: #19b5d1;
-  font-size: 30px;
-  width: 300px;
-  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
-}
-
-.sub-content{
-  width: 200px;
-  margin: 10px 30px;
-  color: white;
-  background-color: rgb(160, 158, 158);
-  font-size: 20px;
-  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
-}
-
-html {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
+/* ボタン関連CSS */
 
 .btn,
 a.btn,
@@ -242,10 +134,10 @@ a.btn--radius {
   background: red;
   text-decoration: none;
   font-weight: bold;
-  font-size:16px;
+  font-size: large ;
   border-radius: 3px;
-  text-align:center;
-  text-decoration:none !important;
+  text-align: center;
+  text-decoration: none !important;
 }
 
 .btn--delete:before {
@@ -261,6 +153,23 @@ a.btn--radius {
 
 .btn--delete:hover {
   background: rgb(245, 151, 151);
+}
+
+.btn--form {
+  min-width: 80px;
+  padding: 0.5em;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #6fd259;
+  border: solid 1px #6fd259;
+  color: #ffffff;
+  transition: .3s;
+  margin: 10px auto;
+}
+
+.btn--form:hover {
+  background-color: #c3f7b8;
 }
 
 /* 以下見積もり書一覧タブ機能実装用CSS */
@@ -304,7 +213,7 @@ li.tab {
 /* タブの中身、最初は非表示 */
 .tabbox {
   display: none;
-  padding: 15px;
+  padding: 5px;
 }
 /* box-showクラスのものだけ表示 */
 .box-show {
@@ -350,7 +259,7 @@ li.tab {
   padding: 10px 0;
 }
 
-.quotation-form input:not(.quotation-form-btn),
+.quotation-form input:not(.btn),
 .quotation-form select {
   width: 300px;
   padding: 5px;
@@ -368,12 +277,6 @@ li.tab {
 
 .quotation-form .submit-btn {
   text-align: center;
-}
-
-.quotation-form-btn {
-  padding: 2px 30px;
-  border-radius: 5px;
-  display: inline-block;
 }
 
 .input-center {

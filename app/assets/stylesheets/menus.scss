@@ -1,3 +1,107 @@
 // Place all the styles related to the menus controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* メニュー画面用CSS */
+
+.menu-main{
+  background-color: royalblue;
+  width: 1100px;
+  margin: 50px auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 0.5rem;
+
+}
+
+.menu-upper-contents{
+  margin: 50px;
+  width: 1100px;
+  height: 400px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.menu-left-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.table-title{
+  color: white;
+  width: 600px;
+  text-align: left;
+}
+
+.new-quotation-list{
+  background-color: whitesmoke;
+  width: 600px;
+  height: 300px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-radius: 0.5rem;
+}
+
+.new-quotation-list table{
+  width: 600px;
+  border-collapse:  collapse;
+}
+
+.new-quotation-list tr, td{
+  border: solid 1px;
+  padding: .1em .3em;
+  white-space: nowrap;
+}
+
+.new-quotation-list td:first-child{
+  width: 1px;
+  text-align: center;
+}
+
+.new-quotation-list .name{
+  width: 1px;
+}
+
+.new-quotation-list .title{
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 0;
+}
+
+.new-quotation-list .price{
+  width: 1px;
+  text-align: right;
+}
+
+.menu-right-contents{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.menu-under-contents{
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-content-link{
+  color: #fff;
+  background-color: #19b5d1;
+  font-size: 30px;
+  width: 300px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+}
+
+.sub-content{
+  width: 200px;
+  margin: 10px 30px;
+  color: white;
+  background-color: rgb(160, 158, 158);
+  font-size: 20px;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+}

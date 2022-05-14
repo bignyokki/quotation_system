@@ -87,9 +87,10 @@
 
         </div>
     
-        <div class="input-center">
-          <%= form.submit "承認", name: "approval_btn", id: "submit", class: "quotation_form-btn" %>
-          <%= form.submit "差し戻し", name: "back_btn", id: "submit2", class: "quotation_form-btn" %>
+        <div class="approval-submit">
+          <%= form.submit "承認", name: "approval_btn", id: "submit", class: "btn btn--form" %>
+          <%= form.submit "差し戻し", name: "back_btn", id: "submit2", class: "btn btn--form" %>
+          <%= link_to "戻る", approvals_path, class: "btn btn--orange" %>
         </div>
 
       <% end %>

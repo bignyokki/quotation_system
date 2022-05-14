@@ -4,98 +4,106 @@
 
     <h1 class="content-title">新規見積入力(2/2)</h1>
 
-      <%= form_with(model: @quotation, id: "quotation_input", local: true) do |form| %>
+    <%= form_with(model: @quotation, id: "quotation_input", local: true) do |form| %>
 
-        <div class="quotation-form">
+      <div class="quotation-form">
 
-          <%# 顧客名は１００件以上になるため、後でサジェスト機能を実装する%>
-          <%= form.label :client_id, "顧客名" %>
-          <%= form.collection_select(:client_id, @clients, :id, :name, include_blank: "選択してください" ) %>
-          <br>
-          <%= form.label :title, "タイトル" %>
-          <%= form.text_field :title %>
-          <br>
-          <%= form.label :charge, "ご担当" %>
-          <%= form.text_field :charge %>
-          <br>
-          <%= form.label :delivery_date, "納期" %>
-          <%= form.text_field :delivery_date %>
-          <br>
-          <%= form.label :expiration_date, "有効期限" %>
-          <%= form.text_field :expiration_date %>
-          <br>
-          <%= form.label :delivery_place, "受け渡し場所" %>
-          <%= form.text_field :delivery_place %>
-          <br>
-          <%= form.label :business_terms, "取引条件" %>
-          <%= form.text_field :business_terms %>
-    
-        </div>
+        <%# 顧客名は１００件以上になるため、後でサジェスト機能を実装する%>
+        <%= form.label :client_id, "顧客名" %>
+        <%= form.collection_select(:client_id, @clients, :id, :name, include_blank: "選択してください" ) %>
+        <br>
+        <%= form.label :title, "タイトル" %>
+        <%= form.text_field :title %>
+        <br>
+        <%= form.label :charge, "ご担当" %>
+        <%= form.text_field :charge %>
+        <br>
+        <%= form.label :delivery_date, "納期" %>
+        <%= form.text_field :delivery_date %>
+        <br>
+        <%= form.label :expiration_date, "有効期限" %>
+        <%= form.text_field :expiration_date %>
+        <br>
+        <%= form.label :delivery_place, "受け渡し場所" %>
+        <%= form.text_field :delivery_place %>
+        <br>
+        <%= form.label :business_terms, "取引条件" %>
+        <%= form.text_field :business_terms %>
+  
+      </div>
 
 
-        <% total_price = 0 %>
-        <% @drawings.each do |drawing| %>
+      <% total_price = 0 %>
+      <% @drawings.each do |drawing| %>
 
-          <%= render "drawings_list", drawing: drawing %>
+        <%= render "drawings_list", drawing: drawing %>
 
-          <% total_price += drawing.price * drawing.quantity %>
-
-        <% end %>
-
-        <div class="total-price-area">
-
-          <div class="notax-area">
-
-            <div class="title-area">
-              小計
-            </div>
-            <div class="price-output-area">
-              <%= total_price %>円
-            </div>
-
-          </div>
-          <div class="tax-area">
-
-            <div class="title-area">
-              消費税
-            </div>
-            <div class="price-output-area">
-              <% tax = total_price * 0.1 %>
-              <%= tax.floor %>円
-            </div>
-          
-          </div>
-          <div class="taxin-area">
-
-            <div class="title-area">
-              税込合計
-            </div>
-            <div class="price-output-area">
-              <%= total_price + tax.floor %>円
-            </div>
-
-        </div>
-
-        <div class="quotation-form">
-
-          <%= form.hidden_field :total_price, :value => total_price %>
-          <%= form.label :remarks, "備考" %>
-          <%= form.text_area :remarks %>
-          <br>
-          <%= form.label :hidden_remarks, "備考(非表示)" %>
-          <%= form.text_area :hidden_remarks %>
-
-        </div>
-
-        <%# 見積もりを新規作成したときは承認待ち(approval = 0),印刷待ち(printing = 0)にする%>
-        <%= form.hidden_field :approval, :value => 0 %>
-        <%= form.hidden_field :printing, :value => 0 %>
-    
-        <div class="input-center">
-          <%= form.submit "見積を保存", id: "submit", class: "quotation-form-btn" %>
-        </div>
+        <% total_price += drawing.price * drawing.quantity %>
 
       <% end %>
+
+      <div class="total-price-area">
+
+        <div class="notax-area">
+
+          <div class="title-area">
+            小計
+          </div>
+          <div class="price-output-area">
+            <%= total_price %>円
+          </div>
+
+        </div>
+        <div class="tax-area">
+
+          <div class="title-area">
+            消費税
+          </div>
+          <div class="price-output-area">
+            <% tax = total_price * 0.1 %>
+            <%= tax.floor %>円
+          </div>
+        
+        </div>
+        <div class="taxin-area">
+
+          <div class="title-area">
+            税込合計
+          </div>
+          <div class="price-output-area">
+            <%= total_price + tax.floor %>円
+          </div>
+
+      </div>
+
+      <div class="quotation-form">
+
+        <%= form.hidden_field :total_price, :value => total_price %>
+        <%= form.label :remarks, "備考" %>
+        <%= form.text_area :remarks %>
+        <br>
+        <%= form.label :hidden_remarks, "備考(非表示)" %>
+        <%= form.text_area :hidden_remarks %>
+
+      </div>
+
+      <%# 見積もりを新規作成したときは承認待ち(approval = 0),印刷待ち(printing = 0)にする%>
+      <%= form.hidden_field :approval, :value => 0 %>
+      <%= form.hidden_field :printing, :value => 0 %>
+  
+      <div class="input-center">
+        <%= form.submit "見積を保存", id: "submit", class: "btn btn--form" %>
+      </div>
+
+    <% end %>
+
+    <div class="quotation-link-area">
+
+      <%= link_to "印刷", printing_path(@quotation.id), class: "btn btn--orange" %>
+      <%= link_to "戻る", index_quotations_client_path(@quotation.client_id), class: "btn btn--orange" %>
+      <%= link_to "削除", quotation_path(@quotation.id), method: :delete, class: "btn btn--delete" %>
+
+    </div>
 
 
   </div>

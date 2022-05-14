@@ -15,7 +15,12 @@ Rails.application.routes.draw do
   resources :quotations do
     resources :drawings
   end
-  resources :approvals, only: [:index, :edit, :update]
+  resources :approvals, only: [:index, :edit, :update] do
+    collection do
+      # 差し戻し一覧ページ
+      get :index2
+    end
+  end
   resources :printings, only: [:index, :show]
 
   get 'users/index'

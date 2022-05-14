@@ -34,6 +34,12 @@ class QuotationsController < ApplicationController
     end
   end
 
+  def destroy
+    quotation = Quotation.find(params[:id])
+    quotation.destroy
+    redirect_to index_quotations_client_path(quotation.client_id)
+  end
+
   private
 
   def quotation_params
