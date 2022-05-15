@@ -1,0 +1,35 @@
+<div class="main-bord">
+
+  <div class="contents">
+
+    <h1 class="content-title">差し戻し見積一覧</h1>
+
+    <div class="index-approval-list">
+
+      <table>
+
+        <tr>
+            <th>日付</th>
+            <th>顧客名</th>
+            <th>タイトル</th>
+            <th>金額</th>
+          </tr>
+
+        <% @quotations.each do |quotation| %>
+          <tr>
+            <td class="data"><%= quotation.created_at.strftime('%y/%m/%d') %></td>
+            <td class="name"><%= quotation.client.name %></td>
+            <td class="title"><div class="title-hidden"><%= link_to quotation.title, edit_quotation_path(quotation.id) %></div></td>
+            <td class="price"><%= quotation.total_price %>円</td>
+          </tr>
+        <% end %>
+
+      </table>
+
+    </div>
+
+    <%= link_to "戻る", root_path, class: "btn btn--orange" %>
+
+  </div>
+
+</div>

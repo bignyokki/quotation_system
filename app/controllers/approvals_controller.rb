@@ -4,6 +4,10 @@ class ApprovalsController < ApplicationController
     @quotations = Quotation.where(approval: 0)
   end
 
+  def index2
+    @quotations = Quotation.where(approval: 2)
+  end
+
   def edit
     @clients = Client.all
     @quotation = Quotation.find(params[:id])
