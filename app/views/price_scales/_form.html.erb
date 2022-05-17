@@ -115,6 +115,20 @@
 
     </table>
 
-</div>
-<%= f.submit "保存" %>
+  </div>
+
+  <div class="price_scale_btn_area">
+
+  <%= f.submit "保存", class: "btn btn--form" %>
+
+  <%= link_to '戻る', price_scales_path, class: "btn btn--orange btn--radius back" %>
+
+  <% if jud == "edit" %>
+
+    <%= link_to '削除', price_scale_path(@price_scale.id), method: :delete, class: "btn btn--delete" %>
+
+  <% end %>
+
+  </div>
+
 <% end %>

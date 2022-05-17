@@ -4,11 +4,10 @@
 
     <h1 class="content-title">新規登録</h1>
 
-    <%= render partial: "form", locals: { price_scale: @price_scale } %>
+    <% jud = "edit" %>
 
-    <%= link_to '削除', price_scale_path(@price_scale.id), method: :delete, class: "btn btn--delete position-left" %>
+    <%= render partial: "form", locals: { price_scale: @price_scale, jud: jud } %>
 
-    <%= link_to '戻る', price_scales_path, class: "btn btn--orange btn--radius back" %>
 
   </div>
 
