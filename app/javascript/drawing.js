@@ -4,7 +4,7 @@ var length, width, height, outerDia, long, insideDia;
 var weightResult, weightScale, weightPrice, weightPriceSelect;
 var areaResult, areaScale, areaPrice, areaPriceSelect;
 var sizeResult, sizeScale, sizePrice, sizePriceSelect;
-var priceResult;
+var priceResult, drawing_quantity, drawing_notes;
 
 const calPrice = (priceScaleHash, calWeight, calArea, calSize) => {
   // 単価表のインスタンス変数から選択された単価表のみを取り出す
@@ -62,34 +62,34 @@ const calPrice = (priceScaleHash, calWeight, calArea, calSize) => {
       areaPrice.value = calAreaPrice;
     };
   } else if ( calArea >= 3 && calArea < 6 ) {
-    areaScale.value = priceScale.scale_w_3_6;
+    areaScale.value = priceScale.scale_a_3_6;
     areaPrice.value = Math.ceil( calArea * areaScale.value / 10 ) * 10;
   } else if ( calArea >= 6 && calArea < 11 ) {
-    areaScale.value = priceScale.scale_w_6_11;
+    areaScale.value = priceScale.scale_a_6_11;
     areaPrice.value = Math.ceil( calArea * areaScale.value / 10 ) * 10;
   } else if ( calArea >= 11 && calArea < 15 ) {
-    areaScale.value = priceScale.scale_w_11_15;
+    areaScale.value = priceScale.scale_a_11_15;
     areaPrice.value = Math.ceil( calArea * areaScale.value / 10 ) * 10;
   } else if ( calArea >= 15 && calArea < 22 ) {
-    areaScale.value = priceScale.scale_w_15_22;
+    areaScale.value = priceScale.scale_a_15_22;
     areaPrice.value = Math.ceil( calArea * areaScale.value / 10 ) * 10;
   } else if ( calArea >= 22 && calArea < 30 ) {
-    areaScale.value = priceScale.scale_w_22_30;
+    areaScale.value = priceScale.scale_a_22_30;
     areaPrice.value = Math.ceil( calArea * areaScale.value / 10 ) * 10;
   } else if ( calArea >= 30 && calArea < 50 ) {
-    areaScale.value = priceScale.scale_w_30_50;
+    areaScale.value = priceScale.scale_a_30_50;
     areaPrice.value = Math.ceil( calArea * areaScale.value / 10 ) * 10;
   } else if ( calArea >= 50 && calArea < 80 ) {
-    areaScale.value = priceScale.scale_w_50_80;
+    areaScale.value = priceScale.scale_a_50_80;
     areaPrice.value = Math.ceil( calArea * areaScale.value / 10 ) * 10;
   } else if ( calArea >= 80 && calArea < 150 ) {
-    areaScale.value = priceScale.scale_w_80_150;
+    areaScale.value = priceScale.scale_a_80_150;
     areaPrice.value = Math.ceil( calArea * areaScale.value / 10 ) * 10;
   } else if ( calArea >= 150 && calArea < 180 ) {
-    areaScale.value = priceScale.scale_w_150_180;
+    areaScale.value = priceScale.scale_a_150_180;
     areaPrice.value = Math.ceil( calArea * areaScale.value / 10 ) * 10;
   } else if ( calArea >= 180 ) {
-    areaScale.value = priceScale.scale_w_180over;
+    areaScale.value = priceScale.scale_a_180over;
     areaPrice.value = Math.ceil( calArea * areaScale.value / 10 ) * 10;
   };
   // 外径計算：外径の合計によってカラムを選択
@@ -192,6 +192,8 @@ window.addEventListener('load',() => {
   sizePrice = document.getElementById("size_price");
   sizePriceSelect = document.getElementById("size_price_select");
   priceResult = document.getElementById("price_result");
+  drawingQuantity = document.getElementById("drawing_quantity");
+  drawingNotes = document.getElementById("drawing_notes");
 
   // 重量、面積の計算
   // 計算用の変数の定義
@@ -371,11 +373,10 @@ window.addEventListener('load',() => {
         return null;
       };
       const list = document.getElementById("list");
-      list.insertAdjacentHTML("afterend", buildHTML(XHR));
+      list.insertAdjacentHTML("beforebegin", buildHTML(XHR));
       figureNumber.value = "";
       productName.value = "";
       material.value = "";
-      surfaceTreatment.value = "";
       length.value = "";
       width.value = "";
       height.value = "";
@@ -392,6 +393,8 @@ window.addEventListener('load',() => {
       sizeScale.value = "";
       sizePrice.value = "";
       priceResult.value = "";
+      drawingQuantity.value = "";
+      drawingNotes.value = "";
     };
   });
 
