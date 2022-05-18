@@ -111,13 +111,13 @@ a.btn--radius {
 	align-items: center;
 	width: 60px;
 	height: 1.2rem;
-	color: #333;
 	text-decoration: none;
 	transition: 0.3s;
   background-color: #f5b282;
 	border: 1px solid #f5b282;
   color: black;
 	border-radius: 35px;
+  margin: auto 5px;
 }
 
 .table-btn:hover {
