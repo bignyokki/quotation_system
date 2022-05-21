@@ -8,10 +8,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
 
-  validates :employee_number, presence: true, uniqueness: true, format: { with: /\A[0-9]{4}\z/ } #数字4桁のみ
-  validates :password, presence: true, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+{8,16}\z/i } #英字、数字を含む8~16文字
-  validates :name, presence: true
-  validates :admin_id, presence: true
+  with_options presence: true do
+    validates :employee_number,      uniqueness: { case_sensitive: true }, format: { with: /\A[0-9]{4}\z/ } #数字4桁のみ
+    validates :password,             confirmation: true, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,16}\z/i } #英字、数字を含む8~16文字
+    validates :password_confirmation
+    validates :name
+    validates :admin_id,             numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 2 }
+  end
 
   def email_required?
     false
