@@ -88,7 +88,7 @@
     <div class="user-link-area">
 
       <%= link_to "戻る", users_index_path, class: "btn btn--orange" %>
-      <%= link_to "削除", user_registration_path(resource_name), method: :delete, class: "btn btn--delete" %>
+      <%= link_to "削除", destroy_other_user_registration_path(params[:id]), method: :delete, class: "btn btn--delete" %>
 
     </div>
 
