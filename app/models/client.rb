@@ -1,8 +1,16 @@
 class Client < ApplicationRecord
     has_many :quotations
 
+
+    VALID_PHONE_NUMBER_REGEX = /\A0(\d{1}-\d{4}|\d{2}-\d{3}|\d{3}-\d{2}|\d{4}-\d{1}|\d{2}-\d{4})-\d{4}\z/
+    VALID_FAX_NUMBER_REGEX = /\A0(\d{1}-\d{4}|\d{2}-\d{3}|\d{3}-\d{2}|\d{4}-\d{1}|)-\d{4}\z/
+
     validates :name,         presence: true
     validates :name_kana,    presence: true
+    validates :phone_number, format: { with: VALID_PHONE_NUMBER_REGEX }, allow_blank: true
+    validates :fax_number,   format: { with: VALID_FAX_NUMBER_REGEX }, allow_blank: true
+    validates :email,        format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }, allow_blank: true
+    validates :postal_code,  format: { with: /\A\d{3}-\d{4}\z/ }, allow_blank: true
 
     # clientをかなの行ごとに分類するメソッド
     def self.classification
