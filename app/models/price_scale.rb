@@ -1,5 +1,4 @@
 class PriceScale < ApplicationRecord
-  has_many :drawings
 
   with_options presence: true do
     validates :title
