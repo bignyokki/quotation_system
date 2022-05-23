@@ -4,6 +4,6 @@ FactoryBot.define do
     surface_treatment { Faker::Lorem.word }
     quantity          { Faker::Number.within(range: 1..1000) }
     price             { Faker::Number.within(range: 1..100000) }
-    quotation_id      { Faker::Number.within(range: 1..10) }
+    association :quotation
   end
 end
