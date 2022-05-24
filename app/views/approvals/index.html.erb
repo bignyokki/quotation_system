@@ -20,7 +20,11 @@
             <td class="data"><%= quotation.created_at.strftime('%y/%m/%d') %></td>
             <td class="name"><%= quotation.client.name %></td>
             <td class="title"><div class="title-hidden"><%= link_to quotation.title, edit_approval_path(quotation.id)%></div></td>
-            <td class="price"><%= quotation.total_price %>円</td>
+            <% total_price = 0 %>
+            <% quotation.drawings.each do |drawing| %>
+              <% total_price += drawing.price * drawing.quantity %>
+            <% end %>
+            <td class="price"><%= total_price %>円</td>
           </tr>
         <% end %>
 

@@ -134,7 +134,10 @@
 
     </div>
 
-    <% @drawings.each do |drawing| %>
+    <%# 合計金額計算用 %>
+    <% total_price = 0 %>
+
+    <% @quotation.drawings.each do |drawing| %>
 
       <div class="drawing-row">
 
@@ -188,6 +191,8 @@
 
       </div>
 
+      <% total_price += drawing.price * drawing.quantity %>
+
     <% end %>
 
   </div>
@@ -225,7 +230,7 @@
     <div class="total-price">
 
       <div class="total-price-space">
-        <%= @quotation.total_price %>円
+        <%= total_price %>円
       </div>
 
       <div class="tax-space">

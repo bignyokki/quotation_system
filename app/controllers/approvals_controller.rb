@@ -1,11 +1,11 @@
 class ApprovalsController < ApplicationController
 
   def index
-    @quotations = Quotation.where(approval: 0)
+    @quotations = Quotation.where(approval: 0).includes(:drawings)
   end
 
   def index2
-    @quotations = Quotation.where(approval: 2)
+    @quotations = Quotation.where(approval: 2).includes(:drawings)
   end
 
   def edit

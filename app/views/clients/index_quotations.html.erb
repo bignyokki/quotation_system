@@ -18,7 +18,11 @@
           <tr>
             <td class="date"><%= quotation.created_at.strftime('%y/%m/%d') %></td>
             <td class="title"><%= link_to quotation.title, edit_quotation_path(quotation.id) %></td>
-            <td class="price"><%= quotation.total_price %>円</td>
+            <% total_price = 0 %>
+            <% quotation.drawings.each do |drawing| %>
+              <% total_price += drawing.price * drawing.quantity %>
+            <% end %>
+            <td class="price"><%= total_price %>円</td>
           </tr>
         <% end %>
 

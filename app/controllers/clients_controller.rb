@@ -38,7 +38,7 @@ class ClientsController < ApplicationController
 
   def index_quotations
     @client = Client.find(params[:id])
-    @quotations = Quotation.where(client_id: params[:id])
+    @quotations = Quotation.where(client_id: params[:id]).includes(:drawings)
   end
 
   private
