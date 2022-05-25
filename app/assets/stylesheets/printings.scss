@@ -147,7 +147,7 @@
     .price-space,
     .total-price-space,
     .note-space {
-      padding: 2mm;
+      padding: 0 1mm;
       border-top: solid 0.3mm black;
       border-left: solid 0.3mm black;
       border-bottom: solid 0.3mm black;
@@ -155,23 +155,24 @@
   }
     
   .left-space {
-    width: 90mm;
+    width: 50%;
+    font-size: 0.8rem;
   }
 
   .quantity-space {
-    width: 15mm;
+    width: 10%;
   }
 
   .price-space {
-    width: 20mm;
+    width: 10%;
   }
 
   .total-price-space {
-    width: 20mm;
+    width: 10%;
   }
 
   .note-space {
-    width: 35mm;
+    width: 20%;
     border-right: solid 0.3mm black;
   }
 
@@ -188,24 +189,26 @@
     .price-space,
     .total-price-space,
     .note-space {
+      padding: 0 1mm;
       border-left: solid 0.3mm black;
       border-bottom: solid 0.3mm black;
     }
 
     .left-space {
+      padding: 0 1mm;
 
       .top-space {
         display: flex;
 
         .number-space {
-          width: 45mm;
+          width: 50%;
           padding: 0 2mm;
           white-space: nowrap;
         }
 
         .name-space {
-          width: 45mm;
-          padding: 0.2mm;
+          width: 50%;
+          padding: 0 2mm;
           white-space: nowrap;
         }
       }
@@ -214,19 +217,19 @@
         display: flex;
 
         .surface-space {
-          width: 35mm;
+          width: 38%;
           padding: 0 2mm;
           white-space: nowrap;
         }
 
         .material-space {
-          width: 20mm;
+          width: 24%;
           padding: 0 2mm;
           white-space: nowrap;
         }
 
         .size-space {
-          width: 35mm;
+          width: 38%;
           padding: 0 2mm;
           white-space: nowrap;
         }
@@ -246,44 +249,47 @@
 
   .bottom-content {
     display: flex;
-    width: 190mm;
+    width: 180mm;
     margin: 0 auto;
 
     .remark {
-      width: 105mm;
+      width: 58.6%;
       font-size: 0.7rem;
 
       .remark-content {
-        padding-right: 2mm;
         height: 6.2rem;
         overflow: hidden;
       }
     }
 
     .price-name {
-      width: 20mm;
+      width: 10.7%;
       text-align: center;
       font-size: 0.7rem;
     }
 
     .total-price {
-      width: 20mm;
+      width: 10.7%;
       text-align: right;
       font-size: 0.7rem;
 
-      .total-price-space,
+      .bottom-total-price-space,
       .tax-space,
       .taxin-price {
         border-right: solid 0.3mm black;
       }
     }
 
-    .total-price-space,
+    .bottom-total-price-space,
     .tax-space,
     .taxin-price {
       padding: 1mm 2mm;
       border-left: solid 0.3mm black;
       border-bottom: solid 0.3mm black;
+    }
+
+    .bottom-right-space {
+      width: 20%;
     }
 
   }
