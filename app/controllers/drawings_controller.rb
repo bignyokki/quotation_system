@@ -1,4 +1,5 @@
 class DrawingsController < ApplicationController
+
   def new
     @drawing = Drawing.new
     @quotation = Quotation.find(params[:quotation_id])

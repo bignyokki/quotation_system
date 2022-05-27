@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   rolify
-
+  
   has_many :quotations
 
   # Include default devise modules. Others available are:

@@ -11,8 +11,9 @@ class Ability
         can :manage, :all
       elsif user.has_role?(:editor)
         can :manage, :all
-        cannot :create, User
-        cannot :update, User
+        cannot [:create, :update, :destroy], User
+        cannot [:create, :update, :destroy], Client
+        cannot [:create, :update, :destroy], Price_scale
       else
         can :read, :all
       end

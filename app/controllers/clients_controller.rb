@@ -1,5 +1,8 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update]
+  before_action :creatable?, only: [:new, :create]
+  before_action :editable?, only: [:edit, :update]
+  before_action :destructible?, only: :destroy
 
 
   def index
@@ -52,6 +55,35 @@ class ClientsController < ApplicationController
   def set_client
     @client = Client.find(params[:id])
   end
+
+  def creatable?
+    raise CanCan::AccessDenied unless user_signed_in?
+
+    if !current_user_is_admin?
+      raise CanCan::AccessDenied
+    end
+  end
+
+  def editable?
+    raise CanCan::AccessDenied unless user_signed_in?
+
+    if params[:id].present? && !current_user_is_admin?
+      raise CanCan::AccessDenied
+    end
+  end
+
+  def destructible?
+    raise CanCan::AccessDenied unless user_signed_in?
+
+    if params[:id].present? && !current_user_is_admin?
+      raise CanCan::AccessDenied
+    end
+  end
+
+  def current_user_is_admin?
+    user_signed_in? && current_user.has_role?(:admin)
+  end
+
 
 
 end

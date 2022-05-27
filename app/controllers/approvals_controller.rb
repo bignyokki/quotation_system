@@ -1,4 +1,5 @@
 class ApprovalsController < ApplicationController
+  before_action :editable?, only: [:edit, :update]
 
   def index
     @quotations = Quotation.where(approval: 0).includes(:drawings)
@@ -33,6 +34,18 @@ class ApprovalsController < ApplicationController
             .permit(:client_id, :title, :charge, :delivery_date, :expiration_date,
                     :delivery_place, :business_terms, :total_price, :remarks)
             .merge(appro_user_id: current_user.id)
+  end
+
+  def editable?
+    raise CanCan::AccessDenied unless user_signed_in?
+
+    if params[:id].present? && !current_user_is_admin?
+      raise CanCan::AccessDenied
+    end
+  end
+
+  def current_user_is_admin?
+    user_signed_in? && current_user.has_role?(:admin)
   end
 
 end

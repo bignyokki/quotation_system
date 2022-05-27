@@ -1,5 +1,8 @@
 class PriceScalesController < ApplicationController
   before_action :set_price_scale, only: [:edit, :update]
+  before_action :creatable?, only: [:new, :create]
+  before_action :editable?, only: [:edit, :update]
+  before_action :destructible?, only: :destroy
 
   def index
     @price_scales = PriceScale.all
@@ -50,6 +53,34 @@ class PriceScalesController < ApplicationController
 
   def set_price_scale
     @price_scale = PriceScale.find(params[:id])
+  end
+
+  def creatable?
+    raise CanCan::AccessDenied unless user_signed_in?
+
+    if !current_user_is_admin?
+      raise CanCan::AccessDenied
+    end
+  end
+
+  def editable?
+    raise CanCan::AccessDenied unless user_signed_in?
+
+    if params[:id].present? && !current_user_is_admin?
+      raise CanCan::AccessDenied
+    end
+  end
+
+  def destructible?
+    raise CanCan::AccessDenied unless user_signed_in?
+
+    if params[:id].present? && !current_user_is_admin?
+      raise CanCan::AccessDenied
+    end
+  end
+
+  def current_user_is_admin?
+    user_signed_in? && current_user.has_role?(:admin)
   end
 
 end

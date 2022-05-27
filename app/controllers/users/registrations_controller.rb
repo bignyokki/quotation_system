@@ -7,6 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   prepend_before_action :authenticate_scope!, only: [:update, :destroy]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  # cancancanの権限チェック
   before_action :creatable?, only: [:new, :create]
   before_action :editable?, only: [:edit, :update]
 
