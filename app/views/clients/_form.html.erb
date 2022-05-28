@@ -1,5 +1,7 @@
 <%= form_with(model: client, local: true) do |f| %>
 
+  <%= render 'shared/error_messages', model: f.object %>
+
   <div class="new-client-item">
 
     <div class="new-client-label">

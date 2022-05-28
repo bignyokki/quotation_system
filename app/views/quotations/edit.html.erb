@@ -6,6 +6,8 @@
 
     <%= form_with(model: @quotation, id: "quotation_input", local: true) do |form| %>
 
+      <%= render 'shared/error_messages', model: form.object %>
+
       <div class="quotation-form">
 
         <%# 顧客名は１００件以上になるため、後でサジェスト機能を実装する%>

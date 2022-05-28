@@ -8,6 +8,8 @@
 
       <%= form_with(model: @quotation, local: true, html: {id: "quotation_input", autocomplete: 'off'}) do |form| %>
 
+        <%= render 'shared/error_messages', model: form.object %>
+
         <%# 顧客名は１００件以上になるため、後でサジェスト機能を実装する%>
         <%= form.label :title, "タイトル" %>
         <%= form.text_field :title %>
