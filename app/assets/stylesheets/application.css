@@ -87,6 +87,20 @@ p.alert-word {
   padding: 0 10px;
 }
 
+.notice {
+  height: 40px;
+  width: 1100px;
+  background-color: rgb(194, 248, 210);
+  border: solid 1px rgb(7, 245, 7);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
+
+p.notice-word {
+  padding: 0 10px;
+}
+
 
 /* ボタン関連CSS */
 

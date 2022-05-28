@@ -50,6 +50,7 @@
 
       <%# 権限チェックに通らない場合に表示される %>
       <%= content_tag(:div, content_tag(:p, flash[:alert], class: "alert-word"), class: "alert") if flash[:alert] %>
+      <%= content_tag(:div, content_tag(:p, flash[:notice], class: "notice-word"), class: "notice") if flash[:notice] %>
 
     </div>
 
