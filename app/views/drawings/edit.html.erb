@@ -2,7 +2,7 @@
 
   <div class="contents drawing">
 
-    <h1 class="content-title">図面登録</h1>
+    <h1 class="content-title">図面編集</h1>
 
     <%# javascriptへ変数を渡す %>
     <input type="hidden" id="quotation_id" value="<%= @quotation.id %>" >
@@ -115,21 +115,10 @@
 
       </div>
       <div class="drawing-link-content">
-        <%= f.submit "次の図面を登録", id: "submit", class: 'btnbox center' %>
+        <%= f.submit "図面を編集", id: "edit_submit", class: 'btnbox center' %>
       </div>
+      
     <% end %>
-    <div class="btnbox">
-      <%= link_to "図面の登録を終了", edit_quotation_path(@quotation.id), class: 'link-btn' %>
-    </div>
-
-    <div id="list"></div>
-      <% unless @drawings.blank? %>
-        <% @drawings.each do |drawing| %>
-
-        <%= render "list", drawing: drawing %>
-
-      <% end %>
-    <% end%>
 
   </div>
 

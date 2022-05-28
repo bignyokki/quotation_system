@@ -44,5 +44,9 @@
   <div class="notes-area">
     <%= drawing.notes %>
   </div>
+
+  <div class="btn-area">
+    <%= link_to '編集', edit_quotation_drawing_path(@quotation.id, drawing.id), class: "table-btn"%>
+  </div>
   
 </div>

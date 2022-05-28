@@ -145,6 +145,11 @@
     width: 160px;
     border: solid 0.5px black;
   }
+  .btn-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .btnBox{

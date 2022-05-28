@@ -29,7 +29,7 @@ class ClientsController < ApplicationController
     if @client.update(client_params)
       redirect_to clients_path, notice: '顧客情報を編集しました'
     else
-      render :edit, alert: '保存を失敗しました'
+      render :edit
     end
   end
 

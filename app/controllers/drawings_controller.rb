@@ -15,6 +15,22 @@ class DrawingsController < ApplicationController
     end
   end
 
+  def edit
+    @drawing = Drawing.find(params[:id])
+    @quotation = Quotation.find(@drawing.quotation_id)
+    @price_scales = PriceScale.all
+  end
+
+  def update
+    @drawing = Drawing.find(params[:id])
+    if @drawing.update(drawing_params)
+      redirect_to edit_quotation_path(@drawing.quotation_id), notice: '図面を編集しました'
+    else
+      render :edit
+    end
+  end
+
+
   private
   def drawing_params
     params.require(:drawing)
