@@ -1,24 +1,31 @@
-# README
+# アプリケーション名
+見積作成アプリ
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション概要
+表面処理の見積を作成、保存することができる。  
+そのために必要な情報を管理することができる。
 
-Things you may want to cover:
+# URL
+https://quotation-app-37333.herokuapp.com/
 
-* Ruby version
+# テスト用アカウント
 
-* System dependencies
+# 利用方法
 
-* Configuration
+# アプリケーションを作成した背景
 
-* Database creation
+# 洗い出した要件
 
-* Database initialization
+# 実装した機能についての画像やGIFおよびその説明
 
-* How to run the test suite
+# 実装予定の機能
 
-* Services (job queues, cache servers, search engines, etc.)
+# データベース設計
 
-* Deployment instructions
+# 画面遷移図
 
-* ...
+# 開発環境
+
+# ローカルでの動作方法
+
+# 工夫したポイント
