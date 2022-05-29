@@ -1,5 +1,9 @@
 class DrawingsController < ApplicationController
 
+  def index
+    @drawings = Drawing.order("created_at DESC")
+  end
+
   def new
     @drawing = Drawing.new
     @quotation = Quotation.find(params[:quotation_id])

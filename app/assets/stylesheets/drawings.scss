@@ -190,3 +190,77 @@
 .center {
   margin: 0 auto;
 }
+
+.drawings-table-area {
+  width: 1080px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  border-radius: 5px;
+
+  .drawings-table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 1060px;
+    font-size: 0.7rem;
+    margin: 0 auto;
+    overflow: hidden;
+
+    tr:nth-child(even) td {
+      background: rgb(235, 233, 233);
+    }
+
+    .drawings-table-id {
+      overflow: hidden;
+      width: 60px;
+    }
+    .drawings-table-quotation {
+      overflow: hidden;
+      width: 60px;
+    }
+    .drawings-table-drawing {
+      overflow: hidden;
+      width: 130px;
+    }
+    .drawings-table-name {
+      overflow: hidden;
+      width: 130px;
+    }
+    .drawings-table-material {
+      overflow: hidden;
+      width: 50px;
+    }
+    .drawings-table-size {
+      overflow: hidden;
+      width: 110px;
+    }
+    .drawings-table-weight {
+      overflow: hidden;
+      width: 50px;
+    }
+    .drawings-table-area {
+      overflow: hidden;
+      width: 50px;
+    }
+    .drawings-table-surface {
+      overflow: hidden;
+      width: 120px;
+    }
+    .drawings-table-quantity {
+      overflow: hidden;
+      width: 30px;
+    }
+    .drawings-table-price {
+      overflow: hidden;
+      width: 50px;
+    }
+    .drawings-table-notes {
+      width: 130px;
+      overflow: hidden;
+    }
+    .drawings-table-btn {
+      overflow: hidden;
+      width: 80px;
+    }
+
+  }
+}

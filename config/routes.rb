@@ -11,16 +11,25 @@ Rails.application.routes.draw do
       get :index_quotations
     end
   end
+
   resources :price_scales
+
   resources :quotations do
-    resources :drawings
+
+    resources :drawings, except: :index
+
   end
+
+  # 図面一覧は見積書関係なく表示するのでネストの外でルーティング
+  get 'drawings', to: 'drawings#index'
+
   resources :approvals, only: [:index, :edit, :update] do
     collection do
       # 差し戻し一覧ページ
       get :index2
     end
   end
+
   resources :printings, only: [:index, :show]
 
   get 'users/index'
