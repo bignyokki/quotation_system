@@ -73,12 +73,29 @@ https://docs.google.com/spreadsheets/d/1403ACxuIT4CN9isK8gLv208unnWEhzmTDPhgM0FR
 
 # データベース設計
 
-![データベース設計](DB.dio)
+![データベース設計](DB.png)
 
 # 画面遷移図
 
+![データベース設計](STD.png)
+
 # 開発環境
+
+HTML・CSS・Ruby・Ruby on Rails・JavaScript・GitHub・VisualStudioCode
 
 # ローカルでの動作方法
 
+以下のコマンドを順に実行  
+% git clone https://github.com/bignyokki/quotation_system.git  
+% cd quotation_system  
+% bundle install
+% yarn install
+
 # 工夫したポイント
+
+- 全体的なデザインとして、スクロールをできるだけ少なくし、一画面に全て情報がなるべく表示されるように意識した。
+スクロールが必要な場合でもテーブル要素のみをスクロールさせ、各ボタンが隠れてしまわないようにした。  
+- 見積作成の図面登録画面では、最小限の入力で自動で計算されるようjavascriptを組んだ。  
+自動計算した内容は、変更が必要な場合は直接入力できるようにし、その入力内容で再計算されるようにした。  
+また見積によっては何十件と図面を登録する必要があるため、非同期通信にてページ遷移をできるだけ少なくし、ストレスを減らせるようにした。
+- ユーザー管理機能は、業務アプリの性質上、誰でも登録できるようにはしたくなかったので、deviseを改造し、管理者ユーザーがログインしたまま、他のユーザーを登録・編集・削除できるように変更した。また同時に、ログインIDをメールアドレスから社員番号に変更した。
