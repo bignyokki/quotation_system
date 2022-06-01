@@ -21,6 +21,10 @@
   .tabbox .kana {
     width: 350px;
   }
+
+  .tabbox-contents {
+    height: calc( 100vh - 350px );
+  }
 }
 
 // 見積金額表示部

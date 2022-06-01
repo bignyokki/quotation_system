@@ -32,6 +32,10 @@
   .address {
     width: 380px;
   }
+
+  .tabbox-contents {
+    height: calc(100vh - 410px);
+  }
 }
 
 .new-client-item {

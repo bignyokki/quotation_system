@@ -12,6 +12,10 @@ ul {
   list-style: none;
 }
 
+h1 {
+  margin: 10px 0;
+}
+
 
 .main-bord {
   background-color: royalblue;
@@ -237,6 +241,7 @@ li.tab {
   background-color: white;
   overflow: scroll;
   border-radius: 5px;
+  
 }
 /* タブがactiveのときのデザイン */
 .tab-active {

@@ -19,12 +19,21 @@
 
  /* 以下単価表一覧 */
 
+.price-scale-table {
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+  height: calc( 100vh - 330px );
+  overflow: scroll;
+}
+
 table.price-table-index {
   width: 1080px;
   text-align: center;
   border-collapse: collapse;
   border-spacing: 0;
   background-color: white;
+  margin-bottom: 5px;
 }
 
 table.price-table-index th {
