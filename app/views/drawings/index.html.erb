@@ -4,48 +4,51 @@
 
     <h1 class="content-title">図面一覧</h1>
 
-    <div class="drawings-table-area">
+    <div class="drawings-table-space">
 
-      <table class="drawings-table">
+      <div class="drawings-table-title">
 
-        <tr>
-          <th class="drawings-table-id">図面No</th>
-          <th class="drawings-table-quotation">見積No</th>
-          <th class="drawings-table-drawing">図番</th>
-          <th class="drawings-table-name">品名</th>
-          <th class="drawings-table-material">材質</th>
-          <th class="drawings-table-size">寸法</th>
-          <th class="drawings-table-weight">重量(kg)</th>
-          <th class="drawings-table-area">面積(dm^2)</th>
-          <th class="drawings-table-surface">表面処理</th>
-          <th class="drawings-table-quantity">数量</th>
-          <th class="drawings-table-price">単価</th>
-          <th class="drawings-table-notes">適用</th>
-          <th class="drawings-table-btn"></th>
-        </tr>
+        <div class="table-row">
+          <div class="drawings-table-id">図面No</div>
+          <div class="drawings-table-quotation">見積No</div>
+          <div class="drawings-table-drawing">図番</div>
+          <div class="drawings-table-name">品名</div>
+          <div class="drawings-table-material">材質</div>
+          <div class="drawings-table-size">寸法</div>
+          <div class="drawings-table-weight">重量<span class="unit">(kg)</span></div>
+          <div class="drawings-table-area">面積<span class="unit">(dm<sup>2</sup>)</span></div>
+          <div class="drawings-table-surface">表面処理</div>
+          <div class="drawings-table-quantity">数量</div>
+          <div class="drawings-table-price">単価</div>
+          <div class="drawings-table-notes">適用</div>
+          <div class="drawings-table-btn"></div>
+        </div>
+
+      </div>
+
+      <div class="drawings-table-contents">
 
         <% @drawings.each do |drawing| %>
 
-          <tr>
-            <td class="drawings-table-id"><%= sprintf('%07d', drawing.id) %></td>
-            <td class="drawings-table-quotation"><%= sprintf('%07d', drawing.quotation_id) %></td>
-            <td class="drawings-table-drawing"><%= drawing.figure_number %></td>
-            <td class="drawings-table-name"><%= drawing.product_name %></td>
-            <td class="drawings-table-material"><%= drawing.material %></td>
-            <td class="drawings-table-size"><%= drawing.size %></td>
-            <td class="drawings-table-weight"><%= drawing.weight %></td>
-            <td class="drawings-table-area"><%= drawing.area %></td>
-            <td class="drawings-table-surface"><%= drawing.surface_treatment %></td>
-            <td class="drawings-table-quantity"><%= drawing.quantity %></td>
-            <td class="drawings-table-price"><%= drawing.price %></td>
-            <td class="drawings-table-notes"><%= drawing.notes %></td>
-            <td class="drawings-table-btn"><%= link_to '編集', edit_quotation_drawing_path(drawing.quotation_id, drawing.id), class: "table-btn" %></td>
-          </tr>
+          <div class="table-row">
+            <div class="drawings-table-id"><%= sprintf('%07d', drawing.id) %></div>
+            <div class="drawings-table-quotation"><%= sprintf('%07d', drawing.quotation_id) %></div>
+            <div class="drawings-table-drawing"><%= drawing.figure_number %></div>
+            <div class="drawings-table-name"><%= drawing.product_name %></div>
+            <div class="drawings-table-material"><%= drawing.material %></div>
+            <div class="drawings-table-size"><%= drawing.size %></div>
+            <div class="drawings-table-weight"><%= drawing.weight.round(1) %></div>
+            <div class="drawings-table-area"><%= drawing.area.round(1) %></div>
+            <div class="drawings-table-surface"><%= drawing.surface_treatment %></div>
+            <div class="drawings-table-quantity"><%= drawing.quantity %></div>
+            <div class="drawings-table-price"><%= drawing.price %></div>
+            <div class="drawings-table-notes"><%= drawing.notes %></div>
+            <div class="drawings-table-btn"><%= link_to '編集', edit_quotation_drawing_path(drawing.quotation_id, drawing.id), class: "table-btn" %></div>
+          </div>
 
         <% end %>
         
-
-      </table>
+      </div>
 
     </div>
 
