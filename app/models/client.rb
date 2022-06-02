@@ -17,16 +17,16 @@ class Client < ApplicationRecord
         name_kana_set1 = "name_kana LIKE ? OR name_kana LIKE ? OR name_kana LIKE ? OR name_kana LIKE ? OR name_kana LIKE ?"
         name_kana_set2 = "name_kana LIKE ? OR name_kana LIKE ? OR name_kana LIKE ?"
         clients = [
-          Client.where("#{name_kana_set1}","あ%", "い%", "う%", "え%", "お%"),
-          Client.where("#{name_kana_set1}","か%", "き%", "く%", "け%", "こ%"),
-          Client.where("#{name_kana_set1}","さ%", "し%", "す%", "せ%", "そ%"),
-          Client.where("#{name_kana_set1}","た%", "ち%", "つ%", "て%", "と%"),
-          Client.where("#{name_kana_set1}","な%", "に%", "ぬ%", "ね%", "の%"),
-          Client.where("#{name_kana_set1}","は%", "ひ%", "ふ%", "へ%", "ほ%"),
-          Client.where("#{name_kana_set1}","ま%", "み%", "む%", "め%", "も%"),
-          Client.where("#{name_kana_set2}","や%", "ゆ%", "よ%"),
-          Client.where("#{name_kana_set1}","ら%", "り%", "る%", "れ%", "ろ%"),
-          Client.where("#{name_kana_set2}","わ%", "を%", "ん%")
+          Client.where("#{name_kana_set1}","あ%", "い%", "う%", "え%", "お%").order("name_kana"),
+          Client.where("#{name_kana_set1}","か%", "き%", "く%", "け%", "こ%").order("name_kana"),
+          Client.where("#{name_kana_set1}","さ%", "し%", "す%", "せ%", "そ%").order("name_kana"),
+          Client.where("#{name_kana_set1}","た%", "ち%", "つ%", "て%", "と%").order("name_kana"),
+          Client.where("#{name_kana_set1}","な%", "に%", "ぬ%", "ね%", "の%").order("name_kana"),
+          Client.where("#{name_kana_set1}","は%", "ひ%", "ふ%", "へ%", "ほ%").order("name_kana"),
+          Client.where("#{name_kana_set1}","ま%", "み%", "む%", "め%", "も%").order("name_kana"),
+          Client.where("#{name_kana_set2}","や%", "ゆ%", "よ%").order("name_kana"),
+          Client.where("#{name_kana_set1}","ら%", "り%", "る%", "れ%", "ろ%").order("name_kana"),
+          Client.where("#{name_kana_set2}","わ%", "を%", "ん%").order("name_kana")
         ]
         return clients
       end
