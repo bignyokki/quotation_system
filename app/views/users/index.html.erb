@@ -4,9 +4,14 @@
 
     <h1 class="content-title">ユーザー一覧</h1>
 
-    <div class="link-area">
-      <%= link_to "新規登録", new_user_registration_path, class: "post", class: "btn btn--orange" %>
-    </div>
+    <%# 管理者ユーザーのみ新規投稿ボタンを表示 %>
+    <% if user_signed_in? && current_user.has_role?(:admin) %>
+
+      <div class="link-area">
+        <%= link_to "新規登録", new_user_registration_path, class: "post", class: "btn btn--orange" %>
+      </div>
+
+    <% end %>
 
     <div class="user-table">
 
