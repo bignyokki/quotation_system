@@ -28,7 +28,7 @@ class QuotationsController < ApplicationController
   def update
     @quotation = Quotation.find(params[:id])
     if @quotation.update(quotation_params)
-      redirect_to quotations_path
+      redirect_to quotations_path, notice: '見積を作成しました(承認待ち)'
     else
       render :edit
     end
@@ -37,7 +37,7 @@ class QuotationsController < ApplicationController
   def destroy
     quotation = Quotation.find(params[:id])
     quotation.destroy
-    redirect_to index_quotations_client_path(quotation.client_id)
+    redirect_to index_quotations_client_path(quotation.client_id), notice: '見積を削除しました'
   end
 
   private

@@ -21,7 +21,8 @@ class ApprovalsController < ApplicationController
     @quotation.update(approval: 1) if params[:approval_btn]
     @quotation.update(approval: 2) if params[:back_btn]
     if @quotation.update(quotation_params)
-      redirect_to quotations_path
+      redirect_to approvals_path, notice: '見積を承認しました' if params[:approval_btn]
+      redirect_to approvals_path, notice: '見積を差し戻ししました' if params[:back_btn]
     else
       render :edit
     end
