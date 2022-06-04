@@ -20,7 +20,7 @@
             <td class="data"><%= quotation.created_at.strftime('%y/%m/%d') %></td>
             <td class="name"><%= quotation.client.name %></td>
             <td class="title"><div class="title-hidden"><%= link_to quotation.title, printing_path(quotation.id)%></div></td>
-            <<% total_price = 0 %>
+            <% total_price = 0 %>
             <% quotation.drawings.each do |drawing| %>
               <% total_price += drawing.price * drawing.quantity %>
             <% end %>
