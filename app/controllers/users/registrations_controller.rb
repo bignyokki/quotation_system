@@ -74,7 +74,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
    def destroy
      user = User.find(params[:id])
      user.destroy if current_user_is_admin?
-     redirect_to users_index_path
+     redirect_to users_index_path, notice: 'ユーザーを削除しました'
    end
 
   # GET /resource/cancel
