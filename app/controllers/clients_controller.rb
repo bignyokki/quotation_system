@@ -1,7 +1,7 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update]
   before_action :creatable?, only: [:new, :create]
-  before_action :editable?, only: [:edit, :update]
+  before_action :editable?, only: :update
   before_action :destructible?, only: :destroy
 
 
@@ -16,6 +16,7 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)
     if @client.save
+      # 連続で登録できるよう新規登録ページにリダイレクト
       redirect_to new_client_path, notice: '顧客登録を完了しました'
     else
       render :new
