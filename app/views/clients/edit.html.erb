@@ -17,7 +17,11 @@
 
     <div class="client-link-area">
       <%= link_to "戻る", clients_path, class: "btn btn--orange" %>
-      <%= link_to "削除", client_path(@client.id), method: :delete, class: "btn btn--delete" %>
+
+      <% if user_signed_in? && current_user.has_role?(:admin) %>
+        <%= link_to "削除", client_path(@client.id), method: :delete, class: "btn btn--delete" %>
+      <% end %>
+      
     </div>
 
   </div>

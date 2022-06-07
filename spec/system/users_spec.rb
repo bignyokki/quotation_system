@@ -92,6 +92,14 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       expect(page).to have_content('画面を閲覧する権限がありません。')
     end
 
+    it 'ログインしないとユーザー新規登録出来ない' do
+      # ユーザー新規登録ページに移動しようとするとログイン画面に遷移することを確認する
+      visit new_user_registration_path
+      expect(current_path).to eq(new_user_session_path)
+      # 「アプリにアクセスするためにはログインしてください」の文字が存在することを確認する
+      expect(page).to have_content('アプリにアクセスするためにはログインしてください')
+    end
+
   end
 
 end

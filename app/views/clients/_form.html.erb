@@ -102,8 +102,12 @@
 
   </div>
 
-  <div class="new-client-item">
-    <%= f.submit "保存", class: "btn--form center" %>
-  </div>
+  <% if user_signed_in? && current_user.has_role?(:admin) %>
+
+    <div class="new-client-item">
+      <%= f.submit "保存", class: "btn--form center" %>
+    </div>
+
+  <% end %>
 
 <% end %>
