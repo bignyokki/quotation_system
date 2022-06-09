@@ -70,6 +70,8 @@ https://docs.google.com/spreadsheets/d/1403ACxuIT4CN9isK8gLv208unnWEhzmTDPhgM0FR
 - ページネーション
 - 見積書の日付を変更できるように
 - ツールチップ
+- 変更履歴
+- 各ボタンにショートカットキーを割り当て
 
 # データベース設計
 

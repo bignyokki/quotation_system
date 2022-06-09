@@ -94,6 +94,14 @@ RSpec.describe '顧客新規登録', type: :system do
       expect(page).to have_content('画面を閲覧する権限がありません。')
     end
 
+    it 'ログインしない新規顧客登録出来ない' do
+      # 顧客管理ページに移動しようとするとログイン画面に遷移することを確認する
+      visit clients_path
+      expect(current_path).to eq(new_user_session_path)
+      # 「アプリにアクセスするためにはログインしてください」の文字が存在することを確認する
+      expect(page).to have_content('アプリにアクセスするためにはログインしてください')
+    end
+
   end
 
 end
@@ -176,17 +184,74 @@ RSpec.describe '顧客情報編集', type: :system do
       visit clients_path
       # 登録された顧客の編集ページへのリンクが存在することを確認する
       expect(page).to have_link @client.name, href: edit_client_path(@client)
-      # 直接顧客編集ページに遷移する
+      # 顧客編集ページに遷移する
       visit edit_client_path(@client)
+      # 保存ボタンが存在しないことを確認する
       expect(page).to have_no_content('保存')
     end
 
-    it 'ログインしないと顧客情報編集出来ない' do
-      # 顧客管理ページに移動しようとするとログイン画面に遷移することを確認する
+  end
+
+end
+
+
+RSpec.describe '顧客情報削除', type: :system do
+  before do
+    @admin_user = FactoryBot.create(:user)
+    @admin_user.add_role :admin
+    @general_user = FactoryBot.create(:user)
+    @general_user.add_role :editor
+    @client = FactoryBot.create(:client)
+  end
+
+  context '顧客情報削除ができるとき' do 
+
+    it '管理者ユーザーは顧客新規削除ができる' do
+      # 管理者ユーザーでログインする
+      visit new_user_session_path
+      fill_in '社員番号', with: @admin_user.employee_number
+      fill_in 'パスワード', with: @admin_user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq(root_path)
+      # 顧客管理ページに移動する
       visit clients_path
-      expect(current_path).to eq(new_user_session_path)
-      # 「アプリにアクセスするためにはログインしてください」の文字が存在することを確認する
-      expect(page).to have_content('アプリにアクセスするためにはログインしてください')
+      # 登録された顧客の編集ページへのリンクが存在することを確認する
+      expect(page).to have_link @client.name, href: edit_client_path(@client)
+      # 顧客編集ページに遷移する
+      visit edit_client_path(@client)
+      # 削除へのリンクがあることを確認する
+      expect(page).to have_link '削除', href: client_path(@client)
+      # 投稿を削除するとレコードの数が1減ることを確認する
+      expect{
+        find_link('削除', href: client_path(@client)).click
+      }.to change { Client.count }.by(-1)
+      # 顧客管理ページに遷移したことを確認する
+      expect(current_path).to eq(clients_path)
+      # 「顧客情報を削除しました」の文字があることを確認する
+      expect(page).to have_content('顧客情報を削除しました')
+      # 顧客管理ページに@clientの項が存在しないことを確認する
+      expect(page).to have_no_content("#{@client.name}")
+    end
+
+  end
+
+  context '顧客情報削除が出来ないとき' do 
+
+    it '一般ユーザーは顧客新規削除が出来ない' do
+       # 一般ユーザーでログインする
+       visit new_user_session_path
+       fill_in '社員番号', with: @general_user.employee_number
+       fill_in 'パスワード', with: @general_user.password
+       find('input[name="commit"]').click
+       expect(current_path).to eq(root_path)
+       # 顧客管理ページに移動する
+       visit clients_path
+       # 登録された顧客の編集ページへのリンクが存在することを確認する
+      expect(page).to have_link @client.name, href: edit_client_path(@client)
+      # 顧客編集ページに遷移する
+      visit edit_client_path(@client)
+      # 削除ボタンが存在しないことを確認する
+      expect(page).to have_no_link '削除', href: client_path(@client)
     end
 
   end
