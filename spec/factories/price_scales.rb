@@ -24,6 +24,9 @@ FactoryBot.define do
     scale_a_80_150    { Faker::Number.within(range: 10..500) }
     scale_a_150_180   { Faker::Number.within(range: 10..500) }
     scale_a_180over   { Faker::Number.within(range: 10..500) }
+    scale_o_0_300     { Faker::Number.within(range: 2..5) }
+    scale_o_300_500   { Faker::Number.within(range: 2..5) }
+    scale_o_500over   { Faker::Number.within(range: 2..5) }
     min_unit_price    { Faker::Number.within(range: 10..100) }
     min_total_price   { Faker::Number.within(range: 500..8000) }
   end
