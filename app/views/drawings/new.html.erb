@@ -5,10 +5,12 @@
     <h1 class="content-title">図面登録</h1>
 
     <%# javascriptへ変数を渡す %>
-    <input type="hidden" id="quotation_id" value="<%= @quotation.id %>" >
     <div id="price_scales" data-priceScales-status="<%= @price_scales.to_json %>"></div>
 
     <%= form_with(model: [@quotation, @drawing], local: true, id: "form") do |f| %>
+
+      <%# 見積書idを送信する %>
+      <input type="hidden" id="quotation_id" value="<%= @quotation.id %>" >
 
       <div class="drawing-top-content">
 
