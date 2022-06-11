@@ -13,11 +13,7 @@ RSpec.describe '顧客新規登録', type: :system do
 
     it '正しい情報を入力すれば顧客新規登録ができる' do
       # 管理者ユーザーでログインする
-      visit new_user_session_path
-      fill_in '社員番号', with: @admin_user.employee_number
-      fill_in 'パスワード', with: @admin_user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@admin_user)
       # 顧客管理ページに移動する
       visit clients_path
       # 顧客管理ページに新規登録ボタンが存在するのを確認する
@@ -50,11 +46,7 @@ RSpec.describe '顧客新規登録', type: :system do
 
     it '誤った情報では新規顧客登録はできない' do
       # 管理者ユーザーでログインする
-      visit new_user_session_path
-      fill_in '社員番号', with: @admin_user.employee_number
-      fill_in 'パスワード', with: @admin_user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@admin_user)
       # 顧客管理ページに移動する
       visit clients_path
       # 顧客管理ページに新規登録ボタンが存在するのを確認する
@@ -78,11 +70,7 @@ RSpec.describe '顧客新規登録', type: :system do
 
     it '一般ユーザーでは新規顧客登録はできない' do
       # 一般ユーザーでログインする
-      visit new_user_session_path
-      fill_in '社員番号', with: @general_user.employee_number
-      fill_in 'パスワード', with: @general_user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@general_user)
       # 顧客管理ページに移動する
       visit clients_path
       # 顧客管理ページに新規登録ボタンが存在しないのを確認する
@@ -120,11 +108,7 @@ RSpec.describe '顧客情報編集', type: :system do
 
     it '正しい情報を入力すれば顧客新規登録ができる' do
       # 管理者ユーザーでログインする
-      visit new_user_session_path
-      fill_in '社員番号', with: @admin_user.employee_number
-      fill_in 'パスワード', with: @admin_user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@admin_user)
       # 顧客管理ページに移動する
       visit clients_path
       # 登録された顧客の編集ページへのリンクが存在することを確認する
@@ -175,11 +159,7 @@ RSpec.describe '顧客情報編集', type: :system do
 
     it '一般ユーザーは顧客情報編集ができない' do
       # 一般ユーザーでログインする
-      visit new_user_session_path
-      fill_in '社員番号', with: @general_user.employee_number
-      fill_in 'パスワード', with: @general_user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@general_user)
       # 顧客管理ページに移動する
       visit clients_path
       # 登録された顧客の編集ページへのリンクが存在することを確認する
@@ -208,11 +188,7 @@ RSpec.describe '顧客情報削除', type: :system do
 
     it '管理者ユーザーは顧客新規削除ができる' do
       # 管理者ユーザーでログインする
-      visit new_user_session_path
-      fill_in '社員番号', with: @admin_user.employee_number
-      fill_in 'パスワード', with: @admin_user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@admin_user)
       # 顧客管理ページに移動する
       visit clients_path
       # 登録された顧客の編集ページへのリンクが存在することを確認する
@@ -239,11 +215,7 @@ RSpec.describe '顧客情報削除', type: :system do
 
     it '一般ユーザーは顧客新規削除が出来ない' do
        # 一般ユーザーでログインする
-       visit new_user_session_path
-       fill_in '社員番号', with: @general_user.employee_number
-       fill_in 'パスワード', with: @general_user.password
-       find('input[name="commit"]').click
-       expect(current_path).to eq(root_path)
+       sign_in(@general_user)
        # 顧客管理ページに移動する
        visit clients_path
        # 登録された顧客の編集ページへのリンクが存在することを確認する

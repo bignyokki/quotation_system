@@ -14,11 +14,7 @@ RSpec.describe 'ユーザー新規登録', type: :system do
 
     it '管理者ユーザーが正しい情報を入力すればユーザー新規登録ができてトップページに移動する' do
       # 管理者ユーザーでログインする
-      visit new_user_session_path
-      fill_in '社員番号', with: @admin_user.employee_number
-      fill_in 'パスワード', with: @admin_user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@admin_user)
       # ユーザー管理ページに移動する
       visit users_index_path
       # ユーザー管理ページに新規登録ページに遷移するボタンが存在する
@@ -51,11 +47,7 @@ RSpec.describe 'ユーザー新規登録', type: :system do
 
     it '誤った情報ではユーザー新規登録ができずに新規登録ページへ戻ってくる' do
       # 管理者ユーザーでログインする
-      visit new_user_session_path
-      fill_in '社員番号', with: @admin_user.employee_number
-      fill_in 'パスワード', with: @admin_user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@admin_user)
       # ユーザー管理ページに移動する
       visit users_index_path
       # ユーザー管理ページに新規登録ページに遷移するボタンが存在する
@@ -77,11 +69,7 @@ RSpec.describe 'ユーザー新規登録', type: :system do
 
     it '一般ユーザーではユーザー新規登録ができない' do
       # 一般ユーザーでログインする
-      visit new_user_session_path
-      fill_in '社員番号', with: @general_user.employee_number
-      fill_in 'パスワード', with: @general_user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@general_user)
       # ユーザー管理ページに移動する
       visit users_index_path
       # ユーザー管理ページに新規登録ページに遷移するボタンが存在しない
@@ -119,11 +107,7 @@ RSpec.describe 'ユーザー情報削除', type: :system do
 
     it '管理者ユーザーはユーザーの情報を編集できる' do
       # 管理者ユーザーでログインする
-      visit new_user_session_path
-      fill_in '社員番号', with: @admin_user.employee_number
-      fill_in 'パスワード', with: @admin_user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@admin_user)
       # ユーザー管理ページに移動する
       visit users_index_path
       # 削除ボタンが存在することを確認する
@@ -144,11 +128,7 @@ RSpec.describe 'ユーザー情報削除', type: :system do
 
     it '一般ユーザーはユーザーの削除ができない' do
       # 一般ユーザーでログインする
-      visit new_user_session_path
-      fill_in '社員番号', with: @general_user.employee_number
-      fill_in 'パスワード', with: @general_user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@general_user)
       # ユーザー管理ページに移動する
       visit users_index_path
       # ユーザー管理ページに新規登録ページに遷移するボタンが存在しない

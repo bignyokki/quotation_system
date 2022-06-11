@@ -13,11 +13,7 @@ RSpec.describe '単価表新規登録', type: :system do
 
     it '正しい情報を入力すれば単価表新規登録ができる' do
       # 管理者ユーザーでログインする
-      visit new_user_session_path
-      fill_in '社員番号', with: @admin_user.employee_number
-      fill_in 'パスワード', with: @admin_user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@admin_user)
       # 単価表管理ページに遷移する
       visit price_scales_path
       # 新規登録ボタンがあるのを確認する
@@ -123,11 +119,7 @@ RSpec.describe '単価表新規登録', type: :system do
 
     it '一般ユーザーでは新規登録できない' do
       # 一般ユーザーでログインする
-      visit new_user_session_path
-      fill_in '社員番号', with: @general_user.employee_number
-      fill_in 'パスワード', with: @general_user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@general_user)
       # 単価表管理ページに遷移する
       visit price_scales_path
       # 新規登録ボタンがないのを確認する
@@ -165,11 +157,7 @@ RSpec.describe '単価表編集', type: :system do
 
     it '正しい情報を入力すれば単価表編集ができる' do
       # 管理者ユーザーでログインする
-      visit new_user_session_path
-      fill_in '社員番号', with: @admin_user.employee_number
-      fill_in 'パスワード', with: @admin_user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@admin_user)
       # 単価表管理ページに移動する
       visit price_scales_path
       # 登録された単価の編集ページへのリンクが存在することを確認する
@@ -254,11 +242,7 @@ RSpec.describe '単価表編集', type: :system do
 
     it '一般ユーザーは単価表新規登録ができない' do
       # 一般ユーザーでログインする
-      visit new_user_session_path
-      fill_in '社員番号', with: @general_user.employee_number
-      fill_in 'パスワード', with: @general_user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@general_user)
       # 単価表管理ページに遷移する
       visit price_scales_path
       # 登録された単価の編集ページへのリンクが存在することを確認する
@@ -287,11 +271,7 @@ RSpec.describe '単価表削除', type: :system do
 
     it '管理者ユーザーは単価表削除ができる' do
       # 管理者ユーザーでログインする
-      visit new_user_session_path
-      fill_in '社員番号', with: @admin_user.employee_number
-      fill_in 'パスワード', with: @admin_user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@admin_user)
       # 単価表管理ページに移動する
       visit price_scales_path
       # 登録された単価の編集ページへのリンクが存在することを確認する
@@ -318,11 +298,7 @@ RSpec.describe '単価表削除', type: :system do
 
     it '一般ユーザーでは単価表削除が出来ない' do
       # 一般ユーザーでログインする
-      visit new_user_session_path
-      fill_in '社員番号', with: @general_user.employee_number
-      fill_in 'パスワード', with: @general_user.password
-      find('input[name="commit"]').click
-      expect(current_path).to eq(root_path)
+      sign_in(@general_user)
       # 単価表管理ページに移動する
       visit price_scales_path
       # 登録された単価の編集ページへのリンクが存在することを確認する

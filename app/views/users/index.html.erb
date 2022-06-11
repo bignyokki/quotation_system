@@ -8,7 +8,7 @@
     <% if user_signed_in? && current_user.has_role?(:admin) %>
 
       <div class="link-area">
-        <%= link_to "新規登録", new_user_registration_path, class: "post", class: "btn btn--orange" %>
+        <%= link_to "新規登録", new_user_registration_path, class: "btn btn--orange" %>
       </div>
 
     <% end %>
