@@ -2,8 +2,9 @@
 
   <div class="contents new-price">
 
-    <h1 class="content-title">新規登録</h1>
+    <h1 class="content-title">単価表編集</h1>
 
+    <%# 新規作成か編集か判定用の変数 %>
     <% jud = "edit" %>
 
     <%= render partial: "form", locals: { price_scale: @price_scale, jud: jud } %>

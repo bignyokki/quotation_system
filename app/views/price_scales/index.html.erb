@@ -4,7 +4,11 @@
 
     <h1 class="content-title">単価表一覧</h1>
 
-    <%= link_to '新規登録', new_price_scale_path, class: "btn btn--orange" %>
+    <% if user_signed_in? && current_user.has_role?(:admin) %>
+
+      <%= link_to '新規登録', new_price_scale_path, class: "btn btn--orange" %>
+
+    <% end %>
 
     <div class="price-scale-table">
 

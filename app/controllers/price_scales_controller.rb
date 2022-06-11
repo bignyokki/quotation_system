@@ -48,7 +48,7 @@ class PriceScalesController < ApplicationController
                   :scale_a_0_3, :scale_a_3_6, :scale_a_6_11, :scale_a_11_15, :scale_a_15_22,
                   :scale_a_22_30, :scale_a_30_50, :scale_a_50_80, :scale_a_80_150,
                   :scale_a_150_180, :scale_a_180over, :scale_o_0_300, :scale_o_300_500,
-                  :scale_o_500over)
+                  :scale_o_500over, :min_unit_price, :min_total_price)
   end
 
   def set_price_scale

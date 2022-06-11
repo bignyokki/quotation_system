@@ -121,10 +121,16 @@
 
   <div class="price_scale_btn_area">
 
-  <%= f.submit "保存", class: "btn btn--form" %>
+  <%# 管理者ユーザーのみ保存ボタンを表示する %>
+  <% if user_signed_in? && current_user.has_role?(:admin) %>
+
+    <%= f.submit "保存", class: "btn btn--form" %>
+
+  <% end %>
 
   <%= link_to '戻る', price_scales_path, class: "btn btn--orange btn--radius back" %>
 
+  <%# 編集の時だけ削除ボタンを表示する %>
   <% if jud == "edit" %>
 
     <%= link_to '削除', price_scale_path(@price_scale.id), method: :delete, class: "btn btn--delete" %>

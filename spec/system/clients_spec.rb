@@ -68,7 +68,7 @@ RSpec.describe '顧客新規登録', type: :system do
       fill_in 'FAX番号', with: ''
       fill_in 'E-mail', with: ''
       fill_in '郵便番号', with: ''
-      # 保存ボタンを押すとclientsモデルのカウントが1上がることを確認する
+      # 保存ボタンを押してもclientsモデルのカウントが変わらないことを確認する
       expect{
         find('input[name="commit"]').click
       }.to change { Client.count }.by(0)
@@ -157,7 +157,7 @@ RSpec.describe '顧客情報編集', type: :system do
       fill_in 'client_fax_number', with: "099-999-9999"
       fill_in 'client_email', with: "#{@client.email}abc"
       fill_in 'client_postal_code', with: "999-9999"
-      #  編集してもClientモデルのカウントは変わらないことを確認する
+      # 編集してもClientモデルのカウントは変わらないことを確認する
       expect{
         find('input[name="commit"]').click
       }.to change { Client.count }.by(0)
