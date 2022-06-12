@@ -10,6 +10,8 @@ FactoryBot.define do
     delivery_place { '御社' }
     business_terms { '従来通り' }
     total_price { Faker::Number.within(range: 1..100000) }
+    approval { 0 }
+    printing { 0 }
     association :client
   end
 end
