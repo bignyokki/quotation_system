@@ -103,7 +103,78 @@ require 'rails_helper'
 # end
 
       
-RSpec.describe '見積編集', type: :system do
+# RSpec.describe '見積編集', type: :system do
+#   before do
+#     @price_scale = FactoryBot.create(:price_scale)
+#     @user = FactoryBot.create(:user)
+#     @quotation = FactoryBot.create(:quotation)
+#     # 見積を承認済みに変更
+#     @quotation.update(approval: 1 )
+#   end
+
+#   context '見積編集ができるとき' do 
+
+#     it 'ログインしたユーザーは見積の編集ができる' do
+#       # ログインする
+#       sign_in(@user)
+#       # 見積一覧ページに遷移する
+#       visit quotations_path
+#       # 作成された見積の顧客が一覧に存在することを確認する
+#       expect(page).to have_content(@quotation.client.name)
+#       # 顧客ごとの見積一覧ページに移動する「選択」のリンクがあることを確認する
+#       expect(page).to have_link '選択', href: index_quotations_client_path(@quotation.client.id)
+#       # 顧客ごとの見積一覧ページに遷移する
+#       visit index_quotations_client_path(@quotation.client.id)
+#       # 作成された見積のリンクが存在するのを確認する
+#       expect(page).to have_link @quotation.title, href: edit_quotation_path(@quotation)
+#       # 見積の編集ページに遷移する
+#       visit edit_quotation_path(@quotation)
+#       # 登録された見積の情報がすでに入力されていることを確認する
+#       expect(
+#         find('#quotation_title').value
+#       ).to eq(@quotation.title)
+#       expect(
+#         find('#quotation_charge').value
+#       ).to eq(@quotation.charge)
+#       expect(
+#         find('#quotation_delivery_date').value
+#       ).to eq(@quotation.delivery_date)
+#       expect(
+#         find('#quotation_expiration_date').value
+#       ).to eq(@quotation.expiration_date)
+#       expect(
+#         find('#quotation_delivery_place').value
+#       ).to eq(@quotation.delivery_place)
+#       expect(
+#         find('#quotation_business_terms').value
+#       ).to eq(@quotation.business_terms)
+#       # 情報を編集する
+#       fill_in 'quotation_title', with: "#{@quotation.title}+編集"
+#       fill_in 'quotation_charge', with: "#{@quotation.charge}+編集"
+#       fill_in 'quotation_delivery_date', with: "#{@quotation.delivery_date}+編集"
+#       fill_in 'quotation_expiration_date', with: "#{@quotation.expiration_date}+編集"
+#       fill_in 'quotation_delivery_place', with: "#{@quotation.delivery_place}+編集"
+#       fill_in 'quotation_business_terms', with: "#{@quotation.business_terms}+編集"
+#       # 編集してもQuotationのカウントは変わらないことを確認する
+#       expect{
+#         find('input[name="commit"]').click
+#       }.to change { Quotation.count }.by(0)
+#       # 見積顧客一覧のページに遷移することを確認する
+#       expect(current_path).to eq(quotations_path)
+#       # 「見積を作成しました(承認待ち)」の文字が存在することを確認する
+#       expect(page).to have_content('見積を作成しました(承認待ち)')
+#       # 見積承認待ち一覧へ遷移する
+#       visit approvals_path
+#       # 編集した内容が一覧に反映されていることを確認する
+#       expect(page).to have_content("#{@quotation.title}+編集")
+#     end
+
+#   end
+
+# end
+
+
+RSpec.describe '見積削除', type: :system do
   before do
     @price_scale = FactoryBot.create(:price_scale)
     @user = FactoryBot.create(:user)
@@ -112,9 +183,9 @@ RSpec.describe '見積編集', type: :system do
     @quotation.update(approval: 1 )
   end
 
-  context '見積編集ができるとき' do 
+  context '見積削除ができるとき' do 
 
-    it '正しい情報を入力すれば見積新規登録ができる' do
+    it 'ログインしたユーザーは見積削除ができる' do
       # ログインする
       sign_in(@user)
       # 見積一覧ページに遷移する
@@ -129,44 +200,20 @@ RSpec.describe '見積編集', type: :system do
       expect(page).to have_link @quotation.title, href: edit_quotation_path(@quotation)
       # 見積の編集ページに遷移する
       visit edit_quotation_path(@quotation)
-      # 登録された見積の情報がすでに入力されていることを確認する
-      expect(
-        find('#quotation_title').value
-      ).to eq(@quotation.title)
-      expect(
-        find('#quotation_charge').value
-      ).to eq(@quotation.charge)
-      expect(
-        find('#quotation_delivery_date').value
-      ).to eq(@quotation.delivery_date)
-      expect(
-        find('#quotation_expiration_date').value
-      ).to eq(@quotation.expiration_date)
-      expect(
-        find('#quotation_delivery_place').value
-      ).to eq(@quotation.delivery_place)
-      expect(
-        find('#quotation_business_terms').value
-      ).to eq(@quotation.business_terms)
-      # 情報を編集する
-      fill_in 'quotation_title', with: "#{@quotation.title}+編集"
-      fill_in 'quotation_charge', with: "#{@quotation.charge}+編集"
-      fill_in 'quotation_delivery_date', with: "#{@quotation.delivery_date}+編集"
-      fill_in 'quotation_expiration_date', with: "#{@quotation.expiration_date}+編集"
-      fill_in 'quotation_delivery_place', with: "#{@quotation.delivery_place}+編集"
-      fill_in 'quotation_business_terms', with: "#{@quotation.business_terms}+編集"
-      # 編集してもQuotationのカウントは変わらないことを確認する
+      # 削除のリンクがあることを確認する
+      expect(page).to have_link '削除', href: quotation_path(@quotation)
+      # 見積を削除するとレコードの数が1減ることを確認する
       expect{
-        find('input[name="commit"]').click
-      }.to change { Quotation.count }.by(0)
-      # 見積顧客一覧のページに遷移することを確認する
-      expect(current_path).to eq(quotations_path)
-      # 「見積を作成しました(承認待ち)」の文字が存在することを確認する
-      expect(page).to have_content('見積を作成しました(承認待ち)')
-      # 見積承認待ち一覧へ遷移する
-      visit approvals_path
-      # 編集した内容が一覧に反映されていることを確認する
-      expect(page).to have_content("#{@quotation.title}+編集")
+        find_link('削除', href: quotation_path(@quotation)).click
+      }.to change { Quotation.count }.by(-1)
+      # 顧客別の見積一覧ページ遷移したことを確認する
+      expect(current_path).to eq(index_quotations_client_path(@quotation.client.id))
+      # 「顧客情報を削除しました」の文字があることを確認する
+      expect(page).to have_content('見積を削除しました')
+      # 顧客別の見積一覧ページに削除した見積の項が存在しないことを確認する
+      expect(page).to have_no_content("#{@quotation.title}")
     end
+    
   end
+
 end
