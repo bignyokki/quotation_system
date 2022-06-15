@@ -12,7 +12,7 @@
 
       <div class="drawing-top-content">
 
-        <%= f.label :figure_number, "図番" %>
+        <%= f.label :figure_number, "図番" %><span class="required">※</span>
         <%= f.text_field :figure_number, id: "figure_number" %>
         <br>
         <%= f.label :product_name, "品名" %>
@@ -21,7 +21,7 @@
         <%= f.label :material, "材質" %>
         <%= f.text_field :material, id: "material" %>
         <br>
-        <%= f.label :surface_treatment, "表面処理" %>
+        <%= f.label :surface_treatment, "表面処理" %><span class="required">※</span>
         <%= f.collection_select(:surface_treatment, @price_scales, :title, :title, include_blank: "選択してください" ) %>
 
       </div>
@@ -107,7 +107,7 @@
         <%= f.label :price, "単価" %>
         <%= f.text_field :price, id: "price_result" %>
         <br>
-        <%= f.label :quantity, "数量" %>
+        <%= f.label :quantity, "数量" %><span class="required">※</span>
         <%= f.text_field :quantity, id: "drawing_quantity" %>
         <br>
         <%= f.label :notes, "適用" %>

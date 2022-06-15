@@ -345,3 +345,10 @@ li.tab {
 .error-message {
   text-align: center;
 }
+
+
+span.required {
+  color: red;
+  font-size: 0.7rem;
+  vertical-align: top;
+}

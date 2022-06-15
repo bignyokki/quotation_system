@@ -11,10 +11,10 @@
       <div class="quotation-form">
 
         <%# 顧客名は１００件以上になるため、後でサジェスト機能を実装する%>
-        <%= form.label :client_id, "顧客名" %>
+        <%= form.label :client_id, "顧客名" %><span class="required">※</span>
         <%= form.collection_select(:client_id, @clients, :id, :name, include_blank: "選択してください" ) %>
         <br>
-        <%= form.label :title, "タイトル" %>
+        <%= form.label :title, "タイトル" %><span class="required">※</span>
         <%= form.text_field :title %>
         <br>
         <%= form.label :charge, "ご担当" %>
