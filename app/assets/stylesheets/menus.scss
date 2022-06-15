@@ -93,8 +93,23 @@
   color: #fff;
   background-color: #19b5d1;
   font-size: 25px;
-  width: 250px;
+  width: 200px;
   box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+  position: relative;
+
+  // アイコンバッジ
+  span {
+    position: absolute;
+    top: -15px;
+    left: calc(100% - 15px);
+    color: #FFF;
+    line-height: 30px;
+    text-align: center;
+    background: red;
+    border-radius: 15px;
+    min-width: 20px;
+    padding: 0 5px 0 7px;
+  }
 }
 
 a.sub-content{

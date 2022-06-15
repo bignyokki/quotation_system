@@ -34,10 +34,17 @@
     <div class="menu-right-contents">
 
         <%= link_to '見積新規登録', new_quotation_path, class: "main-content-link btn" %>
-        <%= link_to "見積承認(#{@appro_count})", approvals_path, class: "main-content-link btn" %>
-        <%= link_to "見積差戻し(#{@appro_not_count})", index2_approvals_path, class: "main-content-link btn" %>
-        <%= link_to "見積印刷(#{@print_count})", printings_path, class: "main-content-link btn" %>
-
+        <%# リンク文字にspanタグを含めるためにブロック構文で記述 %>
+        <%= link_to approvals_path, class: "main-content-link btn" do %>
+          <%# 件数をアイコンバッジで表示 %>
+          見積承認<span class="icon-badge"><%= @appro_count %></span>
+        <% end %>
+        <%= link_to index2_approvals_path, class: "main-content-link btn" do %>
+          見積差戻し<span class="icon-badge"><%= @appro_not_count %></span>
+        <% end %>
+        <%= link_to  printings_path, class: "main-content-link btn" do %>
+          見積印刷<span class="icon-badge"><%= @print_count %></span>
+        <% end %>
     </div>
 
   </div>
