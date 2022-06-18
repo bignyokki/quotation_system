@@ -22,7 +22,7 @@
 
         <%= link_to "", client_path(@client.id), method: :delete, id: "item-delete" %>
 
-        <p><a id="modal-open" class="btn btn--delete">削除</a></p>
+        <a id="modal-open" class="btn btn--delete">削除</a>
         
       <% end %>
 
@@ -32,9 +32,14 @@
     <div id="modal-overlay">
 
       <div id="modal-content">
-        <p>削除してよろしいですか？</p>
-        <p><a id="modal-close" class="modal-button">キャンセル</a></p>
-        <p><a id="modal-delete" class="modal-button">削除</a></p>
+        <div class="modal-message">
+          <p>削除してよろしいですか？</p>
+          <p>顧客名<%= @client.name %></p>
+        </div>
+        <div class="modal-button-area">
+          <p><a id="modal-close" class="btn btn--cancel">キャンセル</a></p>
+          <p><a id="modal-delete" class="btn btn--delete">削除</a></p>
+        </div>
       </div>
 
     </div>
