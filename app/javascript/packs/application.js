@@ -12,6 +12,7 @@ import "cocoon";
 require("../drawing")
 require("../quotation_tab")
 require("../modal_window")
+require("../floating_label")
 
 
 
