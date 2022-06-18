@@ -19,9 +19,24 @@
       <%= link_to "戻る", clients_path, class: "btn btn--orange" %>
 
       <% if user_signed_in? && current_user.has_role?(:admin) %>
-        <%= link_to "削除", client_path(@client.id), method: :delete, class: "btn btn--delete" %>
+
+        <%= link_to "", client_path(@client.id), method: :delete, id: "item-delete" %>
+
+        <p><a id="modal-open" class="btn btn--delete">削除</a></p>
+        
       <% end %>
-      
+
+    </div>
+
+    <%# 削除選択時モーダルウィンドウを表示する(デフォルトは非表示) %>
+    <div id="modal-overlay">
+
+      <div id="modal-content">
+        <p>削除してよろしいですか？</p>
+        <p><a id="modal-close" class="modal-button">キャンセル</a></p>
+        <p><a id="modal-delete" class="modal-button">削除</a></p>
+      </div>
+
     </div>
 
   </div>
