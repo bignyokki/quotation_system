@@ -1,113 +1,139 @@
-<%= form_with(model: client, local: true) do |f| %>
+<div class="client-form-area">
 
-  <%= render 'shared/error_messages', model: f.object %>
+  <%= form_with(model: client, local: true) do |f| %>
 
-  <div class="new-client-item">
+    <%= render 'shared/error_messages', model: f.object %>
 
-    <div class="new-client-label">
-      <%= f.label :name, "顧客名" %><span class="required">※</span>
+    <div class="client-form-contents">
+
+      <div class="client-left-contents">
+
+        <div class="field">
+
+          <%# editで値が最初から入力されている場合はラベルをactiveにする %>
+          <% if @client.name.blank? %>
+            <%= f.label :name, '顧客名*', class: "field__label" %>
+          <% else %>
+            <%= f.label :name, '顧客名*', class: "field__label active" %>
+          <% end %>
+
+          <%= f.text_field :name, class: "client__field__input" %>
+
+        </div>
+
+        <div class="field">
+
+          <% if @client.name_kana.blank? %>
+            <%= f.label :name_kana, "ふりがな*", class: "field__label" %>
+          <% else %>
+            <%= f.label :name_kana, "ふりがな*", class: "field__label active" %>
+          <% end %>
+
+            <%= f.text_field :name_kana, class: "client__field__input" %>
+
+        </div>
+
+
+        <div class="field">
+
+          <% if @client.phone_number.blank? %>
+            <%= f.label :phone_number, "電話番号", class: "field__label" %>
+          <% else %>
+            <%= f.label :phone_number, "電話番号", class: "field__label active" %>
+          <% end %>
+
+            <%= f.text_field :phone_number, class: "client__field__input" %>
+
+        </div>
+
+        <div class="field">
+
+          <% if @client.fax_number.blank? %>
+            <%= f.label :fax_number, "FAX番号", class: "field__label" %> 
+          <% else %>
+            <%= f.label :fax_number, "FAX番号", class: "field__label active" %>
+          <% end %> 
+
+            <%= f.text_field :fax_number, class: "client__field__input" %>
+
+        </div>
+
+          <div class="field">
+
+          <% if @client.email.blank? %>
+            <%= f.label :email, "E-mail", class: "field__label" %>
+          <% else %>
+            <%= f.label :email, "E-mail", class: "field__label active" %>
+          <% end %>
+
+            <%= f.text_field :email, class: "client__field__input" %>
+
+        </div>
+
+        <div class="field">
+
+          <% if @client.postal_code.blank? %>
+            <%= f.label :postal_code, "郵便番号", class: "field__label" %>
+          <% else %>
+            <%= f.label :postal_code, "郵便番号", class: "field__label active" %>
+          <% end %>
+
+          <%= f.text_field :postal_code, class: "client__field__input" %>
+
+        </div>
+
+        <div class="field">
+
+          <% if @client.address.blank? %>
+            <%= f.label :address, "住所", class: "field__label" %>
+          <% else %>
+            <%= f.label :address, "住所", class: "field__label active" %>
+          <% end %>
+
+          <%= f.text_field :address, class: "client__field__input" %>
+
+        </div>
+
+      </div>
+
+      <div class="client-right-contents">
+
+        <div class="field">
+
+          <% if @client.person.blank? %>
+            <%= f.label :person, "人名", class: "field__label" %>
+          <% else %>
+            <%= f.label :person, "人名", class: "field__label active" %>
+          <% end %>
+
+          <%= f.text_area :person, class: "client__field__input", row: "10" %>
+
+        </div>
+
+        <div class="field">
+
+          <% if @client.remarks.blank? %>
+            <%= f.label :remarks, "備考", class: "field__label" %>
+          <% else %>
+            <%= f.label :remarks, "備考", class: "field__label active" %>
+          <% end %>
+
+          <%= f.text_area :remarks, class: "client__field__input" %>
+
+        </div>
+
+      </div>
+
     </div>
-    <div class="new-client-field">
-      <%= f.text_field :name %>
-    </div>
 
-  </div>
+    <% if user_signed_in? && current_user.has_role?(:admin) %>
 
-  <div class="new-client-item">
+      <div class="client-submit-area">
+        <%= f.submit "保存", class: "btn--form center" %>
+      </div>
 
-    <div class="new-client-label">
-      <%= f.label :name_kana, "ふりがな" %><span class="required">※</span>
-    </div>
-    <div class="new-client-field">
-      <%= f.text_field :name_kana %>
-    </div>
-
-  </div>
-
-
-  <div class="new-client-item">
-
-    <div class="new-client-label">
-      <%= f.label :phone_number, "電話番号" %>
-    </div>
-    <div class="new-client-field">
-      <%= f.text_field :phone_number%>
-    </div>
-
-  </div>
-
-  <div class="new-client-item">
-
-    <div class="new-client-label">
-      <%= f.label :fax_number, "FAX番号" %> 
-    </div>
-    <div class="new-client-field">
-      <%= f.text_field :fax_number %>
-    </div>
-
-  </div>
-
-    <div class="new-client-item">
-
-    <div class="new-client-label">
-      <%= f.label :email, "E-mail" %>
-    </div>
-    <div class="new-client-field">
-      <%= f.text_field :email %>
-    </div>
-
-  </div>
-
-  <div class="new-client-item">
-
-    <div class="new-client-label">
-      <%= f.label :postal_code, "郵便番号" %>
-    </div>
-    <div class="new-client-field">
-      <%= f.text_field :postal_code %>
-    </div>
-
-  </div>
-
-  <div class="new-client-item">
-
-    <div class="new-client-label">
-      <%= f.label :address, "住所" %>
-    </div>
-    <div class="new-client-field">
-      <%= f.text_field :address %>
-    </div>
-
-  </div>
-
-  <div class="new-client-item">
-
-    <div class="new-client-label">
-      <%= f.label :person, "人名" %>
-    </div>
-    <div class="new-client-field">
-      <%= f.text_area :person %>
-    </div>
-
-  </div>
-
-  <div class="new-client-item">
-
-    <div class="new-client-label">
-      <%= f.label :remarks, "備考" %>
-    </div>
-    <div class="new-client-field">
-      <%= f.text_area :remarks %>
-    </div>
-
-  </div>
-
-  <% if user_signed_in? && current_user.has_role?(:admin) %>
-
-    <div class="new-client-item">
-      <%= f.submit "保存", class: "btn--form center" %>
-    </div>
+    <% end %>
 
   <% end %>
 
-<% end %>
+</div>

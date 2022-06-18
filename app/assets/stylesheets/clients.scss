@@ -76,3 +76,43 @@
   justify-content: space-between;
   width: 400px;
 }
+
+.client__field__input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid rgb(171, 170, 170);
+  border-radius: 2px;
+  font-size: 15px;
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+} 
+
+.client__field__input:focus {
+  outline: none;
+  border: 2px solid rgb(89, 193, 244);
+}
+
+.client-form-contents {
+  display: flex;
+  justify-content: space-around;
+  width: 700px;
+}
+
+.client-form-area {
+  background-color: white;
+  width: 700px;
+  margin: 10px;
+  justify-content: center;
+  border-radius: 2px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
+}
+
+textarea.client__field__input {
+  height: 165px;
+}
+
+.client-submit-area {
+  width: 300px;
+  margin: 0 auto;
+}
