@@ -136,7 +136,7 @@ a.btn--orange {
 .btn--orange:hover,
 a.btn--orange:hover {
   color: #fff;
-  background: #f56500;
+  background: #fb7211;
 }
 
 a.btn--radius {
@@ -176,6 +176,9 @@ a.btn--radius {
   border-radius: 3px;
   text-align: center;
   text-decoration: none !important;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+              0px 2px 2px 0px rgb(0 0 0 / 14%),
+              0px 1px 5px 0px rgb(0 0 0 / 12%);
 }
 
 .btn--delete:before {
@@ -191,6 +194,39 @@ a.btn--radius {
 
 .btn--delete:hover {
   background: rgb(245, 151, 151);
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+              0px 4px 2px 0px rgb(0 0 0 / 14%),
+              0px 3px 5px 0px rgb(0 0 0 / 12%);
+}
+
+#modal-delete {
+  width: 100px;
+}
+
+.btn--cancel {
+  width: 100px;
+  padding: 0.5em;
+  margin: 10px 0;
+  display: block;
+  color: rgb(19, 142, 236) !important;
+  background: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: large ;
+  border-radius: 3px;
+  text-align: center;
+  text-decoration: none !important;
+  border: solid 1px blue;
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+              0px 2px 2px 0px rgb(0 0 0 / 14%),
+              0px 1px 5px 0px rgb(0 0 0 / 12%);
+}
+
+.btn--cancel:hover {
+  background-color: rgb(207, 207, 249);
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+              0px 4px 2px 0px rgb(0 0 0 / 14%),
+              0px 3px 5px 0px rgb(0 0 0 / 12%);
 }
 
 .btn--form {
@@ -355,18 +391,29 @@ span.required {
 
 /* モーダルウィンドウCSS */
 
+#modal-overlay {
+  display: none;
+	z-index:1; /* モーダルウィンドウと通常画面の間に表示 */
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background-color:rgba(0,0,0,0.75);
+}
+
 #modal-content {
-	width:350px;
-	margin:1.5em auto 0;
-	padding:10px 20px;
-	border:2px solid #aaa;
-	background:#fff;
-  /* display: none; 最初表示しない */
-	z-index:2; /* 最前面に表示 */
+	width: 350px;
+	margin: 1.5em auto 0;
+	padding: 10px 20px;
+	border: 2px solid #aaa;
+	background: #fff;
+	z-index: 2; /* 最前面に表示 */
   position: fixed; /* 表示位置を固定 */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 5px;
 }
 
 .modal-p {
@@ -387,14 +434,11 @@ span.required {
 	color:#f00;
 }
 
+.modal-button-area {
+  display: flex;
+  justify-content: space-between;
+}
 
-#modal-overlay {
-  display: none;
-	z-index:1; /* モーダルウィンドウと通常画面の間に表示 */
-	position:fixed;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
-	background-color:rgba(0,0,0,0.75);
+.modal-message {
+  text-align: center;
 }

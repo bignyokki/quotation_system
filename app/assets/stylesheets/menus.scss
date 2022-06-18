@@ -87,6 +87,7 @@
 .menu-under-contents{
   display: flex;
   justify-content: space-around;
+  padding-bottom: 10px;
 }
 
 .main-content-link{
@@ -94,7 +95,7 @@
   background-color: #19b5d1;
   font-size: 25px;
   width: 200px;
-  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, .5);
   position: relative;
 
   // アイコンバッジ
@@ -112,11 +113,22 @@
   }
 }
 
-a.sub-content{
+.main-content-link:hover {
+  background-color: #57c8dc;
+  box-shadow: 0 13px 15px 0 rgba(0, 0, 0, .5);
+
+}
+
+a.sub-content {
   width: 150px;
   margin: 10px 30px;
   color: white;
   background-color: rgb(160, 158, 158);
   font-size: 20px;
-  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+  box-shadow: 0 10px 15px 0 rgba(0, 0, 0, .5);
+}
+
+a.sub-content:hover {
+  background-color: rgb(173, 172, 172);
+  box-shadow: 0 13px 15px 0 rgba(0, 0, 0, .5);
 }
