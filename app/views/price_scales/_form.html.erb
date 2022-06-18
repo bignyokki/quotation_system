@@ -133,7 +133,7 @@
   <%# 編集の時だけ削除ボタンを表示する %>
   <% if jud == "edit" %>
 
-    <%= link_to '削除', price_scale_path(@price_scale.id), method: :delete, class: "btn btn--delete" %>
+    <a id="modal-open" class="btn btn--delete">削除</a>
 
   <% end %>
 

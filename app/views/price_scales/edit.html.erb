@@ -13,3 +13,23 @@
   </div>
 
 </div>
+
+
+<%# モーダルウィンドウにてjavascriptから指定して削除する %>
+  <%= link_to '', price_scale_path(@price_scale.id), method: :delete, id: "item-delete" %>
+
+<%# 削除選択時モーダルウィンドウを表示する(デフォルトは非表示) %>
+  <div id="modal-overlay">
+
+    <div id="modal-content">
+      <div class="modal-message">
+        <p>削除してよろしいですか？</p>
+        <p>単価表タイトル：<%= @price_scale.title %></p>
+      </div>
+      <div class="modal-button-area">
+        <p><a id="modal-close" class="btn btn--cancel">キャンセル</a></p>
+        <p><a id="modal-delete" class="btn btn--delete">削除</a></p>
+      </div>
+    </div>
+
+  </div>
