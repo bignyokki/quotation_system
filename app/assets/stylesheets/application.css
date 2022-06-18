@@ -231,6 +231,7 @@ a.btn--radius {
 
 .btn--form {
   min-width: 80px;
+  width: 100%;
   padding: 0.5em;
   border-radius: 10px;
   font-size: 16px;
@@ -448,46 +449,68 @@ span.required {
 
 
 .field {
+  position: relative;
+  margin: 20px 0;
   width: 300px;
-  margin: 5px 0;
-  box-sizing: border-box;
+  color: rgb(171, 170, 170);
 }
 
 .field__label {
-  color: #999;
-  font-size: 12px;
-  opacity: 0;
-  padding: 4px 10px;
-  pointer-events: none;
   position: absolute;
-  text-overflow: ellipsis;
-  text-align: left;
-  -webkit-transform: translateY(3px);
-          transform: translateY(3px);
-  -webkit-transition: all .2s ease-out;
-  transition: all .2s ease-out;
+  top: 0;
+  font-size: 15px;
+  color: rgb(171, 170, 170);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 0 10px;
+  background-color: white;
+  -webkit-transition: top .2s ease-in-out, 
+                      font-size .2s ease-in-out;
+  transition: top .2s ease-in-out, 
+              font-size .2s ease-in-out;
 }
 
-.field--not-empty .field__label {
-  opacity: 1;
-  -webkit-transform: none;
-          transform: none;
+
+.field__label__select {
+  position: absolute;
+  top: 0;
+  font-size: 15px;
+  color: rgb(171, 170, 170);
+  border-radius: 10px;
+  margin: 10px;
+  padding: 0 10px;
+  background-color: white;
+}
+
+.active {
+  top: -25px;
+  font-size: 15px;
 }
 
 .field__input {
-  background-color: #f5f5f5;
-  border: 2px solid #e9e9e9;
-  color: #333;
-  font-size: 15px;
-  padding: 10px;
-  -webkit-transition: all .2s ease-out;
-  transition: all .2s ease-out;
   width: 100%;
-  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid rgb(171, 170, 170);
   border-radius: 2px;
+  font-size: 20px;
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+} 
+
+.field__input:focus {
+  outline: none;
+  border: 2px solid rgb(89, 193, 244);
 }
 
-.field--not-empty .field__input {
-  padding-bottom: 2px;
-  padding-top: 18px;
+
+
+.form-area {
+  background-color: white;
+  width: 400px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  border-radius: 2px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
 }

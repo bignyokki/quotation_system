@@ -1,11 +1,12 @@
 $(document).on('turbolinks:load', function() {
 
-  $('.field__input').on('input', function() {
-    var $field = $(this).closest('.field');
-    if (this.value) {
-      $field.addClass('field--not-empty');
-    } else {
-      $field.removeClass('field--not-empty');
+  $('input').on('focusin', function() {
+    $(this).parent().find('.field__label').addClass('active');
+  });
+  
+  $('input').on('focusout', function() {
+    if (!this.value) {
+      $(this).parent().find('.field__label').removeClass('active');
     }
   });
 

@@ -4,27 +4,20 @@
 
     <h1 class="content-title">ログイン</h2>
 
+    <div class="form-area">
     <%= form_with model: @user, url: user_session_path, local: true do |f| %>
 
-      <div class="new-session-item">
+      <div class="field">
 
-        <div class="new-session-label">
-          <%= f.label :employee_number, "社員番号" %>
-        </div>
-        <div class="new-session-field">
-          <%= f.text_field :employee_number, autofocus: true %>
-        </div>
+        <%= f.label :employee_number, "社員番号", class: "field__label" %>
+        <%= f.text_field :employee_number, class: "field__input one-column-form__input--text" %>
 
       </div>
 
-      <div class="new-session-item">
+      <div class="field">
 
-        <div class="new-session-label">
-          <%= f.label :password, "パスワード" %>
-        </div>
-        <div class="new-session-field">
-          <%= f.password_field :password, autocomplete: "off" %>
-        </div>
+        <%= f.label :password, "パスワード", class: "field__label" %>
+        <%= f.password_field :password, class: "field__input one-column-form__input--text"%>
 
       </div>
 
@@ -43,8 +36,9 @@
       <% end -%>
 
       <div class="actions">
-        <%= f.submit "ログイン", class: "btn btn--orange"%>
+        <%= f.submit "ログイン", class: "btn btn--form"%>
       </div>
     <% end %>
+    </div>
   </div>
 </div>
