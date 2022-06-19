@@ -308,6 +308,7 @@ li.tab {
   background-color: white;
   height: 500px;
   border-radius: 5px;
+  overflow: scroll;
 }
 
 .index-quotations-list table {

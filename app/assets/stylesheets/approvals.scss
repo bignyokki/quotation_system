@@ -23,9 +23,13 @@
   }
 }
 
-.approval-submit {
+.approval-submit-area {
   margin: 0 auto;
-  width: 400px;
+  width: 650px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+.approval-submit-btn {
+  width: 200px;
 }

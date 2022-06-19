@@ -4,38 +4,175 @@
 
     <h1 class="content-title">見積承認</h1>
 
+    <div class="quotation-form-area">
+
       <%= form_with(model: @quotation, url: approval_path, id: "quotation_input", local: true) do |form| %>
 
-        <%= render 'shared/error_messages', model: form.object %>
+      <div class="quotation-form-item">
+          <div class="field">
+            <%# 値がある場合はフローティングラベルを上に上げる(activeにする) %>
+            <% if @quotation.title.blank? %>
+              <%= form.label :title, "タイトル※", class: "field__label" %>
+            <% else %>
+              <%= form.label :title, "タイトル※", class: "field__label active" %>
+            <% end %>
 
-        <div class="quotation-form">
-
-          <%# 顧客名は１００件以上になるため、後でサジェスト機能を実装する%>
-          <%= form.label :client_id, "顧客名" %>
-          <%= form.collection_select(:client_id, @clients, :id, :name, include_blank: "選択してください" ) %>
-          <br>
-          <%= form.label :title, "タイトル" %>
-          <%= form.text_field :title %>
-          <br>
-          <%= form.label :charge, "ご担当" %>
-          <%= form.text_field :charge %>
-          <br>
-          <%= form.label :delivery_date, "納期" %>
-          <%= form.text_field :delivery_date %>
-          <br>
-          <%= form.label :expiration_date, "有効期限" %>
-          <%= form.text_field :expiration_date %>
-          <br>
-          <%= form.label :delivery_place, "受け渡し場所" %>
-          <%= form.text_field :delivery_place %>
-          <br>
-          <%= form.label :business_terms, "取引条件" %>
-          <%= form.text_field :business_terms %>
-    
+            <%= form.text_field :title, class: "quotation-field__input" %>
+          </div>
         </div>
 
+        <div class="quotation-form-item">
 
-        <% total_price = 0 %>
+          <div class="quotation-form-item-left">
+            <%# 顧客名は１００件以上になるため、後でサジェスト機能を実装する%>
+            <div class="field">
+              <%= form.label :client_id, "顧客名※", class: "field__label active" %>
+              <%= form.collection_select(:client_id, @clients, :id, :name, { include_blank: "選択してください" }, {class: "quotation-field__input" }) %>
+            </div>
+          </div>
+
+          <div class="quotation-form-item-right">
+
+            <div class="field">
+              <% if @quotation.charge.blank? %>
+                <%= form.label :charge, "ご担当", class: "field__label" %>
+              <% else %>
+                <%= form.label :charge, "ご担当", class: "field__label active" %>
+              <% end %>
+
+              <%= form.text_field :charge, class: "quotation-field__input" %>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="quotation-form-item">
+
+          <div class="quotation-form-item-left">
+            <div class="field">
+              <% if @quotation.delivery_date.blank? %>
+                <%= form.label :delivery_date, "納期", class: "field__label" %>
+              <% else %>
+                <%= form.label :delivery_date, "納期", class: "field__label active" %>
+              <% end %>
+
+              <%= form.text_field :delivery_date, list: 'deli_data_list', class: "quotation-field__input" %>
+                <%# 入力と、よく使用する文章の選択を両方できるようにするためdatalistを使用%>
+                <datalist id="deli_data_list">
+                  <option value='別途打ち合わせ'>
+                  <option value='当日'>
+                  <option value='翌日'>
+                  <option value='翌々日'>
+                  <option value='1週間'>
+                </datalist>
+            </div>
+          </div>
+
+          <div class="quotation-form-item-right">
+            <div class="field">
+              <% if @quotation.expiration_date.blank? %>
+                <%= form.label :expiration_date, "有効期限", class: "field__label" %>
+              <% else %>
+                <%= form.label :expiration_date, "有効期限", class: "field__label active" %>
+              <% end %>
+              <%= form.text_field :expiration_date, list: 'expi_data_list', class: "quotation-field__input" %>
+                <datalist id='expi_data_list'>
+                  <option value='1ヶ月'>
+                  <option value='3ヶ月'>
+                  <option value='1年間'>
+                  <option value='別途打ち合わせ'>
+                </datalist>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="quotation-form-item">
+
+          <div class="quotation-form-item-left">
+            <div class="field">
+              <% if @quotation.delivery_place.blank? %>
+                <%= form.label :delivery_place, "受渡場所", class: "field__label" %>
+              <% else %>
+                <%= form.label :delivery_place, "受渡場所", class: "field__label active" %>
+              <% end %>
+
+              <%= form.text_field :delivery_place, list: 'deli_place_list', class: "quotation-field__input" %>
+                <datalist id='deli_place_list'>
+                  <option value='弊社'>
+                  <option value='御社(運送便)'>
+                  <option value='御社(定期便)'>
+                  <option value='別途指定場所'>
+                </datalist>
+            </div>
+          </div>
+
+          <div class="quotation-form-item-right">
+            <div class="field">
+              <% if @quotation.business_terms.blank? %>
+                <%= form.label :business_terms, "取引条件", class: "field__label" %>
+              <% else %>
+                <%= form.label :business_terms, "取引条件", class: "field__label active" %>
+              <% end %>
+
+              <%= form.text_field :business_terms, list: 'busi_terms_list', class: "quotation-field__input" %>
+                <datalist id='busi_terms_list'>
+                  <option value='従来通り'>
+                  <option value='現金払い'>
+                  <option value='口座振込'>
+                  <option value='別途打ち合わせ'>
+                </datalist>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="quotation-form-item-textarea">
+          <div class="field-textarea">
+            <% if @quotation.remarks.blank? %>
+              <%= form.label :remarks, "備考", class: "field__label"  %>
+            <% else %>
+              <%= form.label :remarks, "備考", class: "field__label active"  %>
+            <% end %>
+
+            <%= form.text_area :remarks, class: "quotation-field__input" %>
+          </div>
+        </div>
+        
+        <div class="quotation-form-item-textarea">
+          <div class="field-textarea">
+            <% if @quotation.hidden_remarks.blank? %>
+            <%= form.label :hidden_remarks, "備考(非表示)", class: "field__label"  %>
+            <% else %>
+              <%= form.label :hidden_remarks, "備考(非表示)", class: "field__label active"  %>
+            <% end %>
+
+            <%= form.text_area :hidden_remarks, class: "quotation-field__input" %>
+          </div>
+        </div>
+
+        
+    
+        <div class="approval-submit-area">
+          <div class="approval-submit-btn">
+            <%= form.submit "承認", name: "approval_btn", id: "submit", class: "btn btn--form approval-btn" %>
+          </div>
+          <div class="approval-submit-btn">
+            <%= form.submit "差し戻し", name: "back_btn", id: "submit2", class: "btn btn--form approval-btn" %>
+          </div>
+          <div class="approval-back-btn">
+            <%= link_to "戻る", approvals_path, class: "btn btn--orange" %>
+          </div>
+        </div>
+
+      <% end %>
+
+    </div>
+
+    <% total_price = 0 %>
+
+      <div class="drawings-list-area">
+
         <% @drawings.each do |drawing| %>
 
           <%= render "drawings_list", drawing: drawing %>
@@ -44,59 +181,43 @@
 
         <% end %>
 
-        <div class="total-price-area">
+      </div>
 
-          <div class="notax-area">
+      <div class="total-price-area">
 
-            <div class="title-area">
-              小計
-            </div>
-            <div class="price-output-area">
-              <%= total_price %>円
-            </div>
+        <div class="notax-area">
 
+          <div class="title-area">
+            小計
           </div>
-          <div class="tax-area">
-
-            <div class="title-area">
-              消費税
-            </div>
-            <div class="price-output-area">
-              <% tax = total_price * 0.1 %>
-              <%= tax.floor %>円
-            </div>
-          
+          <div class="price-output-area">
+            <%= total_price %>円
           </div>
-          <div class="taxin-area">
 
-            <div class="title-area">
-              税込合計
-            </div>
-            <div class="price-output-area">
-              <%= total_price + tax.floor %>円
-            </div>
+        </div>
+        <div class="tax-area">
+
+          <div class="title-area">
+            消費税
+          </div>
+          <div class="price-output-area">
+            <% tax = total_price * 0.1 %>
+            <%= tax.floor %>円
+          </div>
+        
+        </div>
+        <div class="taxin-area">
+
+          <div class="title-area">
+            税込合計
+          </div>
+          <div class="price-output-area">
+            <%= total_price + tax.floor %>円
+          </div>
 
         </div>
 
-        <div class="quotation-form">
-
-          <%= form.hidden_field :total_price, :value => total_price %>
-          <%= form.label :remarks, "備考" %>
-          <%= form.text_area :remarks %>
-          <br>
-          <%= form.label :hidden_remarks, "備考(非表示)" %>
-          <%= form.text_area :hidden_remarks %>
-
-        </div>
-    
-        <div class="approval-submit">
-          <%= form.submit "承認", name: "approval_btn", id: "submit", class: "btn btn--form" %>
-          <%= form.submit "差し戻し", name: "back_btn", id: "submit2", class: "btn btn--form" %>
-          <%= link_to "戻る", approvals_path, class: "btn btn--orange" %>
-        </div>
-
-      <% end %>
-
+      </div>
 
   </div>
 
