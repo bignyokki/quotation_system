@@ -4,125 +4,7 @@
 
     <h1 class="content-title">図面登録</h1>
 
-    <%# javascriptへ変数を渡す %>
-    <div id="price_scales" data-priceScales-status="<%= @price_scales.to_json %>"></div>
-
-    <%= form_with(model: [@quotation, @drawing], local: true, id: "form") do |f| %>
-
-      <%# 見積書idを送信する %>
-      <input type="hidden" id="quotation_id" value="<%= @quotation.id %>" >
-
-      <div class="drawing-top-content">
-
-        <%= f.label :figure_number, "図番" %><span class="required">※</span>
-        <%= f.text_field :figure_number, id: "figure_number" %>
-        <br>
-        <%= f.label :product_name, "品名" %>
-        <%= f.text_field :product_name, id: "product_name" %>
-        <br>
-        <%= f.label :material, "材質" %>
-        <%= f.text_field :material, id: "material" %>
-        <br>
-        <%= f.label :surface_treatment, "表面処理" %><span class="required">※</span>
-        <%= f.collection_select(:surface_treatment, @price_scales, :title, :title, include_blank: "選択してください" ) %>
-
-      </div>
-      <div class="drawing-mid1-content">
-
-        <div class="drawing-left-content">
-
-          <div class="image-content">
-            <%= image_tag "square.jpg", size: "150x120" %>
-          </div>
-
-          <div class="size-form">
-
-            <label for="length">縦</label>
-            <input id="length" name="length" type="text" autocomplete="off" /><br>
-            <label for="width">横</label>
-            <input id="width" name="width" type="text" autocomplete="off" /><br>
-            <label for="height">厚み</label>
-            <input id="height" name="height" type="text" autocomplete="off" /><br>
-
-          </div>
-
-        </div>
-
-        <div class="drawing-right-content">
-
-          <div class="image-content">
-            <%= image_tag "ring.png", size: "150x120" %>
-          </div>
-
-          <div class="size-form">
-        
-            <label for="outer_dia">外径</label>
-            <input id="outer_dia" name="outer_dia" type="text" autocomplete="off" /><br>
-            <label for="long">長さ</label>
-            <input id="long" name="long" type="text" autocomplete="off" /><br>
-            <label for="inside_dia">内径</label>
-            <input id="inside_dia" name="inside_dia" type="text" autocomplete="off" /><br>
-
-          </div>
-        </div>
-
-      </div>
-      <div class="drawing-mid2-content">
-
-        <div class="weight-content">
-
-          <%= f.label :weight, "重量" %>
-          <%= f.text_field :weight, id: "weight_result" %><br>
-          <label for="weight_scale">重量単価</label>
-          <input id="weight_scale" name="weight_scale" type="text" autocomplete="off" /><br>
-          <label for="weight_price">単価</label>
-          <input id="weight_price" name="weight_price" type="text" autocomplete="off" /><br>
-          <input type="button" value="決定" id="weight_price_select" /> 
-
-        </div>
-        <div class="area-content">
-
-          <%= f.label :area, "面積" %>
-          <%= f.text_field :area, id: "area_result" %><br>
-          <label for="area_scale">面積単価</label>
-          <input id="area_scale" name="area_scale" type="text" autocomplete="off" /><br>
-          <label for="area_price">単価</label>
-          <input id="area_price" neme="area_price" type="text" autocomplete="off" /><br>
-          <input type="button" value="決定" id="area_price_select" /> 
-
-        </div>
-        <div class="size-content">
-
-          <%= f.label :size, "寸法" %>
-          <%= f.text_field :size, id: "size_result" %><br>
-          <label for="size_scale">外径計算</label>
-          <input id="size_scale" name="size_Scale" type="text" autocomplete="off" /><br>
-          <label for="size_price">単価</label>
-          <input id="size_price" name="size_price" type="text" autocomplete="off" /><br>
-          <input type="button" value="決定" id="size_price_select" /> 
-
-        </div>
-
-      </div>
-      <div class="drawing-bottom-content">
-
-        <%= f.label :price, "単価" %>
-        <%= f.text_field :price, id: "price_result" %>
-        <br>
-        <%= f.label :quantity, "数量" %><span class="required">※</span>
-        <%= f.text_field :quantity, id: "drawing_quantity" %>
-        <br>
-        <%= f.label :notes, "適用" %>
-        <%= f.text_field :notes, id: "drawing_notes" %>
-
-      </div>
-      <div class="drawing-link-content">
-        <%= f.submit "次の図面を登録", id: "submit", class: 'btnbox center' %>
-      </div>
-    <% end %>
-    <div class="btnbox">
-      <%= link_to "図面の登録を終了", edit_quotation_path(@quotation.id), class: 'link-btn' %>
-    </div>
+     <%= render partial: "form", locals: { price_scales: @price_scales, quotation: @quotation, drawing: @drawing } %>
 
     <div id="list"></div>
       <% unless @drawings.blank? %>
@@ -132,6 +14,10 @@
 
       <% end %>
     <% end%>
+
+    <div class="btnbox">
+      <%= link_to "図面の登録を終了", edit_quotation_path(@quotation.id), class: 'btn btn--orange' %>
+    </div>
 
   </div>
 

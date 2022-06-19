@@ -4,23 +4,7 @@
 
 .drawing {
   display: flex;
-  color: white;
-}
-
-.drawing-top-content,
-.drawing-bottom-content {
-  width: 350px;
-  margin: 0 auto;
-  label {
-    width: 80px;
-  }
-  #figure_number,
-  #product_name {
-    width: 200px;
-  }
-  #material {
-    width: 80px;
-  }
+  color: gray;
 }
 
 .drawing-mid1-content {
@@ -54,7 +38,7 @@
   padding: 10px;
   border: solid 1px black;
   border-radius: 5px;
-  background-color: blue;
+  background-color: rgb(195, 240, 245);
   margin: 2px;
 }
 
@@ -63,14 +47,8 @@
   padding: 10px;
   border: solid 1px black;
   border-radius: 5px;
-  background-color: blue;
+  background-color: rgb(195, 240, 245);
   margin: 2px;
-}
-
-
-.drawing label {
-  display: inline-block;
-  text-align: right;
 }
 
 .weight-content,
@@ -80,14 +58,24 @@
   border: solid 1px black;
   border-radius: 5px;
   text-align: center;
-  background-color: rgb(116, 116, 238);
+  background-color: rgb(201, 242, 215);
   margin: 2px;
+  text-align: right;
+}
+
+.image-content {
+  margin-right: 10px;
+}
+
+.size-form {
+  text-align: right;
 }
 
 .drawing-link-content {
   display: flex;
   align-items: center;
-  margin: 10px 0;
+  margin: 10px auto;
+  width: 300px;
 }
 
 .drawings-list {
@@ -150,33 +138,6 @@
     align-items: center;
     justify-content: center;
   }
-}
-
-.btnBox{
-  width: 200px;
-  margin: 0 auto;
-  background-color: #fff;
-  border: 5px solid #3498db;
-  border-radius: 10px;
-}
-
-.btnBox > a{
-  display: block;
-  width: 100%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  text-align: center;
-  text-decoration: none;
-  font-weight: bold;
-  color: #3498db;
-}
-
-.btnbox {
-  width: 200px;
-  margin: 10px auto;
-  background-color: #fff;
-  border: 1px solid black;
-  border-radius: 10px;
 }
 
 .link-btn {
@@ -289,4 +250,37 @@
     
 
   }
+}
+
+.drawing-form-area {
+  width: 700px;
+  background-color: white;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  border-radius: 2px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
+}
+
+.drawing-field__input {
+  width: 100%;
+  padding: 7px;
+  border: 1px solid rgb(171, 170, 170);
+  border-radius: 2px;
+  font-size: 15px;
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+} 
+
+.drawing-field__input:focus {
+  outline: none;
+  border: 2px solid rgb(89, 193, 244);
+}
+
+.drawing-form-item {
+  display: flex;
+  justify-content: space-around;
+  width: 700px;
+  height: 55px;
 }
