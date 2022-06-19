@@ -53,13 +53,12 @@ https://docs.google.com/spreadsheets/d/1403ACxuIT4CN9isK8gLv208unnWEhzmTDPhgM0FR
 # 実装した機能についての画像やGIFおよびその説明
 [![Image from Gyazo](https://i.gyazo.com/37532e544b94ed24de01d7a59262dc2a.gif)](https://gyazo.com/37532e544b94ed24de01d7a59262dc2a)
 見積新規作成画面では必要事項を入力し、図面を追加するボタンをクリックすると、図面登録画面へ遷移する。
-[![Image from Gyazo](https://i.gyazo.com/9563be6c91744c93eb6b467026aa01e8.gif)](https://gyazo.com/9563be6c91744c93eb6b467026aa01e8)
+[![Image from Gyazo](https://i.gyazo.com/5ca5c673b2a80d225799ea20ace86425.gif)](https://gyazo.com/5ca5c673b2a80d225799ea20ace86425)
 図面登録画面では寸法を入力すると、重量、面積、寸法が自動計算され、単価表を参照し、単価も自動計算される。そのうち一つを選択し、図面を追加することで、ページ下部に非同期で登録された図面の情報が表示される。
 
 # 実装予定の機能
 - インメリクリ検索
 - 絞り込み、範囲指定、検索機能
-- モーダルウィンドウ
 - 2段階認証
 - 図面添付
 - 複数行の計算、合計機能
