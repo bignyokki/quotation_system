@@ -6,7 +6,13 @@
 
         <div class="quotation-form-item">
           <div class="field">
-            <%= form.label :title, "タイトル", class: "field__label" %>
+            <%# 値がある場合はフローティングラベルを上に上げる(activeにする) %>
+            <% if quotation.title.blank? %>
+              <%= form.label :title, "タイトル", class: "field__label" %>
+            <% else %>
+              <%= form.label :title, "タイトル", class: "field__label active" %>
+            <% end %>
+
             <%= form.text_field :title, class: "quotation-field__input" %>
           </div>
         </div>
@@ -22,8 +28,14 @@
           </div>
 
           <div class="quotation-form-item-right">
+
             <div class="field">
-              <%= form.label :charge, "ご担当", class: "field__label" %>
+              <% if quotation.charge.blank? %>
+                <%= form.label :charge, "ご担当", class: "field__label" %>
+              <% else %>
+                <%= form.label :charge, "ご担当", class: "field__label active" %>
+              <% end %>
+
               <%= form.text_field :charge, class: "quotation-field__input" %>
             </div>
           </div>
@@ -34,7 +46,12 @@
 
           <div class="quotation-form-item-left">
             <div class="field">
-              <%= form.label :delivery_date, "納期", class: "field__label" %>
+              <% if quotation.delivery_date.blank? %>
+                <%= form.label :delivery_date, "納期", class: "field__label" %>
+              <% else %>
+                <%= form.label :delivery_date, "納期", class: "field__label active" %>
+              <% end %>
+
               <%= form.text_field :delivery_date, list: 'deli_data_list', class: "quotation-field__input" %>
                 <%# 入力と、よく使用する文章の選択を両方できるようにするためdatalistを使用%>
                 <datalist id="deli_data_list">
@@ -49,7 +66,11 @@
 
           <div class="quotation-form-item-right">
             <div class="field">
-              <%= form.label :expiration_date, "有効期限", class: "field__label" %>
+              <% if quotation.expiration_date.blank? %>
+                <%= form.label :expiration_date, "有効期限", class: "field__label" %>
+              <% else %>
+                <%= form.label :expiration_date, "有効期限", class: "field__label active" %>
+              <% end %>
               <%= form.text_field :expiration_date, list: 'expi_data_list', class: "quotation-field__input" %>
                 <datalist id='expi_data_list'>
                   <option value='1ヶ月'>
@@ -66,7 +87,12 @@
 
           <div class="quotation-form-item-left">
             <div class="field">
-              <%= form.label :delivery_place, "受渡場所", class: "field__label" %>
+              <% if quotation.delivery_place.blank? %>
+                <%= form.label :delivery_place, "受渡場所", class: "field__label" %>
+              <% else %>
+                <%= form.label :delivery_place, "受渡場所", class: "field__label active" %>
+              <% end %>
+
               <%= form.text_field :delivery_place, list: 'deli_place_list', class: "quotation-field__input" %>
                 <datalist id='deli_place_list'>
                   <option value='弊社'>
@@ -79,7 +105,12 @@
 
           <div class="quotation-form-item-right">
             <div class="field">
-              <%= form.label :business_terms, "取引条件", class: "field__label" %>
+              <% if quotation.business_terms.blank? %>
+                <%= form.label :business_terms, "取引条件", class: "field__label" %>
+              <% else %>
+                <%= form.label :business_terms, "取引条件", class: "field__label active" %>
+              <% end %>
+
               <%= form.text_field :business_terms, list: 'busi_terms_list', class: "quotation-field__input" %>
                 <datalist id='busi_terms_list'>
                   <option value='従来通り'>
@@ -94,14 +125,24 @@
 
         <div class="quotation-form-item-textarea">
           <div class="field-textarea">
-            <%= form.label :remarks, "備考", class: "field__label"  %>
+            <% if quotation.remarks.blank? %>
+              <%= form.label :remarks, "備考", class: "field__label"  %>
+            <% else %>
+              <%= form.label :remarks, "備考", class: "field__label active"  %>
+            <% end %>
+
             <%= form.text_area :remarks, class: "quotation-field__input" %>
           </div>
         </div>
         
         <div class="quotation-form-item-textarea">
           <div class="field-textarea">
+            <% if quotation.hidden_remarks.blank? %>
             <%= form.label :hidden_remarks, "備考(非表示)", class: "field__label"  %>
+            <% else %>
+              <%= form.label :hidden_remarks, "備考(非表示)", class: "field__label active"  %>
+            <% end %>
+
             <%= form.text_area :hidden_remarks, class: "quotation-field__input" %>
           </div>
         </div>
@@ -111,6 +152,10 @@
             <%= form.submit "図面を追加する", id: "submit", class: "btn btn--form" %>
           </div>
         </div>
+
+        <%# 見積もりを新規作成したときは承認待ち(approval = 0),印刷待ち(printing = 0)にする%>
+        <%= form.hidden_field :approval, :value => 0 %>
+        <%= form.hidden_field :printing, :value => 0 %>
         
       <% end %>
 
