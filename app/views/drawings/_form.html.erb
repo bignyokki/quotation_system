@@ -8,21 +8,31 @@
         <%# 見積書idを送信する %>
         <input type="hidden" id="quotation_id" value="<%= quotation.id %>" >
 
-        <div class="drawing-top-content">
 
           <div class="drawing-form-item">
 
             <div class="drawing-form-item-left">
               <div class="field">
-                <%= f.label :figure_number, "図番※", class: "field__label" %>
-                <%= f.text_field :figure_number, id: "figure_number", class: "drawing-field__input" %>
+                <% if @drawing.figure_number.blank? %>
+                  <%= f.label :figure_number, "図番※", class: "field__label" %>
+                <% else %>
+                  <%= f.label :figure_number, "図番※", class: "field__label active" %>
+                <% end %>
+
+                <%= f.text_field :figure_number, id: "drawing_figure_number", class: "drawing-field__input" %>
               </div>
             </div>
 
             <div class="drawing-form-item-right">
               <div class="field">
-                <%= f.label :product_name, "品名", class: "field__label" %>
-                <%= f.text_field :product_name, id: "product_name", class: "drawing-field__input" %>
+                <% if @drawing.product_name.blank? %>
+                  <%= f.label :product_name, "品名", class: "field__label" %>
+                <% else %>
+                  <%= f.label :product_name, "品名", class: "field__label active" %>
+                <% end %>
+
+                <%= f.text_field :product_name, id: "drawing_product_name", class: "drawing-field__input" %>
+                
               </div>
             </div>
 
@@ -33,8 +43,12 @@
 
             <div class="drawing-form-item-left">
               <div class="field">
+              <% if @drawing.material.blank? %>
                 <%= f.label :material, "材質", class: "field__label" %>
-                <%= f.text_field :material, id: "material", class: "drawing-field__input" %>
+              <% else %>
+                <%= f.label :material, "材質", class: "field__label active" %>
+              <% end %>
+                <%= f.text_field :material, id: "drawing_material", class: "drawing-field__input" %>
               </div>
             </div>
 
@@ -47,7 +61,6 @@
 
           </div>
 
-        </div>
         <div class="drawing-mid1-content">
 
           <div class="drawing-left-content">
@@ -88,6 +101,7 @@
           </div>
 
         </div>
+
         <div class="drawing-mid2-content">
 
           <div class="weight-content">
@@ -125,34 +139,42 @@
           </div>
 
         </div>
-        <div class="drawing-bottom-content">
 
-          <div class="drawing-form-item">
+        <div class="drawing-form-item">
 
-            <div class="drawing-form-item-left">
-              <div class="field">
-                <%= f.label :price, "単価※", class: "field__label active" %>
-                <%= f.text_field :price, id: "price_result", class: "drawing-field__input" %>
-              </div>
-            </div>
-
-            <div class="drawing-form-item-right">
-              <div class="field">
-                <%= f.label :quantity, "数量※", class: "field__label" %>
-                <%= f.text_field :quantity, id: "drawing_quantity", class: "drawing-field__input" %>
-              </div>
-            </div>
-
-          </div>
-          
-          <div class="drawing-form-item">
+          <div class="drawing-form-item-left">
             <div class="field">
-              <%= f.label :notes, "適用", class: "field__label" %>
-              <%= f.text_field :notes, id: "drawing_notes", class: "drawing-field__input" %>
+              <%= f.label :price, "単価※", class: "field__label active" %>
+              <%= f.text_field :price, id: "price_result", class: "drawing-field__input" %>
+            </div>
+          </div>
+
+          <div class="drawing-form-item-right">
+            <div class="field">
+              <% if @drawing.quantity.blank? %>
+                <%= f.label :quantity, "数量※", class: "field__label" %>
+              <% else %>
+                <%= f.label :quantity, "数量※", class: "field__label active" %>
+              <% end %>
+              
+              <%= f.text_field :quantity, id: "drawing_quantity", class: "drawing-field__input" %>
             </div>
           </div>
 
         </div>
+          
+        <div class="drawing-form-item">
+          <div class="field">
+            <% if @drawing.notes.blank? %>
+              <%= f.label :notes, "適用", class: "field__label" %>
+            <% else %>
+              <%= f.label :notes, "適用", class: "field__label active" %>
+            <% end %>
+
+            <%= f.text_field :notes, id: "drawing_notes", class: "drawing-field__input" %>
+          </div>
+        </div>
+
         <div class="drawing-link-content">
         
           <% if @drawing.figure_number.blank? %>
