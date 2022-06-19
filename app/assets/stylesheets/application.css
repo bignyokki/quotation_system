@@ -461,7 +461,7 @@ span.required {
   font-size: 15px;
   color: rgb(171, 170, 170);
   border-radius: 10px;
-  margin: 10px;
+  margin: 7px;
   padding: 0 10px;
   background-color: white;
   -webkit-transition: top .2s ease-in-out, 
@@ -514,3 +514,4 @@ span.required {
   border-radius: 2px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
 }
+

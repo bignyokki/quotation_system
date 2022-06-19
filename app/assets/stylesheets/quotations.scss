@@ -93,3 +93,73 @@
 
   }
 }
+
+.quotation-form-area {
+  background-color: white;
+  width: 650px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  border-radius: 2px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
+}
+
+#quotation_input {
+  width: 650px;
+}
+
+.quotation-field__input {
+  width: 100%;
+  padding: 7px;
+  border: 1px solid rgb(171, 170, 170);
+  border-radius: 2px;
+  font-size: 15px;
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+} 
+
+.quotation-field__input:focus {
+  outline: none;
+  border: 2px solid rgb(89, 193, 244);
+}
+
+.field__label {
+  position: absolute;
+  top: 0;
+  font-size: 15px;
+  color: rgb(171, 170, 170);
+  border-radius: 10px;
+  margin: 7px;
+  padding: 0 10px;
+  background-color: white;
+  -webkit-transition: top .2s ease-in-out, 
+                      font-size .2s ease-in-out;
+  transition: top .2s ease-in-out, 
+              font-size .2s ease-in-out;
+}
+
+.quotation-form-item {
+  display: flex;
+  justify-content: space-around;
+  height: 55px;
+}
+
+.quotation-form-item-textarea {
+  display: flex;
+  justify-content: space-around;
+  height: 80px;
+}
+
+
+.quotation-submit-area {
+  width: 300px;
+  margin: 10px auto 0;
+}
+
+.field-textarea {
+  position: relative;
+  margin: 20px 0;
+  width: 630px;
+  color: rgb(171, 170, 170);
+}
