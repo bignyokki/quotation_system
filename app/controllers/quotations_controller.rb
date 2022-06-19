@@ -31,7 +31,7 @@ class QuotationsController < ApplicationController
       if params[:commit] == "図面を追加する"
         redirect_to new_quotation_drawing_path(@quotation.id)
       else
-        redirect_to new_quotation_path
+        redirect_to new_quotation_path, notice: '見積を保存しました(承認待ち)'
       end
     else
       render :edit

@@ -54,7 +54,7 @@ const calPrice = (priceScaleHash, calWeight, calArea, calSize) => {
   };
   // 面積計算：面積によってカラムを選択
   if ( calArea < 3 ) {
-    areaScale.value = priceScale.scale_w_0_3;
+    areaScale.value = priceScale.scale_a_0_3;
     let calAreaPrice = Math.ceil( calArea * areaScale.value / 10 ) * 10;
     if (calAreaPrice < priceScale.min_unit_price) {
       areaPrice.value = priceScale.min_unit_price;
