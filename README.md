@@ -13,6 +13,8 @@ https://quotation-app-37333.herokuapp.com/
 - Basic認証password:pass1234
 - 管理者ユーザーアカウント社員番号:0001
 - 管理者ユーザーアカウントpassword:pass1234
+- 一般ユーザーアカウント社員番号:0002
+- 一般ユーザーアカウントpassword:pass1234
 
 # 利用方法
 ## 見積作成機能
