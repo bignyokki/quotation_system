@@ -2,18 +2,23 @@
 
   <div class="contents">
 
-    <h1 class="content-title">新規見積入力(2/2)</h1>
+    <h1 class="content-title">見積編集</h1>
 
       <%= render partial: "form", locals: { quotation: @quotation, clients: @clients } %>
 
       <% total_price = 0 %>
-      <% @drawings.each do |drawing| %>
 
-        <%= render "drawings_list", drawing: drawing %>
+      <div class="drawings-list-area">
 
-        <% total_price += drawing.price * drawing.quantity %>
+        <% @drawings.each do |drawing| %>
 
-      <% end %>
+          <%= render "drawings_list", drawing: drawing %>
+
+          <% total_price += drawing.price * drawing.quantity %>
+
+        <% end %>
+
+      </div>
 
       <div class="total-price-area">
 
@@ -46,6 +51,8 @@
           <div class="price-output-area">
             <%= total_price + tax.floor %>円
           </div>
+
+        </div>
 
       </div>
 

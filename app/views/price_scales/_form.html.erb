@@ -139,8 +139,8 @@
 
     <%= link_to '戻る', price_scales_path, class: "btn btn--orange btn--radius back" %>
 
-    <%# 編集の時だけ削除ボタンを表示する %>
-    <% if jud == "edit" %>
+    <%# 編集の時だけ削除ボタンを表示する。タイトルに値が入っているかで判別 %>
+    <% unless @price_scale.title.blank? %>
 
       <a id="modal-open" class="btn btn--delete">削除</a>
 

@@ -39,7 +39,7 @@
       <div class="field">
 
           <%= f.label :admin_id, "権限", class: "field__label__select active" %>
-          <%= f.collection_select(:admin_id, Admin.all, :id, :name, {}, {class: "field__input"}) %>
+          <%= f.collection_select(:admin_id, Admin.all, :id, :name, { include_blank: "選択してください" }, {class: "field__input"}) %>
 
       </div>
 

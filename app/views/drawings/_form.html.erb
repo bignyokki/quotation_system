@@ -41,7 +41,7 @@
             <div class="drawing-form-item-right">
               <div class="field">
                 <%= f.label :surface_treatment, "表面処理※", class: "field__label active" %>
-                <%= f.collection_select(:surface_treatment, price_scales, :title, :title, {}, {include_blank: "選択してください", class: "drawing-field__input" }) %>
+                <%= f.collection_select(:surface_treatment, price_scales, :title, :title, {include_blank: "選択してください"}, {class: "drawing-field__input" }) %>
               </div>
             </div>
 

@@ -341,6 +341,7 @@ window.addEventListener('load',() => {
     };
   });
 
+  // 決定ボタンクリックで各計算単価を決定単価へ挿入
   weightPriceSelect.addEventListener("click",() => {
     priceResult.value = weightPrice.value;
   });

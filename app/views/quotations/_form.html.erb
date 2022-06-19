@@ -8,9 +8,9 @@
           <div class="field">
             <%# 値がある場合はフローティングラベルを上に上げる(activeにする) %>
             <% if quotation.title.blank? %>
-              <%= form.label :title, "タイトル", class: "field__label" %>
+              <%= form.label :title, "タイトル※", class: "field__label" %>
             <% else %>
-              <%= form.label :title, "タイトル", class: "field__label active" %>
+              <%= form.label :title, "タイトル※", class: "field__label active" %>
             <% end %>
 
             <%= form.text_field :title, class: "quotation-field__input" %>
@@ -22,8 +22,8 @@
           <div class="quotation-form-item-left">
             <%# 顧客名は１００件以上になるため、後でサジェスト機能を実装する%>
             <div class="field">
-              <%= form.label :client_id, "顧客名", class: "field__label active" %>
-              <%= form.collection_select(:client_id, clients, :id, :name, {}, {class: "quotation-field__input", include_blank: "選択してください" }) %>
+              <%= form.label :client_id, "顧客名※", class: "field__label active" %>
+              <%= form.collection_select(:client_id, clients, :id, :name, { include_blank: "選択してください" }, {class: "quotation-field__input" }) %>
             </div>
           </div>
 
@@ -151,6 +151,11 @@
           <div class="submit-btn">
             <%= form.submit "図面を追加する", id: "submit", class: "btn btn--form" %>
           </div>
+          <% unless quotation.title.blank? %>
+            <div class="submit-btn">
+              <%= form.submit "見積を保存する", id: "submit", class: "btn btn--form" %>
+            </div>
+          <% end %>
         </div>
 
         <%# 見積もりを新規作成したときは承認待ち(approval = 0),印刷待ち(printing = 0)にする%>

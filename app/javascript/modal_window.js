@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', function() {
   $("#modal-open").on('click',function(){
 
       // #modal-overlayをフェードイン(display: none; → block;)させる
-      $("#modal-overlay").fadeIn("slow");
+      $("#modal-overlay").fadeIn("fast");
 
   });
 
@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', function() {
   $("#modal-close,#modal-overlay").on('click',function(){
 
     // #modal-overlayをフェードアウト(display: block; → none;)する
-    $("#modal-overlay").fadeOut("slow");
+    $("#modal-overlay").fadeOut("fast");
 
   });
 

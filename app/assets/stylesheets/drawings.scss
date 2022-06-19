@@ -10,6 +10,7 @@
 .drawing-mid1-content {
   display: flex;
   justify-content: center;
+  margin-top: 10px;
 
   label {
     width: 40px;
@@ -78,21 +79,31 @@
   width: 300px;
 }
 
+.drawings-list-area {
+  border: solid 0.5px black;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
+  border-radius: 2px;
+  padding: 0 2px;
+  background-color: white;
+}
+
 .drawings-list {
   width: 1000px;
   background-color: white;
   color: black;
   display: flex;
   margin: 0 auto;
-  border: solid 0.5px black;
+  border-bottom: solid 0.5px black;
+  
   .left-area{
     width: 550px;
-    border: solid 0.5px  black;
+    border-right: solid 0.5px  black;
     .top-area {
       width: 550px;
       display: flex;
       .number-area {
         width: 300px;
+        padding-left: 10px;
       }
       .name-area {
         width: 250px;
@@ -103,6 +114,7 @@
       display: flex;
       .treatment-area {
         width: 200px;
+        padding-left: 10px;
       }
       .material-area {
         width: 150px;
@@ -118,7 +130,8 @@
     display: flex;
     align-items: center;
     justify-content: right;
-    border: solid 0.5px black;
+    border-right: solid 0.5px black;
+    padding: 0 5px;
   }
   .quantity-area {
     width: 70px;
@@ -131,7 +144,7 @@
   }
   .notes-area {
     width: 160px;
-    border: solid 0.5px black;
+    border-right: solid 0.5px black;
   }
   .btn-area {
     display: flex;

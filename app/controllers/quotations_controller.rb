@@ -5,12 +5,12 @@ class QuotationsController < ApplicationController
   end
 
   def new
-    @clients = Client.all
+    @clients = Client.order(:name_kana)
     @quotation = Quotation.new
   end
 
   def create
-    @clients = Client.all
+    @clients = Client.order(:name_kana)
     @quotation = Quotation.new(quotation_params)
     if @quotation.save
       redirect_to new_quotation_drawing_path(@quotation.id)
@@ -28,7 +28,11 @@ class QuotationsController < ApplicationController
   def update
     @quotation = Quotation.find(params[:id])
     if @quotation.update(quotation_params)
-      redirect_to quotations_path, notice: '見積を作成しました(承認待ち)'
+      if params[:commit] == "図面を追加する"
+        redirect_to new_quotation_drawing_path(@quotation.id)
+      else
+        redirect_to new_quotation_path
+      end
     else
       render :edit
     end
