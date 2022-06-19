@@ -51,7 +51,7 @@ https://quotation-app-37333.herokuapp.com/
 https://docs.google.com/spreadsheets/d/1403ACxuIT4CN9isK8gLv208unnWEhzmTDPhgM0FRIN8/edit#gid=982722306
 
 # 実装した機能についての画像やGIFおよびその説明
-[![Image from Gyazo](https://i.gyazo.com/69ba91a76261d5a2dc67a276430223e6.gif)](https://gyazo.com/69ba91a76261d5a2dc67a276430223e6)
+[![Image from Gyazo](https://i.gyazo.com/37532e544b94ed24de01d7a59262dc2a.gif)](https://gyazo.com/37532e544b94ed24de01d7a59262dc2a)
 見積新規作成画面では必要事項を入力し、図面を追加するボタンをクリックすると、図面登録画面へ遷移する。
 [![Image from Gyazo](https://i.gyazo.com/9563be6c91744c93eb6b467026aa01e8.gif)](https://gyazo.com/9563be6c91744c93eb6b467026aa01e8)
 図面登録画面では寸法を入力すると、重量、面積、寸法が自動計算され、単価表を参照し、単価も自動計算される。そのうち一つを選択し、図面を追加することで、ページ下部に非同期で登録された図面の情報が表示される。

@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(function() {
 
   // #modal-openをクリックしてモーダルウィンドウを表示
   $("#modal-open").on('click',function(){

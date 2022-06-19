@@ -1,5 +1,6 @@
-$(document).on('turbolinks:load', function() {
-  // .tabがクリックされたときを指定
+$(function() {
+
+// .tabがクリックされたときを指定
   $('.tab').click(function(){
 
     // 今ある.tab-activeを削除
@@ -14,4 +15,5 @@ $(document).on('turbolinks:load', function() {
     $('.tabbox').eq(index).addClass('box-show');
 
   });
+
 });
