@@ -1,142 +1,153 @@
-<%= form_with(model: price_scale, local: true) do |f| %>
+<div class="price-scale-form-area">
 
-  <%= render 'shared/error_messages', model: f.object %>
+  <%= form_with(model: price_scale, local: true) do |f| %>
 
-  <div class="price-form-title">
+    <%= render 'shared/error_messages', model: f.object %>
 
-    <div class="price-form-label">
-      <%= f.label :title, "タイトル" %>
-    </div>
-    <div class="price-form-field">
-      <%= f.text_field :title %>
-    </div>
+    <div class="field">
 
-  </div>
-  <div class="price-form-title">
+      <% if @price_scale.title.blank? %>
+        <%= f.label :title, "タイトル※", class: "field__label" %>
+      <% else %>
+        <%= f.label :title, "タイトル※", class: "field__label active" %>
+      <% end %>
 
-    <div class="price-form-label">
-      <%= f.label :surface_treatment, "処理名" %>
-    </div>
-    <div class="price-form-field">
-      <%= f.text_field :surface_treatment %>
+      <%= f.text_field :title, class: "client__field__input" %>
+
     </div>
 
-  </div>
+    <div class="field">
 
-  <div class="price-scale-form">
+      <% if @price_scale.surface_treatment.blank? %>
+        <%= f.label :surface_treatment, "処理名※", class: "field__label" %>
+      <% else %>
+        <%= f.label :surface_treatment, "処理名※", class: "field__label active" %>
+      <% end %>
 
-    <table class="design01 main-scale">
+      <%= f.text_field :surface_treatment, class: "client__field__input" %>
 
-      <tr>
+    </div>
 
-        <th></th>
-        <th>0 ≦ x < 3</th>
-        <th>3 ≦ x < 6</th>
-        <th>6 ≦ x < 11</th>
-        <th>11 ≦ x < 15</th>
-        <th>15 ≦ x < 22</th>
-        <th>22 ≦ x < 30</th>
-        <th>30 ≦ x < 50</th>
-        <th>50 ≦ x < 80</th>
-        <th>80 ≦ x < 150</th>
-        <th>150 ≦ x < 180</th>
-        <th>180 ≦ x</th>
+    <div class="price-scale-form">
 
-      </tr>
-      <tr>
+      <table class="design01 main-scale">
 
-        <th>面積</th>
-        <td><%= f.text_field :scale_a_0_3 %></td>
-        <td><%= f.text_field :scale_a_3_6 %></td>
-        <td><%= f.text_field :scale_a_6_11 %></td>
-        <td><%= f.text_field :scale_a_11_15 %></td>
-        <td><%= f.text_field :scale_a_15_22 %></td>
-        <td><%= f.text_field :scale_a_22_30 %></td>
-        <td><%= f.text_field :scale_a_30_50 %></td>
-        <td><%= f.text_field :scale_a_50_80 %></td>
-        <td><%= f.text_field :scale_a_80_150 %></td>
-        <td><%= f.text_field :scale_a_150_180 %></td>
-        <td><%= f.text_field :scale_a_180over %></td>
+        <tr>
 
-      </tr>
+          <th></th>
+          <th>0 ≦ x < 3</th>
+          <th>3 ≦ x < 6</th>
+          <th>6 ≦ x < 11</th>
+          <th>11 ≦ x < 15</th>
+          <th>15 ≦ x < 22</th>
+          <th>22 ≦ x < 30</th>
+          <th>30 ≦ x < 50</th>
+          <th>50 ≦ x < 80</th>
+          <th>80 ≦ x < 150</th>
+          <th>150 ≦ x < 180</th>
+          <th>180 ≦ x</th>
 
-      <tr>
+        </tr>
+        <tr>
 
-        <th>重量</th>
-        <td><%= f.text_field :scale_w_0_3 %></td>
-        <td><%= f.text_field :scale_w_3_6 %></td>
-        <td><%= f.text_field :scale_w_6_11 %></td>
-        <td><%= f.text_field :scale_w_11_15 %></td>
-        <td><%= f.text_field :scale_w_15_22 %></td>
-        <td><%= f.text_field :scale_w_22_30 %></td>
-        <td><%= f.text_field :scale_w_30_50 %></td>
-        <td><%= f.text_field :scale_w_50_80 %></td>
-        <td><%= f.text_field :scale_w_80_150 %></td>
-        <td><%= f.text_field :scale_w_150_180 %></td>
-        <td><%= f.text_field :scale_w_180over %></td>
+          <th>面積</th>
+          <td><%= f.text_field :scale_a_0_3 %></td>
+          <td><%= f.text_field :scale_a_3_6 %></td>
+          <td><%= f.text_field :scale_a_6_11 %></td>
+          <td><%= f.text_field :scale_a_11_15 %></td>
+          <td><%= f.text_field :scale_a_15_22 %></td>
+          <td><%= f.text_field :scale_a_22_30 %></td>
+          <td><%= f.text_field :scale_a_30_50 %></td>
+          <td><%= f.text_field :scale_a_50_80 %></td>
+          <td><%= f.text_field :scale_a_80_150 %></td>
+          <td><%= f.text_field :scale_a_150_180 %></td>
+          <td><%= f.text_field :scale_a_180over %></td>
 
-      </tr>
+        </tr>
 
-    </table>
+        <tr>
 
-    <table class="design01 size-scale">
+          <th>重量</th>
+          <td><%= f.text_field :scale_w_0_3 %></td>
+          <td><%= f.text_field :scale_w_3_6 %></td>
+          <td><%= f.text_field :scale_w_6_11 %></td>
+          <td><%= f.text_field :scale_w_11_15 %></td>
+          <td><%= f.text_field :scale_w_15_22 %></td>
+          <td><%= f.text_field :scale_w_22_30 %></td>
+          <td><%= f.text_field :scale_w_30_50 %></td>
+          <td><%= f.text_field :scale_w_50_80 %></td>
+          <td><%= f.text_field :scale_w_80_150 %></td>
+          <td><%= f.text_field :scale_w_150_180 %></td>
+          <td><%= f.text_field :scale_w_180over %></td>
 
-      <tr>
+        </tr>
 
-        <th>外径合計</th>
-        <th>0 ≦ x < 300</th>
-        <th>300 ≦ x < 500</th>
-        <th>500 ≦ x < 1000</th>
+      </table>
 
-      </tr>
-      <tr>
+      <table class="design01 size-scale">
 
-        <th></th>
-        <td><%= f.text_field :scale_o_0_300 %></td>
-        <td><%= f.text_field :scale_o_300_500 %></td>
-        <td><%= f.text_field :scale_o_500over %></td>
-      </tr>
+        <tr>
 
-    </table>
+          <th>外径合計</th>
+          <th>0 ≦ x < 300</th>
+          <th>300 ≦ x < 500</th>
+          <th>500 ≦ x < 1000</th>
 
-    <table class="design01 min-scale">
+        </tr>
+        <tr>
 
-      <tr>
+          <th></th>
+          <td><%= f.text_field :scale_o_0_300 %></td>
+          <td><%= f.text_field :scale_o_300_500 %></td>
+          <td><%= f.text_field :scale_o_500over %></td>
+        </tr>
 
-        <th>最小単価</th>
-        <th>最小価格</th>
+      </table>
 
-      </tr>
+      <table class="design01 min-scale">
 
-      <tr>
+        <tr>
 
-        <td><%= f.text_field :min_unit_price %></td>
-        <td><%= f.text_field :min_total_price %></td>
+          <th>最小単価</th>
+          <th>最小価格</th>
 
-      </tr>
+        </tr>
 
-    </table>
+        <tr>
 
-  </div>
+          <td><%= f.text_field :min_unit_price %></td>
+          <td><%= f.text_field :min_total_price %></td>
 
-  <div class="price_scale_btn_area">
+        </tr>
 
-  <%# 管理者ユーザーのみ保存ボタンを表示する %>
-  <% if user_signed_in? && current_user.has_role?(:admin) %>
+      </table>
 
-    <%= f.submit "保存", class: "btn btn--form" %>
+    </div>
+
+    <div class="price_scale_btn_area">
+
+    <%# 管理者ユーザーのみ保存ボタンを表示する %>
+    <% if user_signed_in? && current_user.has_role?(:admin) %>
+
+      <div class="price-scale-submit">
+
+        <%= f.submit "保存", class: "btn btn--form" %>
+
+      </div>
+
+    <% end %>
+
+    <%= link_to '戻る', price_scales_path, class: "btn btn--orange btn--radius back" %>
+
+    <%# 編集の時だけ削除ボタンを表示する %>
+    <% if jud == "edit" %>
+
+      <a id="modal-open" class="btn btn--delete">削除</a>
+
+    <% end %>
+
+    </div>
 
   <% end %>
 
-  <%= link_to '戻る', price_scales_path, class: "btn btn--orange btn--radius back" %>
-
-  <%# 編集の時だけ削除ボタンを表示する %>
-  <% if jud == "edit" %>
-
-    <a id="modal-open" class="btn btn--delete">削除</a>
-
-  <% end %>
-
-  </div>
-
-<% end %>
+</div>

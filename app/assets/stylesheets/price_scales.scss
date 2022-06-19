@@ -84,9 +84,9 @@ table.price-table-index td {
 }
 
 .design01 th {
-  width: 90px;
+  width: 80px;
   padding: 10px 2px;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   background-color: #e9faf9;
   border: solid 1px #778ca3;
 }
@@ -104,7 +104,7 @@ table.price-table-index td {
 
 .main-scale input,
 .size-scale input {
-  width: 60px;
+  width: 50px;
 }
 
 
@@ -135,4 +135,18 @@ table.price-table-index td {
 .price_scale_btn_area {
   display: flex;
   justify-content: space-around;
+}
+
+.price-scale-submit {
+  width: 300px;
+}
+
+.price-scale-form-area {
+  background-color: white;
+  width: 1080px;
+  padding: 0 10px;
+  border-radius: 2px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
+  box-sizing: border-box;
+  margin-bottom: 10px;
 }
