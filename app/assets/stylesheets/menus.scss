@@ -78,6 +78,10 @@
   text-align: right;
 }
 
+.new-quotation-list tr:nth-child(odd) {
+  background-color: rgb(223, 222, 222);
+}
+
 .menu-right-contents{
   display: flex;
   justify-content: space-around;
