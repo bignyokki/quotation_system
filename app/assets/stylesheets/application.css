@@ -308,27 +308,7 @@ li.tab {
 }
 
 
-/* 顧客別見積一覧用CSS */
 
-.index-quotations-list {
-  background-color: white;
-  height: 500px;
-  border-radius: 5px;
-  overflow: scroll;
-}
-
-.index-quotations-list table {
-  width: 600px;
-}
-
-.index-quotations-list .date {
-  width: 1px;
-}
-
-.index-quotations-list .price {
-  width: 150px;
-  text-align: right;
-}
 
 .btn, .back {
   margin: 5px;

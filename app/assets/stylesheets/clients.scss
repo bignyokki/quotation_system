@@ -116,3 +116,32 @@ textarea.client__field__input {
   width: 300px;
   margin: 0 auto;
 }
+
+
+/* 顧客別見積一覧用CSS */
+
+.index-quotations-list {
+  background-color: white;
+  height: 500px;
+  border-radius: 5px;
+  overflow: scroll;
+}
+
+.index-quotations-list table {
+  width: 600px;
+  margin: 0 5px;
+  border-collapse: collapse;
+}
+
+.index-quotations-list .date {
+  width: 1px;
+}
+
+.index-quotations-list .price {
+  width: 150px;
+  text-align: right;
+}
+
+.index-quotations-list tr:nth-child(even) {
+  background-color: rgb(223, 222, 222);
+}
