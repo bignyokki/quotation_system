@@ -28,9 +28,15 @@
 
       <div class="drawings-table-contents">
 
+        <%# number:奇数、偶数判定用変数 %>
+        <% number = 0 %>
+
         <% @drawings.each do |drawing| %>
 
-          <div class="table-row">
+          <% number += 1 %>
+          <% number % 2 ==  0 ? table_number = "even" : table_number = "odo" %>
+
+          <div class="table-row <% table_number %>">
             <div class="drawings-table-id"><%= sprintf('%07d', drawing.id) %></div>
             <div class="drawings-table-quotation"><%= sprintf('%07d', drawing.quotation_id) %></div>
             <div class="drawings-table-drawing"><%= drawing.figure_number %></div>
