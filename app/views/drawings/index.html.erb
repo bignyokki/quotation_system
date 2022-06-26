@@ -34,9 +34,9 @@
         <% @drawings.each do |drawing| %>
 
           <% number += 1 %>
-          <% number % 2 ==  0 ? table_number = "even" : table_number = "odo" %>
+          <% number % 2 ==  0 ? table_number = "even" : table_number = "odd" %>
 
-          <div class="table-row <% table_number %>">
+          <div class="table-row <%= table_number %>">
             <div class="drawings-table-id"><%= sprintf('%07d', drawing.id) %></div>
             <div class="drawings-table-quotation"><%= sprintf('%07d', drawing.quotation_id) %></div>
             <div class="drawings-table-drawing"><%= drawing.figure_number %></div>
