@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        employee_number: 社員番号
+        name: 氏名
+        admin_id: 権限
+      tweet:
+        text: テキスト
+        image: 画像
