@@ -15,7 +15,7 @@ module QuotationSystem
     # 日本語化
     config.i18n.default_locale = :ja
 
-    # バリデーションエラーの「field_with_errors」を挿入しないようにする
+    # バリデーションエラーの「field_with_errorss」を挿入しないようにする
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
 
     # Settings in config/environments/* take precedence over those specified here.
