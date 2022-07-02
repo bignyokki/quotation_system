@@ -12,6 +12,7 @@ require("../drawing")
 require("../quotation_tab")
 require("../modal_window")
 require("../floating_label")
+require("../tool_tip")
 
 
 
