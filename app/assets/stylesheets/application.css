@@ -114,18 +114,12 @@ p.notice-word {
 
 /* ボタン関連CSS */
 
-.btn,
-a.btn,
-button.btn {
+.btn {
   line-height: 1.5;
   display: inline-block;
   padding: 10px 20px;
+  margin: 5px;
   cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-transition: all 0.3s;
   transition: all 0.3s;
   text-align: center;
   vertical-align: middle;
@@ -138,11 +132,16 @@ button.btn {
 a.btn--orange {
   color: #fff;
   background-color: #eb6100;
+  box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.6);
+
 }
+
 .btn--orange:hover,
 a.btn--orange:hover {
   color: #fff;
   background: #fb7211;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2);
+
 }
 
 a.btn--radius {
@@ -171,22 +170,14 @@ a.btn--radius {
 }
 
 .btn--delete {
-  padding: 0.5em;
-  margin: 10px 0;
-  display: block;
-  color: #fff !important;
+  color: #fff;
   background: red;
-  text-decoration: none;
   font-weight: bold;
   font-size: large ;
-  border-radius: 3px;
-  text-align: center;
-  text-decoration: none !important;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, .2);
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, .14);
-  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, .12);
+  box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.6);
 }
 
+/* アイコンを表示 */
 .btn--delete:before {
   content: "";
   display: inline-block;
@@ -201,8 +192,6 @@ a.btn--radius {
 .btn--delete:hover {
   background: rgb(245, 151, 151);
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 4px 2px 0px rgba(0, 0, 0, 0.14);
-  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.12);
 }
 
 #modal-delete {
@@ -211,28 +200,17 @@ a.btn--radius {
 
 .btn--cancel {
   width: 100px;
-  padding: 0.5em;
-  margin: 10px 0;
-  display: block;
   color: rgb(19, 142, 236) !important;
   background: white;
-  text-decoration: none;
   font-weight: bold;
   font-size: large ;
-  border-radius: 3px;
-  text-align: center;
-  text-decoration: none !important;
   border: solid 1px blue;
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-              0px 2px 2px 0px rgba(0, 0, 0, 0.12),
-              0px 1px 5px 0px rgba(0, 0, 0, 0.14);
+  box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.6);
 }
 
 .btn--cancel:hover {
   background-color: rgb(207, 207, 249);
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-              0px 4px 2px 0px rgba(0, 0, 0, 0.12),
-              0px 3px 5px 0px rgba(0, 0, 0, 0.14);
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
 .btn--form {
@@ -247,10 +225,13 @@ a.btn--radius {
   color: #ffffff;
   transition: .3s;
   margin: 10px auto;
+  box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.6);
 }
 
 .btn--form:hover {
   background-color: #c3f7b8;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2);
+
 }
 
 /* 以下見積もり書一覧タブ機能実装用CSS */
@@ -307,12 +288,6 @@ li.tab {
   transform: translateY(-1px);
 }
 
-
-
-
-.btn, .back {
-  margin: 5px;
-}
 
 /* formCSS */
 
@@ -376,55 +351,38 @@ span.required {
 /* モーダルウィンドウCSS */
 
 #modal-overlay {
-  display: none;
-	z-index:1; /* モーダルウィンドウと通常画面の間に表示 */
-	position:fixed;
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
-	background-color:rgba(0,0,0,0.75);
+  display: none;   /* デフォルトは非表示 */
+	z-index: 1;      /* モーダルウィンドウと通常画面の間に表示 */
+	position: fixed; /* 表示を固定してスクロールで動かさない */
+	top: 0;          /* 全画面表示なので0 */
+	left: 0;         /* 全画面表示なので0 */
+	width: 100%;     /* 全画面表示なので100% */
+	height: 100%;    /* 全画面表示なので100%。スマートフォンでの表示対応する場合は120%に */
+	background-color: rgba(0,0,0,0.75); /* 背景を黒の半透明に */
 }
 
 #modal-content {
-	width: 350px;
+	z-index: 2;      /* 最前面に表示 */
+  position: fixed; /* 表示位置を固定 */
+  top: 50%;        /* 画面中央に表示 */
+  left: 50%;       /* 画面中央に表示 */
+  transform: translate(-50%, -50%); /* モーダルウィンドウの大きさ分中央にずらす */
+  /* 以下はモーダルウィンドウの外観。ご自由に */
+  width: 350px;
 	margin: 1.5em auto 0;
 	padding: 10px 20px;
 	border: 2px solid #aaa;
-	background: #fff;
-	z-index: 2; /* 最前面に表示 */
-  position: fixed; /* 表示位置を固定 */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   border-radius: 5px;
+	background: #fff;
 }
 
-.modal-p {
-	margin-top:1em;
-}
-
-.modal-p:first-child {
-	margin-top:0;
-}
-
-.modal-button {
-	color:#00f;
-	text-decoration:underline;
-}
- 
-.modal-button:hover {
-	cursor:pointer;
-	color:#f00;
+.modal-message {
+  text-align: center;
 }
 
 .modal-button-area {
   display: flex;
   justify-content: space-between;
-}
-
-.modal-message {
-  text-align: center;
 }
 
 

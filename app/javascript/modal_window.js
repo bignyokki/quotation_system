@@ -1,6 +1,6 @@
 $(function() {
 
-  // #modal-openをクリックしてモーダルウィンドウを表示
+  // #modal-openがクリックされたらモーダルウィンドウを表示
   $("#modal-open").on('click',function(){
 
       // #modal-overlayをフェードイン(display: none; → block;)させる
@@ -19,7 +19,7 @@ $(function() {
   // 削除ボタンを押すとitemを削除
   $("#modal-delete").on('click',function(){
 
-    // 表示されていない削除のためのlink_toをクリックする
+    // 非表示の削除用link_toをクリックする
     document.getElementById("item-delete").click();
 
   });
