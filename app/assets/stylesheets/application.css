@@ -457,7 +457,7 @@ span.required {
 }
 
 /* ツールチップのデザイン */
-form span.tooltipMsg {
+form span.tool_tip_msg {
   position: relative;
   display: inline-block;
   margin: 1.2em 0;
@@ -472,7 +472,7 @@ form span.tooltipMsg {
   z-index: 10000;
   display: none;
 }
-form span.tooltipMsg:before {
+form span.tool_tip_msg:before {
   content: "";
   position: absolute;
   top: 100%;
@@ -480,4 +480,14 @@ form span.tooltipMsg:before {
   margin-left: -15px;
   border: 8px solid transparent;
   border-top: 8px solid rgb(120, 120, 120);
+}
+
+.field {
+  position: relative;
+}
+
+span.tooltipMsg {
+  position: absolute;
+  left: 10%;
+  bottom: 75%;
 }
